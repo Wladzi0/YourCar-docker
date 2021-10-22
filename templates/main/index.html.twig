@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ 'Welcome lo YourCar'|trans }}
+{% endblock %}
+{% block body %}
+    <div class=" container col-5 top d-flex flex-column">
+        <a href="{{ path('makes_list') }}" class="btn btn-success mt-4">
+            {{ 'Catalog of cars'|trans }}
+        </a>
+        <a href="{{ path('comparing_list') }}" class="btn btn-success mt-4">
+            {{ 'Comparing of cars'|trans }}
+        </a>
+        <a href="{{ path('favourite_cars_list') }}" class="btn btn-success mt-4">
+            {{ 'Your favourite cars'|trans }}
+        </a>
+    </div>
+{% endblock %}

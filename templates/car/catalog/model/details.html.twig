@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ 'Submodels list'|trans }}
+{% endblock %}
+
+{% block body %}
+    <div class="container top">
+        <div class="col">
+            <h2>
+                <a class="" href="{{ path('models_list', {'make': make.id}) }}">
+                    {{ make.name }}
+                </a>
+                ->
+                {{ model.name }}
+            </h2>
+            <h2>
+                <h4 class="mt-5">
+                    {{ 'List of models'|trans }}
+                </h4>
+                {% for subModel in model.subModels %}
+                    <p>
+                        <a href="
+                        {{ path('sub_model_details',
+                            {'make': make.id,'model':model.id,'subModel':subModel.id }) }}">
+                            <img style="background-color: white; border-radius: 5px;"
+                                 src="{{ asset('images/car_details/'~ subModel.images|first) }}" alt="" width="500px"
+                                 height="350px">
+                            <br>
+                            {{ subModel }}
+                           ({{ subModel.yearStart }}
+                            {% if subModel.yearFinish %}
+                                -{{ subModel.yearFinish }} )
+                            {% else %}
+                                - {{ 'till now'|trans }})
+                            {% endif %}
+                        </a>
+                    </p>
+                {% endfor %}
+
+            </h2>
+
+
+            {# {% if model.icon %} #}
+            {# <img style="background-color: white; border-radius: 5px;" #}
+            {# src="{{ asset('images/models/'~model.icon) }}" alt="" width="500px" #}
+            {# height="350px"> #}
+            {# {% else %} #}
+            {# <img style="background-color: white; border-radius: 5px;" #}
+            {# src="{{ asset('images/car_details/default.jpg') }}" alt="" width="500px" #}
+            {# height="350px"> #}
+            {# {% endif %} #}
+            <h4 class="mt-5">
+                {{ 'List of engines which were installed'|trans }}
+            </h4>
+            {% for engine in model.engines %}
+                <div class="col">
+                    {{ engine.capacity }}
+                    {{ engine.fuel }}
+                    {{ engine.abbreviation }}
+                </div>
+            {% endfor %}
+            <h4 class="mt-5">
+                {{ 'List of transmissions which were installed'|trans }}
+            </h4>
+            <div class="mb-5">
+                {% for transmission in model.transmissions %}
+                    <div class="col">
+                        {{ transmission.name }}
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

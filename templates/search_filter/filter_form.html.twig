@@ -1,0 +1,10 @@
+{% block body %}
+    <div class="col">
+<h1>{{'Filters'|trans}}</h1>
+        {{ form_start(filterForm, {'attr': {'class': 'form-horizontal form-control', 'id': 'filterForm'}}) }}
+        {{ form_end(filterForm) }}
+    </div>
+    {% block javasriptsblock %}
+        <script src="{{ asset('js/filter.js') }}"></script>
+    {% endblock %}
+{% endblock %}

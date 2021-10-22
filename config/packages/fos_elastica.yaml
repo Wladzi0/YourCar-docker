@@ -1,0 +1,18 @@
+# Read the documentation: https://github.com/FriendsOfSymfony/FOSElasticaBundle/blob/master/doc/setup.md
+fos_elastica:
+    clients:
+        default: { url: '%env(ELASTICSEARCH_URL)%' }
+    indexes:
+        cardetails:
+            persistence:
+                listener: ~
+                provider: ~
+                finder: ~
+                driver: orm
+                model: App\Entity\CarDetails
+            properties:
+                fuelConsumption: { type: float }
+                power: ~
+                age: ~
+                tuning: ~
+

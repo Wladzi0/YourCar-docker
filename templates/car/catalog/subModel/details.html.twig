@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    {{ 'SubModel details'|trans }}
+{% endblock %}
+{% block body %}
+    <div class="  container top">
+        <div class="col">
+            <h2>
+                <a class="" href="{{ path('models_list', {'make': make.id}) }}">
+                    {{ make.name }}
+                </a>
+                ->
+                <a class="" href="{{ path('model_details', {'make': make.id,'model': model.id}) }}">
+                    {{ model.name }}
+                </a>
+                ->
+                ({{ subModel.bodyPlatform }})
+            </h2>
+            <h4 class="mt-5">
+                {{ 'List of engines which were installed'|trans }}
+            </h4>
+            {% for carDetails in engines %}
+
+                <div class="col">
+                    <a href="{{ path('details_by_engine', {'engine': carDetails.engine.id, 'make':make.id, 'model':model.id,'subModel':subModel.id}) }}">
+                        {{ carDetails.engine.capacity }}
+                        {{ carDetails.engine.fuel }}
+                        {{ carDetails.engine.abbreviation }}
+                        ({{carDetails.power }} HP)
+                        ({{carDetails.yearStart }}-
+                        {{carDetails.yearFinish }} )
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+{% endblock %}

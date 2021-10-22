@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:500');
+
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    background-color: #24252A;
+    color: white;
+    font-size: 17px;
+}
+.top{
+    margin-top: 50px;
+}
+.link {
+    color: #FFFFFF;
+    margin-top: 20px;
+}
+.logo {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 35px;
+    margin-left: 10%;
+    text-decoration: none;
+}
+.button-link{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    margin-right: 50px;
+}
+.dropdown-content{
+    display:none;
+}
+.show{
+    display:block;
+    position: fixed;
+    top:70px;
+    right: 30px;
+}
+

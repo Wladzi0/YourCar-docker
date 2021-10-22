@@ -1,0 +1,3 @@
+<?php //App%255CEntity%255CFilter%2523getPower
+
+return [PHP_INT_MAX, []];
