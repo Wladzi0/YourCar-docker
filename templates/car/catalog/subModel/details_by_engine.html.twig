@@ -10,6 +10,12 @@
     <div class="  container top">
         <div class="col">
             <h2>
+                <a class="" href="{{ path('makes_list') }}">
+                    {{ 'Catalog of cars'|trans}}
+                </a>
+                ->
+            </h2>
+            <h2>
 
                 <a class="" href="{{ path('models_list', {'make': make.id}) }}">
                     {{ make.name }}
@@ -25,19 +31,19 @@
             <div class="slider-inner">
                 {% for image in subModel.images %}
 
-                    <img src="{{ asset('images/car_details/'~ image.image) }}" alt="">
+                    <img src="{{ asset('images/car_details/'~ image.image) }}"  alt="">
 
                 {% endfor %}
             </div>
             {% if app.user %}
-                <div class="d-flex align-items-start flex-column bd-highlight mb-3">
+                <div class="row justify-content-between mb-3 ml-5 mt-3 w-50">
                     <a href="{{ path('comparing',{ 'id': carDetails[0].id }) }}" id="js-compare"
                        class="text-white mb-auto p-2 bd-highlight">
 
                         {% if app.user and carDetails[0].isScaledByUser(app.user) %}
-                            <i class="fas fa-balance-scale-right "></i>
+                            <i class="fas fa-balance-scale-right scale"></i>
                         {% else %}
-                            <i class="fas fa-balance-scale"></i>
+                            <i class="fas fa-balance-scale scale"></i>
                         {% endif %}
                     </a>
 
@@ -45,16 +51,16 @@
                        id="js-favourite" class=" like btn-link ">
 
                         {% if app.user and carDetails[0].isFavouredByUser(app.user) %}
-                            <i class=" fas fa-heart"></i>
+                            <i class=" fas fa-heart heart"></i>
                         {% else %}
-                            <i class="far fa-heart"></i>
+                            <i class="far fa-heart heart"></i>
                         {% endif %}
                     </a>
                 </div>
             {% else %}
                 {{ app.session.set('url',app.request.uri) }}
                 <a href="{{ path('app_login') }}">
-                    For add to favourite or to comparing you need to login
+                    {{'For add to favourite or to comparing you need to login'|trans }}
                 </a>
             {% endif %}
 
@@ -64,7 +70,7 @@
                 </span>
                 {% if result is defined %}
                     {% for i in 1..5 %}
-                        <i class="
+                        <i class=" pointer
                 {% if i <= result['rating'] %}
                 fas
                     {% else %}
@@ -83,11 +89,11 @@
             <h4 class="mt-5">
                 {{ 'List of parts which frequently wanted'|trans }}
             </h4>
-
             {% for part in parts %}
                 <div class="row border-bottom">
-
                     <p>
+                        <img id="js-part"
+                             src="{{ asset('images/parts/'~make.icon)}}" alt="" width="210px" height="190px">
                         <a href="https://google.com/search?q={{ part.name }} {{ part.catalogNumber }}"
                            target="_blank" rel="noopener noreferrer">
                             {{ part.name }} &nbsp;
@@ -99,10 +105,10 @@
             {% endfor %}
             <div class="col">
                 <h4 class="mt-5">
-                    {{ 'Technical data of engine '|trans }}
+                    {{ 'Technical data of engine'|trans }}
                 </h4>
                 <p>
-                    <a href="{{ path('engine_details',{'id': carDetails[0].engine.id}) }}">
+                    <a class="font-weight-bold" href="{{ path('engine_details',{'id': carDetails[0].engine.id}) }}">
                         {{ 'Engine'|trans }}: {{ carDetails[0].engine }}
                         ( <i class="fas fa-exclamation-triangle"></i>
                         {{ carDetails[0].engine.faults|length }})
@@ -142,7 +148,7 @@
                     {{ 'Tank'|trans }}: {{ carDetails[0].subModel.tank }} (l)
                 </p>
                 <p>
-                    {{ 'Fuel consumprion'|trans }}: {{ carDetails[0].fuelConsumption }}
+                    {{ 'Fuel consumption'|trans }}: {{ carDetails[0].fuelConsumption }}
                     (l/100km)
                 </p>
                 <p>
@@ -165,22 +171,23 @@
                     {{ 'Finish year of production'|trans }}: {{ subModel.yearFinish }}
                 </p>
                 <p>
-                    {{ 'Body type '|trans }}: {{ subModel.bodyType }}
+                    {{ 'Body type'|trans }}: {{ subModel.bodyType }}
                 </p>
                 <p>
-                    {{ 'Length '|trans }}: {{ subModel.length }}
+                    {{ 'Length'|trans }}: {{ subModel.length }}
                 </p>
                 <p>
-                    {{ 'Width '|trans }}: {{ subModel.width }}
+                    {{ 'Width'|trans }}: {{ subModel.width }}
                 </p>
             </div>
 
             <h4 class="mt-5">
                 {{ 'List of transmissions which were installed'|trans }}
             </h4>
-            {% if subModel.faults is not empty %}
             <h4 class="mt-5">
-                {{ 'List of faults'|trans }}
+            {{ 'List of faults'|trans }}
+            {% if subModel.faults is not empty %}
+
                 {% set faultCount = "" %}
                 {% for fault in subModel.faults %}
                 {% if fault.published == true %}
@@ -188,30 +195,26 @@
                 {% endif %}
                 {% endfor %}
                 ({{ faultCount|length }})
-                <a id="btnAdd" href="{{ path('fault_add', { 'subModel': subModel.id}) }}">
-                    <i class="fas fa-plus-circle"></i>
-                </a>
-            </h4>
-            <div class="">
-
+       
                 {% for fault in subModel.faults %}
-                    {% if fault.published == true %}
-
+                    {% if fault.published == '1' %}
                     <div class="col">
-                        <a href="{{ path('subModel_fault', {'make': make.id, 'model': model.id, 'subModel': subModel.id, 'fault':fault.id}) }}">
+                        <a href="{{ path('subModel_fault',
+                            {'make': make.id, 'model': model.id, 'subModel': subModel.id, 'fault':fault.id}) }}">
                             {{ fault.name }}
                         </a>
                     </div>
                 {% endif %}
                 {% endfor %}
                 {% else %}
-                    <h4 class="mt-5">
-                        {{ 'List of faults'|trans }} (0)
-
-                    </h4>
+                       (0)
                 {% endif %}
 
-            </div>
+                <a id="btnAdd" href="{{ path('fault_add', { 'subModel': subModel.id}) }}">
+                    <i class="fas fa-plus-circle"></i>
+                </a>
+            </h4>
+
             {% if subModel.rims is not empty %}
             <h4 class="mt-5">
                 {{ 'List of rims which were installed'|trans }}

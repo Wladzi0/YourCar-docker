@@ -12,9 +12,16 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserFormType extends AbstractType
 {
+    private $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator=$translator;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -39,7 +46,7 @@ class UserFormType extends AbstractType
                 'constraints' => [
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'The password value should have at least 6 characters.'
+                        'minMessage' =>  $this->translator->trans('The password value should have at least 6 characters.')
                     ]),],
                 'type' => PasswordType::class,
                 'first_options' => array('label' => 'Password'),

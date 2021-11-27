@@ -23,7 +23,6 @@ class CarDetailsCrudController extends AbstractCrudController
     {
         $this->translator = $translator;
     }
-
     public static function getEntityFqcn(): string
     {
         return CarDetails::class;
@@ -106,6 +105,36 @@ class CarDetailsCrudController extends AbstractCrudController
                 ->hideOnIndex()
                 ->setLabel('Fuel consumption extra-urban (l/100km)')
                 ->setHelp('Must be only numbers'),
+            ChoiceField::new('tuning')
+                ->setChoices([
+                        'Yes' => 'true',
+                        'No' => 'false',
+                        'Maybe' => 'null',
+                        ]),
+            ChoiceField::new('purpose')
+            ->setChoices([
+                'For city driving ' => 'City',
+                'For long distance driving' => 'LongDistance',
+                'For driving on the highway' => 'Highway',
+                'Car for every day' => 'Casual'
+            ]),
+            ChoiceField::new('size')
+                ->setChoices([
+                    'Compact'=>'Compact',
+                    'Standard'=>'Standard',
+                    'Big'=>'Big',
+                ])
+                ->setRequired(true)
+                ->hideOnIndex(),
+            ChoiceField::new('engineLife')
+                ->setChoices([
+                    'Low'=>'Low',
+                    'Average'=>'Average',
+                    'High'=>'High',
+                    'Unknown'=>'Unknown'
+                ])
+            ->setRequired(true)
+            ->hideOnIndex()
         ];
     }
 

@@ -42,7 +42,6 @@ class SubModelCrudController extends AbstractCrudController
             IdField::new('id')
                 ->hideOnForm(),
             CollectionField::new('images')
-                ->setRequired(true)
                 ->setFormTypeOption('by_reference', false)
                 ->setTranslationParameters([
                     'form.label.delete' => ' Do your want to delete image?'

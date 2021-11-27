@@ -11,22 +11,22 @@
         <div class="col">
             <div class="slider-inner">
                 {% if engine.images is not empty %}
+
                 {% for image in engine.images %}
-
                     <img src="{{ asset('images/car_details/'~ image.image) }}" alt="">
-
                 {% endfor %}
+
                 {% else %}
                     <img src="{{ asset('images/car_details/default.jpg') }}" alt="">
                 {% endif %}
             </div>
-            <div class="rating" data-object="{{ engine.id }}" data-engine="true">
-                <span class="mr-2">
+            <div class="rating mt-4 h5" data-object="{{ engine.id }}" data-engine="true">
+                <span class="mr-2 ">
                     {{ 'Average rating'|trans }}:
                 </span>
                 {% if result is defined %}
                     {% for i in 1..5 %}
-                        <i class="
+                        <i  class=" pointer
                 {% if i <= result['rating'] %}
                 fas
                     {% else %}
@@ -47,7 +47,7 @@
                 {{ 'List of cars which it was installed'|trans }}
             </h4>
             {% for subModel in engine.subModels %}
-                <div class="col">
+                <div class="col h5">
                     <a href="{{ path('sub_model_details',{
                         'make': subModel.model.make.id,
                         'model':subModel.model.id,
@@ -62,15 +62,16 @@
             </h4>
 
             {% for part in parts %}
-                <div class="row border-bottom">
-                    <p>
+                <div class="row ml-1 border d-flex align-items-center">
+                        <img id="js-part"
+                             src="{{ asset('images/parts/'~part.image)}}" alt="" width="150px" height="150px">
+                    <h5 class="ml-3">
                         <a href="https://google.com/search?q={{ part.name }} {{ part.catalogNumber }}"
                            target="_blank" rel="noopener noreferrer">
-                            {{ part.name }} &nbsp;
-                            {{ part.catalogNumber }}
+                        {{ part.name }} &nbsp;
+                        OEM: {{ part.catalogNumber }}
                         </a>
-                    </p>
-
+                    </h5>
                 </div>
             {% endfor %}
             <h4 class="mt-5">
@@ -79,10 +80,10 @@
                     <i class="fas fa-plus-circle"></i>
                 </a>
             </h4>
-            {% for fault in engine.faults %}
+            {% for fault in faults %}
                 <div class="col">
                     <a href="{{ path('engine_fault',{ 'fault': fault.id}) }}">
-                    {{ fault.name }}
+                    <h5 > {{ fault.name }} </h5>
                     </a>
                 </div>
             {% endfor %}
@@ -104,7 +105,6 @@
                             <br>
                             {{ comment.content }}
                         </p>
-
                     {% endfor %}
                 </div>
             </div>

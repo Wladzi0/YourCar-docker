@@ -78,6 +78,14 @@ class EngineCrudController extends AbstractCrudController
 
             NumberField::new('oil'),
             NumberField::new('cylinders'),
+            ChoiceField::new('life')
+            ->setChoices([
+                'Low'=> 'Low',
+                'Average'=> 'Average',
+                'High'=> 'High',
+                'Unknown'=>'Unknown'
+            ])
+            ->setRequired(true),
             AssociationField::new('carDetails')
                 ->onlyOnIndex(),
             AssociationField::new('faults')
@@ -86,6 +94,7 @@ class EngineCrudController extends AbstractCrudController
                     'multiple' => true,
                     'by_reference' => false,
                 ]),
+
         ];
     }
 

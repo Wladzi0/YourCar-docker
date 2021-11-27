@@ -99,7 +99,7 @@ class __TwigTemplate_5e6bd5128f8737dd68852fa2ecc3e339f12d6700ce09f36a13929f42c05
         echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["makes"]) || array_key_exists("makes", $context) ? $context["makes"] : (function () { throw new RuntimeError('Variable "makes" does not exist.', 10, $this->source); })())), "html", null, true);
         echo ")
     </h2>
-    <div class=\" d-flex  top\">
+    <div class=\" d-flex row top\">
         ";
         // line 13
         if ((isset($context["makes"]) || array_key_exists("makes", $context) ? $context["makes"] : (function () { throw new RuntimeError('Variable "makes" does not exist.', 13, $this->source); })())) {
@@ -115,11 +115,11 @@ class __TwigTemplate_5e6bd5128f8737dd68852fa2ecc3e339f12d6700ce09f36a13929f42c05
                 // line 17
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("models_list", ["make" => twig_get_attribute($this->env, $this->source, $context["make"], "id", [], "any", false, false, false, 17)]), "html", null, true);
                 echo "\">
-                        <img style=\"background-color: white; border-radius: 5px;\"
+                        <img class=\"make-icon\"
                              src=\"";
                 // line 19
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/makes/" . twig_get_attribute($this->env, $this->source, $context["make"], "icon", [], "any", false, false, false, 19))), "html", null, true);
-                echo "\" alt=\"\" width=\"210px\" height=\"190px\">
+                echo "\" alt=\"\">
                     </a>
                 </div>
             ";
@@ -169,14 +169,14 @@ class __TwigTemplate_5e6bd5128f8737dd68852fa2ecc3e339f12d6700ce09f36a13929f42c05
         {{ 'Available makes'|trans }}
         ({{ makes|length }})
     </h2>
-    <div class=\" d-flex  top\">
+    <div class=\" d-flex row top\">
         {% if makes %}
             {% for make in makes %}
                 <div class=\"row \">
                     <a class=\"col-4 ml-5  mr-4 mb-3 link\"
                        href=\"{{ path('models_list', {'make': make.id}) }}\">
-                        <img style=\"background-color: white; border-radius: 5px;\"
-                             src=\"{{ asset('images/makes/'~make.icon)}}\" alt=\"\" width=\"210px\" height=\"190px\">
+                        <img class=\"make-icon\"
+                             src=\"{{ asset('images/makes/'~make.icon)}}\" alt=\"\">
                     </a>
                 </div>
             {% endfor %}

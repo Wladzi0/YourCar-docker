@@ -43,8 +43,7 @@ class ModelCrudController extends AbstractCrudController
                 ->setLabel('Image')
                 ->setBasePath('/images/models')
                 ->setUploadDir('public/images/models')
-                ->setUploadedFileNamePattern('[randomhash].[extension]')
-                ->setRequired(true),
+                ->setUploadedFileNamePattern('[randomhash].[extension]'),
             AssociationField::new('make')
                 ->setRequired(true)
                 ->autocomplete(),

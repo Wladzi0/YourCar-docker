@@ -12,9 +12,17 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RegistrationFormType extends AbstractType
 {
+    private $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator=$translator;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -32,7 +40,7 @@ class RegistrationFormType extends AbstractType
         ]),],])
             ->add('email', EmailType::class)
             ->add('preferLanguage', LanguageType::class, [
-                'label' => 'Preferred language',
+                'label' => $this->translator->trans('Preferred language'),
                 'preferred_choices' => ['en'],
                 'placeholder' => false,
                 'required' => true,
@@ -41,7 +49,7 @@ class RegistrationFormType extends AbstractType
                 'constraints' => [
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'The password value should have at least 6 characters.'
+                        'minMessage' => $this->translator->trans('The password value should have at least 6 characters')
                     ]),],
                 'type' => PasswordType::class,
                 'first_options' => array('label' => 'Password'),

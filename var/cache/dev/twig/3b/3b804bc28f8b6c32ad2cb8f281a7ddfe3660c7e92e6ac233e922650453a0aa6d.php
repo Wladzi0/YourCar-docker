@@ -121,146 +121,161 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
         echo "    <div class=\"  container top\">
         <div class=\"col\">
             <h2>
-
                 <a class=\"\" href=\"";
-        // line 14
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("models_list", ["make" => twig_get_attribute($this->env, $this->source, (isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 14, $this->source); })()), "id", [], "any", false, false, false, 14)]), "html", null, true);
+        // line 13
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("makes_list");
         echo "\">
                     ";
-        // line 15
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 15, $this->source); })()), "name", [], "any", false, false, false, 15), "html", null, true);
+        // line 14
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Catalog of cars"), "html", null, true);
+        echo "
+                </a>
+                ->
+            </h2>
+            <h2>
+
+                <a class=\"\" href=\"";
+        // line 20
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("models_list", ["make" => twig_get_attribute($this->env, $this->source, (isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 20, $this->source); })()), "id", [], "any", false, false, false, 20)]), "html", null, true);
+        echo "\">
+                    ";
+        // line 21
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 21, $this->source); })()), "name", [], "any", false, false, false, 21), "html", null, true);
         echo "
                 </a>
                 ->
                 <a class=\"\" href=\"";
-        // line 18
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("model_details", ["make" => twig_get_attribute($this->env, $this->source,         // line 19
-(isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 19, $this->source); })()), "id", [], "any", false, false, false, 19), "model" => twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 19, $this->source); })()), "id", [], "any", false, false, false, 19)]), "html", null, true);
+        // line 24
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("model_details", ["make" => twig_get_attribute($this->env, $this->source,         // line 25
+(isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 25, $this->source); })()), "id", [], "any", false, false, false, 25), "model" => twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 25, $this->source); })()), "id", [], "any", false, false, false, 25)]), "html", null, true);
         echo "\">
                     ";
-        // line 20
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 20, $this->source); })()), "name", [], "any", false, false, false, 20), "html", null, true);
+        // line 26
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 26, $this->source); })()), "name", [], "any", false, false, false, 26), "html", null, true);
         echo "
                 </a>
                 ->
                 (";
-        // line 23
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 23, $this->source); })()), "bodyPlatform", [], "any", false, false, false, 23), "html", null, true);
+        // line 29
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 29, $this->source); })()), "bodyPlatform", [], "any", false, false, false, 29), "html", null, true);
         echo ")
             </h2>
             <div class=\"slider-inner\">
                 ";
-        // line 26
+        // line 32
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 26, $this->source); })()), "images", [], "any", false, false, false, 26));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 32, $this->source); })()), "images", [], "any", false, false, false, 32));
         foreach ($context['_seq'] as $context["_key"] => $context["image"]) {
-            // line 27
+            // line 33
             echo "
                     <img src=\"";
-            // line 28
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/car_details/" . twig_get_attribute($this->env, $this->source, $context["image"], "image", [], "any", false, false, false, 28))), "html", null, true);
-            echo "\" alt=\"\">
+            // line 34
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/car_details/" . twig_get_attribute($this->env, $this->source, $context["image"], "image", [], "any", false, false, false, 34))), "html", null, true);
+            echo "\"  alt=\"\">
 
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['image'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 31
+        // line 37
         echo "            </div>
             ";
-        // line 32
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 32, $this->source); })()), "user", [], "any", false, false, false, 32)) {
-            // line 33
-            echo "                <div class=\"d-flex align-items-start flex-column bd-highlight mb-3\">
+        // line 38
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 38, $this->source); })()), "user", [], "any", false, false, false, 38)) {
+            // line 39
+            echo "                <div class=\"row justify-content-between mb-3 ml-5 mt-3 w-50\">
                     <a href=\"";
-            // line 34
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("comparing", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 34, $this->source); })()), 0, [], "array", false, false, false, 34), "id", [], "any", false, false, false, 34)]), "html", null, true);
+            // line 40
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("comparing", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 40, $this->source); })()), 0, [], "array", false, false, false, 40), "id", [], "any", false, false, false, 40)]), "html", null, true);
             echo "\" id=\"js-compare\"
                        class=\"text-white mb-auto p-2 bd-highlight\">
 
                         ";
-            // line 37
-            if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 37, $this->source); })()), "user", [], "any", false, false, false, 37) && twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 37, $this->source); })()), 0, [], "array", false, false, false, 37), "isScaledByUser", [0 => twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 37, $this->source); })()), "user", [], "any", false, false, false, 37)], "method", false, false, false, 37))) {
-                // line 38
-                echo "                            <i class=\"fas fa-balance-scale-right \"></i>
+            // line 43
+            if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 43, $this->source); })()), "user", [], "any", false, false, false, 43) && twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 43, $this->source); })()), 0, [], "array", false, false, false, 43), "isScaledByUser", [0 => twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 43, $this->source); })()), "user", [], "any", false, false, false, 43)], "method", false, false, false, 43))) {
+                // line 44
+                echo "                            <i class=\"fas fa-balance-scale-right scale\"></i>
                         ";
             } else {
-                // line 40
-                echo "                            <i class=\"fas fa-balance-scale\"></i>
+                // line 46
+                echo "                            <i class=\"fas fa-balance-scale scale\"></i>
                         ";
             }
-            // line 42
+            // line 48
             echo "                    </a>
 
                     <a href=\"";
-            // line 44
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_favourite", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 44, $this->source); })()), 0, [], "array", false, false, false, 44), "id", [], "any", false, false, false, 44)]), "html", null, true);
+            // line 50
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("add_favourite", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 50, $this->source); })()), 0, [], "array", false, false, false, 50), "id", [], "any", false, false, false, 50)]), "html", null, true);
             echo "\"
                        id=\"js-favourite\" class=\" like btn-link \">
 
                         ";
-            // line 47
-            if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 47, $this->source); })()), "user", [], "any", false, false, false, 47) && twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 47, $this->source); })()), 0, [], "array", false, false, false, 47), "isFavouredByUser", [0 => twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 47, $this->source); })()), "user", [], "any", false, false, false, 47)], "method", false, false, false, 47))) {
-                // line 48
-                echo "                            <i class=\" fas fa-heart\"></i>
+            // line 53
+            if ((twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 53, $this->source); })()), "user", [], "any", false, false, false, 53) && twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 53, $this->source); })()), 0, [], "array", false, false, false, 53), "isFavouredByUser", [0 => twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 53, $this->source); })()), "user", [], "any", false, false, false, 53)], "method", false, false, false, 53))) {
+                // line 54
+                echo "                            <i class=\" fas fa-heart heart\"></i>
                         ";
             } else {
-                // line 50
-                echo "                            <i class=\"far fa-heart\"></i>
+                // line 56
+                echo "                            <i class=\"far fa-heart heart\"></i>
                         ";
             }
-            // line 52
+            // line 58
             echo "                    </a>
                 </div>
             ";
         } else {
-            // line 55
+            // line 61
             echo "                ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 55, $this->source); })()), "session", [], "any", false, false, false, 55), "set", [0 => "url", 1 => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 55, $this->source); })()), "request", [], "any", false, false, false, 55), "uri", [], "any", false, false, false, 55)], "method", false, false, false, 55), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 61, $this->source); })()), "session", [], "any", false, false, false, 61), "set", [0 => "url", 1 => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 61, $this->source); })()), "request", [], "any", false, false, false, 61), "uri", [], "any", false, false, false, 61)], "method", false, false, false, 61), "html", null, true);
             echo "
                 <a href=\"";
-            // line 56
+            // line 62
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">
-                    For add to favourite or to comparing you need to login
+                    ";
+            // line 63
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("For add to favourite or to comparing you need to login"), "html", null, true);
+            echo "
                 </a>
             ";
         }
-        // line 60
+        // line 66
         echo "
             <div class=\"rating\" data-object=\"";
-        // line 61
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 61, $this->source); })()), 0, [], "array", false, false, false, 61), "id", [], "any", false, false, false, 61), "html", null, true);
+        // line 67
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 67, $this->source); })()), 0, [], "array", false, false, false, 67), "id", [], "any", false, false, false, 67), "html", null, true);
         echo "\">
                 <span class=\"mr-2\">
                     ";
-        // line 63
+        // line 69
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Average rating"), "html", null, true);
         echo ":
                 </span>
                 ";
-        // line 65
+        // line 71
         if (array_key_exists("result", $context)) {
-            // line 66
+            // line 72
             echo "                    ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable(range(1, 5));
             foreach ($context['_seq'] as $context["_key"] => $context["i"]) {
-                // line 67
-                echo "                        <i class=\"
+                // line 73
+                echo "                        <i class=\" pointer
                 ";
-                // line 68
-                if (($context["i"] <= twig_get_attribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 68, $this->source); })()), "rating", [], "array", false, false, false, 68))) {
-                    // line 69
+                // line 74
+                if (($context["i"] <= twig_get_attribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 74, $this->source); })()), "rating", [], "array", false, false, false, 74))) {
+                    // line 75
                     echo "                fas
                     ";
                 } else {
-                    // line 71
+                    // line 77
                     echo "                   far
                 ";
                 }
-                // line 73
+                // line 79
                 echo "                fa-star\" data-value=\"";
                 echo twig_escape_filter($this->env, $context["i"], "html", null, true);
                 echo "\"></i>
@@ -269,54 +284,57 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['i'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 75
+            // line 81
             echo "                    <span id=\"count\" class=\"ml-2\">
                         (";
-            // line 76
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 76, $this->source); })()), "count", [], "array", false, false, false, 76), "html", null, true);
+            // line 82
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 82, $this->source); })()), "count", [], "array", false, false, false, 82), "html", null, true);
             echo ")
                     </span>
                 ";
         }
-        // line 79
+        // line 85
         echo "                ";
-        if (twig_get_attribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 79, $this->source); })()), "userRated", [], "array", false, false, false, 79)) {
-            // line 80
+        if (twig_get_attribute($this->env, $this->source, (isset($context["result"]) || array_key_exists("result", $context) ? $context["result"] : (function () { throw new RuntimeError('Variable "result" does not exist.', 85, $this->source); })()), "userRated", [], "array", false, false, false, 85)) {
+            // line 86
             echo "                    <span class=\"far fa-check-circle text-success \"></span>
                 ";
         }
-        // line 82
+        // line 88
         echo "            </div>
             <h4 class=\"mt-5\">
                 ";
-        // line 84
+        // line 90
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("List of parts which frequently wanted"), "html", null, true);
         echo "
             </h4>
-
             ";
-        // line 87
+        // line 92
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["parts"]) || array_key_exists("parts", $context) ? $context["parts"] : (function () { throw new RuntimeError('Variable "parts" does not exist.', 87, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["parts"]) || array_key_exists("parts", $context) ? $context["parts"] : (function () { throw new RuntimeError('Variable "parts" does not exist.', 92, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["part"]) {
-            // line 88
+            // line 93
             echo "                <div class=\"row border-bottom\">
-
                     <p>
+                        <img id=\"js-part\"
+                             src=\"";
+            // line 96
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/parts/" . twig_get_attribute($this->env, $this->source, (isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 96, $this->source); })()), "icon", [], "any", false, false, false, 96))), "html", null, true);
+            echo "\" alt=\"\" width=\"210px\" height=\"190px\">
                         <a href=\"https://google.com/search?q=";
-            // line 91
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["part"], "name", [], "any", false, false, false, 91), "html", null, true);
+            // line 97
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["part"], "name", [], "any", false, false, false, 97), "html", null, true);
             echo " ";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["part"], "catalogNumber", [], "any", false, false, false, 91), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["part"], "catalogNumber", [], "any", false, false, false, 97), "html", null, true);
             echo "\"
                            target=\"_blank\" rel=\"noopener noreferrer\">
                             ";
-            // line 93
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["part"], "name", [], "any", false, false, false, 93), "html", null, true);
+            // line 99
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["part"], "name", [], "any", false, false, false, 99), "html", null, true);
             echo " &nbsp;
                             ";
-            // line 94
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["part"], "catalogNumber", [], "any", false, false, false, 94), "html", null, true);
+            // line 100
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["part"], "catalogNumber", [], "any", false, false, false, 100), "html", null, true);
             echo "
                         </a>
                     </p>
@@ -327,144 +345,144 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['part'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 100
+        // line 106
         echo "            <div class=\"col\">
                 <h4 class=\"mt-5\">
                     ";
-        // line 102
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Technical data of engine "), "html", null, true);
+        // line 108
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Technical data of engine"), "html", null, true);
         echo "
                 </h4>
                 <p>
-                    <a href=\"";
-        // line 105
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("engine_details", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 105, $this->source); })()), 0, [], "array", false, false, false, 105), "engine", [], "any", false, false, false, 105), "id", [], "any", false, false, false, 105)]), "html", null, true);
+                    <a class=\"font-weight-bold\" href=\"";
+        // line 111
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("engine_details", ["id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 111, $this->source); })()), 0, [], "array", false, false, false, 111), "engine", [], "any", false, false, false, 111), "id", [], "any", false, false, false, 111)]), "html", null, true);
         echo "\">
                         ";
-        // line 106
+        // line 112
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Engine"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 106, $this->source); })()), 0, [], "array", false, false, false, 106), "engine", [], "any", false, false, false, 106), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 112, $this->source); })()), 0, [], "array", false, false, false, 112), "engine", [], "any", false, false, false, 112), "html", null, true);
         echo "
                         ( <i class=\"fas fa-exclamation-triangle\"></i>
                         ";
-        // line 108
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 108, $this->source); })()), 0, [], "array", false, false, false, 108), "engine", [], "any", false, false, false, 108), "faults", [], "any", false, false, false, 108)), "html", null, true);
+        // line 114
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 114, $this->source); })()), 0, [], "array", false, false, false, 114), "engine", [], "any", false, false, false, 114), "faults", [], "any", false, false, false, 114)), "html", null, true);
         echo ")
                     </a>
                 </p>
                 <p>
                     ";
-        // line 112
+        // line 118
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Fuel"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 112, $this->source); })()), 0, [], "array", false, false, false, 112), "engine", [], "any", false, false, false, 112), "fuel", [], "any", false, false, false, 112), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 118, $this->source); })()), 0, [], "array", false, false, false, 118), "engine", [], "any", false, false, false, 118), "fuel", [], "any", false, false, false, 118), "html", null, true);
         echo "
-                </p>
-                <p>
-                    ";
-        // line 115
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Power"), "html", null, true);
-        echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 115, $this->source); })()), 0, [], "array", false, false, false, 115), "power", [], "any", false, false, false, 115), "html", null, true);
-        echo " (HP)
-                </p>
-                <p>
-                    ";
-        // line 118
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Torque"), "html", null, true);
-        echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 118, $this->source); })()), 0, [], "array", false, false, false, 118), "torque", [], "any", false, false, false, 118), "html", null, true);
-        echo " (Nm)
                 </p>
                 <p>
                     ";
         // line 121
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Power increase device"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Power"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 121, $this->source); })()), 0, [], "array", false, false, false, 121), "engine", [], "any", false, false, false, 121), "powerIncrease", [], "any", false, false, false, 121), "html", null, true);
-        echo "
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 121, $this->source); })()), 0, [], "array", false, false, false, 121), "power", [], "any", false, false, false, 121), "html", null, true);
+        echo " (HP)
                 </p>
                 <p>
                     ";
         // line 124
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Max. speed"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Torque"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 124, $this->source); })()), 0, [], "array", false, false, false, 124), "speed", [], "any", false, false, false, 124), "html", null, true);
-        echo " (km/h)
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 124, $this->source); })()), 0, [], "array", false, false, false, 124), "torque", [], "any", false, false, false, 124), "html", null, true);
+        echo " (Nm)
                 </p>
                 <p>
                     ";
         // line 127
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Start year of installing"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Power increase device"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 127, $this->source); })()), 0, [], "array", false, false, false, 127), "yearStart", [], "any", false, false, false, 127), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 127, $this->source); })()), 0, [], "array", false, false, false, 127), "engine", [], "any", false, false, false, 127), "powerIncrease", [], "any", false, false, false, 127), "html", null, true);
         echo "
                 </p>
                 <p>
                     ";
         // line 130
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Finish year of installing"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Max. speed"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 130, $this->source); })()), 0, [], "array", false, false, false, 130), "yearFinish", [], "any", false, false, false, 130), "html", null, true);
-        echo "
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 130, $this->source); })()), 0, [], "array", false, false, false, 130), "speed", [], "any", false, false, false, 130), "html", null, true);
+        echo " (km/h)
                 </p>
                 <p>
                     ";
         // line 133
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Ecology standart"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Start year of installing"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 133, $this->source); })()), 0, [], "array", false, false, false, 133), "eco", [], "any", false, false, false, 133), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 133, $this->source); })()), 0, [], "array", false, false, false, 133), "yearStart", [], "any", false, false, false, 133), "html", null, true);
         echo "
                 </p>
                 <p>
                     ";
         // line 136
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Transmission"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Finish year of installing"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 136, $this->source); })()), 0, [], "array", false, false, false, 136), "transmission", [], "any", false, false, false, 136), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 136, $this->source); })()), 0, [], "array", false, false, false, 136), "yearFinish", [], "any", false, false, false, 136), "html", null, true);
         echo "
                 </p>
                 <p>
                     ";
         // line 139
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Drive"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Ecology standart"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 139, $this->source); })()), 0, [], "array", false, false, false, 139), "drive", [], "any", false, false, false, 139), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 139, $this->source); })()), 0, [], "array", false, false, false, 139), "eco", [], "any", false, false, false, 139), "html", null, true);
         echo "
                 </p>
                 <p>
                     ";
         // line 142
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Tank"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Transmission"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 142, $this->source); })()), 0, [], "array", false, false, false, 142), "subModel", [], "any", false, false, false, 142), "tank", [], "any", false, false, false, 142), "html", null, true);
-        echo " (l)
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 142, $this->source); })()), 0, [], "array", false, false, false, 142), "transmission", [], "any", false, false, false, 142), "html", null, true);
+        echo "
                 </p>
                 <p>
                     ";
         // line 145
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Fuel consumprion"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Drive"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 145, $this->source); })()), 0, [], "array", false, false, false, 145), "fuelConsumption", [], "any", false, false, false, 145), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 145, $this->source); })()), 0, [], "array", false, false, false, 145), "drive", [], "any", false, false, false, 145), "html", null, true);
+        echo "
+                </p>
+                <p>
+                    ";
+        // line 148
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Tank"), "html", null, true);
+        echo ": ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 148, $this->source); })()), 0, [], "array", false, false, false, 148), "subModel", [], "any", false, false, false, 148), "tank", [], "any", false, false, false, 148), "html", null, true);
+        echo " (l)
+                </p>
+                <p>
+                    ";
+        // line 151
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Fuel consumption"), "html", null, true);
+        echo ": ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 151, $this->source); })()), 0, [], "array", false, false, false, 151), "fuelConsumption", [], "any", false, false, false, 151), "html", null, true);
         echo "
                     (l/100km)
                 </p>
                 <p>
                     ";
-        // line 149
+        // line 155
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Fuel consumprion mixed"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 149, $this->source); })()), 0, [], "array", false, false, false, 149), "fuelConsumptionMixed", [], "any", false, false, false, 149), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 155, $this->source); })()), 0, [], "array", false, false, false, 155), "fuelConsumptionMixed", [], "any", false, false, false, 155), "html", null, true);
         echo "
                     (l/100km)
                 </p>
                 <p>
                     ";
-        // line 153
+        // line 159
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Fuel consumprion extra"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 153, $this->source); })()), 0, [], "array", false, false, false, 153), "fuelConsumptionExtra", [], "any", false, false, false, 153), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["carDetails"]) || array_key_exists("carDetails", $context) ? $context["carDetails"] : (function () { throw new RuntimeError('Variable "carDetails" does not exist.', 159, $this->source); })()), 0, [], "array", false, false, false, 159), "fuelConsumptionExtra", [], "any", false, false, false, 159), "html", null, true);
         echo "
                     (l/100km)
                 </p>
@@ -472,172 +490,166 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
             <div class=\"col\">
                 <h4 class=\"mt-5\">
                     ";
-        // line 159
+        // line 165
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Parameters"), "html", null, true);
         echo "
                 </h4>
                 <p>
                     ";
-        // line 162
+        // line 168
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Start year of production"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 162, $this->source); })()), "yearStart", [], "any", false, false, false, 162), "html", null, true);
-        echo "
-                </p>
-                <p>
-                    ";
-        // line 165
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Finish year of production"), "html", null, true);
-        echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 165, $this->source); })()), "yearFinish", [], "any", false, false, false, 165), "html", null, true);
-        echo "
-                </p>
-                <p>
-                    ";
-        // line 168
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Body type "), "html", null, true);
-        echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 168, $this->source); })()), "bodyType", [], "any", false, false, false, 168), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 168, $this->source); })()), "yearStart", [], "any", false, false, false, 168), "html", null, true);
         echo "
                 </p>
                 <p>
                     ";
         // line 171
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Length "), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Finish year of production"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 171, $this->source); })()), "length", [], "any", false, false, false, 171), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 171, $this->source); })()), "yearFinish", [], "any", false, false, false, 171), "html", null, true);
         echo "
                 </p>
                 <p>
                     ";
         // line 174
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Width "), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Body type"), "html", null, true);
         echo ": ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 174, $this->source); })()), "width", [], "any", false, false, false, 174), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 174, $this->source); })()), "bodyType", [], "any", false, false, false, 174), "html", null, true);
+        echo "
+                </p>
+                <p>
+                    ";
+        // line 177
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Length"), "html", null, true);
+        echo ": ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 177, $this->source); })()), "length", [], "any", false, false, false, 177), "html", null, true);
+        echo "
+                </p>
+                <p>
+                    ";
+        // line 180
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Width"), "html", null, true);
+        echo ": ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 180, $this->source); })()), "width", [], "any", false, false, false, 180), "html", null, true);
         echo "
                 </p>
             </div>
 
             <h4 class=\"mt-5\">
                 ";
-        // line 179
+        // line 185
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("List of transmissions which were installed"), "html", null, true);
         echo "
             </h4>
+            <h4 class=\"mt-5\">
             ";
-        // line 181
-        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 181, $this->source); })()), "faults", [], "any", false, false, false, 181))) {
-            // line 182
-            echo "            <h4 class=\"mt-5\">
-                ";
-            // line 183
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("List of faults"), "html", null, true);
+        // line 188
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("List of faults"), "html", null, true);
+        echo "
+            ";
+        // line 189
+        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 189, $this->source); })()), "faults", [], "any", false, false, false, 189))) {
+            // line 190
             echo "
                 ";
-            // line 184
+            // line 191
             $context["faultCount"] = "";
-            // line 185
+            // line 192
             echo "                ";
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 185, $this->source); })()), "faults", [], "any", false, false, false, 185));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 192, $this->source); })()), "faults", [], "any", false, false, false, 192));
             foreach ($context['_seq'] as $context["_key"] => $context["fault"]) {
-                // line 186
+                // line 193
                 echo "                ";
-                if ((twig_get_attribute($this->env, $this->source, $context["fault"], "published", [], "any", false, false, false, 186) == true)) {
-                    // line 187
+                if ((twig_get_attribute($this->env, $this->source, $context["fault"], "published", [], "any", false, false, false, 193) == true)) {
+                    // line 194
                     echo "                ";
                     $context["faultCount"] =  +1;
-                    // line 188
+                    // line 195
                     echo "                ";
                 }
-                // line 189
+                // line 196
                 echo "                ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['fault'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 190
-            echo "                (";
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["faultCount"]) || array_key_exists("faultCount", $context) ? $context["faultCount"] : (function () { throw new RuntimeError('Variable "faultCount" does not exist.', 190, $this->source); })())), "html", null, true);
-            echo ")
-                <a id=\"btnAdd\" href=\"";
-            // line 191
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("fault_add", ["subModel" => twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 191, $this->source); })()), "id", [], "any", false, false, false, 191)]), "html", null, true);
-            echo "\">
-                    <i class=\"fas fa-plus-circle\"></i>
-                </a>
-            </h4>
-            <div class=\"\">
-
-                ";
             // line 197
+            echo "                (";
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, (isset($context["faultCount"]) || array_key_exists("faultCount", $context) ? $context["faultCount"] : (function () { throw new RuntimeError('Variable "faultCount" does not exist.', 197, $this->source); })())), "html", null, true);
+            echo ")
+       
+                ";
+            // line 199
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 197, $this->source); })()), "faults", [], "any", false, false, false, 197));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 199, $this->source); })()), "faults", [], "any", false, false, false, 199));
             foreach ($context['_seq'] as $context["_key"] => $context["fault"]) {
-                // line 198
+                // line 200
                 echo "                    ";
-                if ((twig_get_attribute($this->env, $this->source, $context["fault"], "published", [], "any", false, false, false, 198) == true)) {
-                    // line 199
-                    echo "
-                    <div class=\"col\">
-                        <a href=\"";
+                if ((twig_get_attribute($this->env, $this->source, $context["fault"], "published", [], "any", false, false, false, 200) == "1")) {
                     // line 201
-                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subModel_fault", ["make" => twig_get_attribute($this->env, $this->source, (isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 201, $this->source); })()), "id", [], "any", false, false, false, 201), "model" => twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 201, $this->source); })()), "id", [], "any", false, false, false, 201), "subModel" => twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 201, $this->source); })()), "id", [], "any", false, false, false, 201), "fault" => twig_get_attribute($this->env, $this->source, $context["fault"], "id", [], "any", false, false, false, 201)]), "html", null, true);
+                    echo "                    <div class=\"col\">
+                        <a href=\"";
+                    // line 202
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("subModel_fault", ["make" => twig_get_attribute($this->env, $this->source,                     // line 203
+(isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 203, $this->source); })()), "id", [], "any", false, false, false, 203), "model" => twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 203, $this->source); })()), "id", [], "any", false, false, false, 203), "subModel" => twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 203, $this->source); })()), "id", [], "any", false, false, false, 203), "fault" => twig_get_attribute($this->env, $this->source, $context["fault"], "id", [], "any", false, false, false, 203)]), "html", null, true);
                     echo "\">
                             ";
-                    // line 202
-                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["fault"], "name", [], "any", false, false, false, 202), "html", null, true);
+                    // line 204
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["fault"], "name", [], "any", false, false, false, 204), "html", null, true);
                     echo "
                         </a>
                     </div>
                 ";
                 }
-                // line 206
+                // line 208
                 echo "                ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['fault'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 207
+            // line 209
             echo "                ";
         } else {
-            // line 208
-            echo "                    <h4 class=\"mt-5\">
-                        ";
-            // line 209
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("List of faults"), "html", null, true);
-            echo " (0)
-
-                    </h4>
+            // line 210
+            echo "                       (0)
                 ";
         }
-        // line 213
+        // line 212
         echo "
-            </div>
+                <a id=\"btnAdd\" href=\"";
+        // line 213
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("fault_add", ["subModel" => twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 213, $this->source); })()), "id", [], "any", false, false, false, 213)]), "html", null, true);
+        echo "\">
+                    <i class=\"fas fa-plus-circle\"></i>
+                </a>
+            </h4>
+
             ";
-        // line 215
-        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 215, $this->source); })()), "rims", [], "any", false, false, false, 215))) {
-            // line 216
+        // line 218
+        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 218, $this->source); })()), "rims", [], "any", false, false, false, 218))) {
+            // line 219
             echo "            <h4 class=\"mt-5\">
                 ";
-            // line 217
+            // line 220
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("List of rims which were installed"), "html", null, true);
             echo "
                 (";
-            // line 218
-            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 218, $this->source); })()), "rims", [], "any", false, false, false, 218)), "html", null, true);
+            // line 221
+            echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 221, $this->source); })()), "rims", [], "any", false, false, false, 221)), "html", null, true);
             echo ")
             </h4>
             <div class=\"\">
                 ";
-            // line 221
+            // line 224
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 221, $this->source); })()), "rims", [], "any", false, false, false, 221));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["subModel"]) || array_key_exists("subModel", $context) ? $context["subModel"] : (function () { throw new RuntimeError('Variable "subModel" does not exist.', 224, $this->source); })()), "rims", [], "any", false, false, false, 224));
             foreach ($context['_seq'] as $context["_key"] => $context["rim"]) {
-                // line 222
+                // line 225
                 echo "                    <div class=\"col\">
                         ";
-                // line 223
+                // line 226
                 echo twig_escape_filter($this->env, $context["rim"], "html", null, true);
                 echo "
                     </div>
@@ -646,25 +658,25 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['rim'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 226
+            // line 229
             echo "                ";
         } else {
-            // line 227
+            // line 230
             echo "                    <h4 class=\"mt-5\">
                         ";
-            // line 228
+            // line 231
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("List of rims to this model"), "html", null, true);
             echo " (0)
                     </h4>
                 ";
         }
-        // line 231
+        // line 234
         echo "            </div>
         </div>
     </div>
 
     ";
-        // line 235
+        // line 238
         $this->displayBlock('javasriptsblock', $context, $blocks);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -683,16 +695,16 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javasriptsblock"));
 
-        // line 236
+        // line 239
         echo "        <script src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/rating.js"), "html", null, true);
         echo "\"></script>
         <script src=\"";
-        // line 237
+        // line 240
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/clickButton.js"), "html", null, true);
         echo "\"></script>
         ";
-        // line 238
+        // line 241
         echo twig_include($this->env, $context, "like_slider_compare.html.twig");
         echo "
     ";
@@ -716,7 +728,7 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
 
     public function getDebugInfo()
     {
-        return array (  696 => 238,  692 => 237,  687 => 236,  668 => 235,  662 => 231,  656 => 228,  653 => 227,  650 => 226,  641 => 223,  638 => 222,  634 => 221,  628 => 218,  624 => 217,  621 => 216,  619 => 215,  615 => 213,  608 => 209,  605 => 208,  602 => 207,  596 => 206,  589 => 202,  585 => 201,  581 => 199,  578 => 198,  574 => 197,  565 => 191,  560 => 190,  554 => 189,  551 => 188,  548 => 187,  545 => 186,  540 => 185,  538 => 184,  534 => 183,  531 => 182,  529 => 181,  524 => 179,  514 => 174,  506 => 171,  498 => 168,  490 => 165,  482 => 162,  476 => 159,  465 => 153,  456 => 149,  447 => 145,  439 => 142,  431 => 139,  423 => 136,  415 => 133,  407 => 130,  399 => 127,  391 => 124,  383 => 121,  375 => 118,  367 => 115,  359 => 112,  352 => 108,  345 => 106,  341 => 105,  335 => 102,  331 => 100,  319 => 94,  315 => 93,  308 => 91,  303 => 88,  299 => 87,  293 => 84,  289 => 82,  285 => 80,  282 => 79,  276 => 76,  273 => 75,  264 => 73,  260 => 71,  256 => 69,  254 => 68,  251 => 67,  246 => 66,  244 => 65,  239 => 63,  234 => 61,  231 => 60,  224 => 56,  219 => 55,  214 => 52,  210 => 50,  206 => 48,  204 => 47,  198 => 44,  194 => 42,  190 => 40,  186 => 38,  184 => 37,  178 => 34,  175 => 33,  173 => 32,  170 => 31,  161 => 28,  158 => 27,  154 => 26,  148 => 23,  142 => 20,  138 => 19,  137 => 18,  131 => 15,  127 => 14,  121 => 10,  111 => 9,  99 => 7,  94 => 6,  84 => 5,  71 => 3,  61 => 2,  38 => 1,);
+        return array (  708 => 241,  704 => 240,  699 => 239,  680 => 238,  674 => 234,  668 => 231,  665 => 230,  662 => 229,  653 => 226,  650 => 225,  646 => 224,  640 => 221,  636 => 220,  633 => 219,  631 => 218,  623 => 213,  620 => 212,  616 => 210,  613 => 209,  607 => 208,  600 => 204,  596 => 203,  595 => 202,  592 => 201,  589 => 200,  585 => 199,  579 => 197,  573 => 196,  570 => 195,  567 => 194,  564 => 193,  559 => 192,  557 => 191,  554 => 190,  552 => 189,  548 => 188,  542 => 185,  532 => 180,  524 => 177,  516 => 174,  508 => 171,  500 => 168,  494 => 165,  483 => 159,  474 => 155,  465 => 151,  457 => 148,  449 => 145,  441 => 142,  433 => 139,  425 => 136,  417 => 133,  409 => 130,  401 => 127,  393 => 124,  385 => 121,  377 => 118,  370 => 114,  363 => 112,  359 => 111,  353 => 108,  349 => 106,  337 => 100,  333 => 99,  326 => 97,  322 => 96,  317 => 93,  313 => 92,  308 => 90,  304 => 88,  300 => 86,  297 => 85,  291 => 82,  288 => 81,  279 => 79,  275 => 77,  271 => 75,  269 => 74,  266 => 73,  261 => 72,  259 => 71,  254 => 69,  249 => 67,  246 => 66,  240 => 63,  236 => 62,  231 => 61,  226 => 58,  222 => 56,  218 => 54,  216 => 53,  210 => 50,  206 => 48,  202 => 46,  198 => 44,  196 => 43,  190 => 40,  187 => 39,  185 => 38,  182 => 37,  173 => 34,  170 => 33,  166 => 32,  160 => 29,  154 => 26,  150 => 25,  149 => 24,  143 => 21,  139 => 20,  130 => 14,  126 => 13,  121 => 10,  111 => 9,  99 => 7,  94 => 6,  84 => 5,  71 => 3,  61 => 2,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -733,6 +745,12 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
     <div class=\"  container top\">
         <div class=\"col\">
             <h2>
+                <a class=\"\" href=\"{{ path('makes_list') }}\">
+                    {{ 'Catalog of cars'|trans}}
+                </a>
+                ->
+            </h2>
+            <h2>
 
                 <a class=\"\" href=\"{{ path('models_list', {'make': make.id}) }}\">
                     {{ make.name }}
@@ -748,19 +766,19 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
             <div class=\"slider-inner\">
                 {% for image in subModel.images %}
 
-                    <img src=\"{{ asset('images/car_details/'~ image.image) }}\" alt=\"\">
+                    <img src=\"{{ asset('images/car_details/'~ image.image) }}\"  alt=\"\">
 
                 {% endfor %}
             </div>
             {% if app.user %}
-                <div class=\"d-flex align-items-start flex-column bd-highlight mb-3\">
+                <div class=\"row justify-content-between mb-3 ml-5 mt-3 w-50\">
                     <a href=\"{{ path('comparing',{ 'id': carDetails[0].id }) }}\" id=\"js-compare\"
                        class=\"text-white mb-auto p-2 bd-highlight\">
 
                         {% if app.user and carDetails[0].isScaledByUser(app.user) %}
-                            <i class=\"fas fa-balance-scale-right \"></i>
+                            <i class=\"fas fa-balance-scale-right scale\"></i>
                         {% else %}
-                            <i class=\"fas fa-balance-scale\"></i>
+                            <i class=\"fas fa-balance-scale scale\"></i>
                         {% endif %}
                     </a>
 
@@ -768,16 +786,16 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
                        id=\"js-favourite\" class=\" like btn-link \">
 
                         {% if app.user and carDetails[0].isFavouredByUser(app.user) %}
-                            <i class=\" fas fa-heart\"></i>
+                            <i class=\" fas fa-heart heart\"></i>
                         {% else %}
-                            <i class=\"far fa-heart\"></i>
+                            <i class=\"far fa-heart heart\"></i>
                         {% endif %}
                     </a>
                 </div>
             {% else %}
                 {{ app.session.set('url',app.request.uri) }}
                 <a href=\"{{ path('app_login') }}\">
-                    For add to favourite or to comparing you need to login
+                    {{'For add to favourite or to comparing you need to login'|trans }}
                 </a>
             {% endif %}
 
@@ -787,7 +805,7 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
                 </span>
                 {% if result is defined %}
                     {% for i in 1..5 %}
-                        <i class=\"
+                        <i class=\" pointer
                 {% if i <= result['rating'] %}
                 fas
                     {% else %}
@@ -806,11 +824,11 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
             <h4 class=\"mt-5\">
                 {{ 'List of parts which frequently wanted'|trans }}
             </h4>
-
             {% for part in parts %}
                 <div class=\"row border-bottom\">
-
                     <p>
+                        <img id=\"js-part\"
+                             src=\"{{ asset('images/parts/'~make.icon)}}\" alt=\"\" width=\"210px\" height=\"190px\">
                         <a href=\"https://google.com/search?q={{ part.name }} {{ part.catalogNumber }}\"
                            target=\"_blank\" rel=\"noopener noreferrer\">
                             {{ part.name }} &nbsp;
@@ -822,10 +840,10 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
             {% endfor %}
             <div class=\"col\">
                 <h4 class=\"mt-5\">
-                    {{ 'Technical data of engine '|trans }}
+                    {{ 'Technical data of engine'|trans }}
                 </h4>
                 <p>
-                    <a href=\"{{ path('engine_details',{'id': carDetails[0].engine.id}) }}\">
+                    <a class=\"font-weight-bold\" href=\"{{ path('engine_details',{'id': carDetails[0].engine.id}) }}\">
                         {{ 'Engine'|trans }}: {{ carDetails[0].engine }}
                         ( <i class=\"fas fa-exclamation-triangle\"></i>
                         {{ carDetails[0].engine.faults|length }})
@@ -865,7 +883,7 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
                     {{ 'Tank'|trans }}: {{ carDetails[0].subModel.tank }} (l)
                 </p>
                 <p>
-                    {{ 'Fuel consumprion'|trans }}: {{ carDetails[0].fuelConsumption }}
+                    {{ 'Fuel consumption'|trans }}: {{ carDetails[0].fuelConsumption }}
                     (l/100km)
                 </p>
                 <p>
@@ -888,22 +906,23 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
                     {{ 'Finish year of production'|trans }}: {{ subModel.yearFinish }}
                 </p>
                 <p>
-                    {{ 'Body type '|trans }}: {{ subModel.bodyType }}
+                    {{ 'Body type'|trans }}: {{ subModel.bodyType }}
                 </p>
                 <p>
-                    {{ 'Length '|trans }}: {{ subModel.length }}
+                    {{ 'Length'|trans }}: {{ subModel.length }}
                 </p>
                 <p>
-                    {{ 'Width '|trans }}: {{ subModel.width }}
+                    {{ 'Width'|trans }}: {{ subModel.width }}
                 </p>
             </div>
 
             <h4 class=\"mt-5\">
                 {{ 'List of transmissions which were installed'|trans }}
             </h4>
-            {% if subModel.faults is not empty %}
             <h4 class=\"mt-5\">
-                {{ 'List of faults'|trans }}
+            {{ 'List of faults'|trans }}
+            {% if subModel.faults is not empty %}
+
                 {% set faultCount = \"\" %}
                 {% for fault in subModel.faults %}
                 {% if fault.published == true %}
@@ -911,30 +930,26 @@ class __TwigTemplate_559a4ec65d21eee1cb9bfcad2d838fd955c267b81787c943788c55d7901
                 {% endif %}
                 {% endfor %}
                 ({{ faultCount|length }})
-                <a id=\"btnAdd\" href=\"{{ path('fault_add', { 'subModel': subModel.id}) }}\">
-                    <i class=\"fas fa-plus-circle\"></i>
-                </a>
-            </h4>
-            <div class=\"\">
-
+       
                 {% for fault in subModel.faults %}
-                    {% if fault.published == true %}
-
+                    {% if fault.published == '1' %}
                     <div class=\"col\">
-                        <a href=\"{{ path('subModel_fault', {'make': make.id, 'model': model.id, 'subModel': subModel.id, 'fault':fault.id}) }}\">
+                        <a href=\"{{ path('subModel_fault',
+                            {'make': make.id, 'model': model.id, 'subModel': subModel.id, 'fault':fault.id}) }}\">
                             {{ fault.name }}
                         </a>
                     </div>
                 {% endif %}
                 {% endfor %}
                 {% else %}
-                    <h4 class=\"mt-5\">
-                        {{ 'List of faults'|trans }} (0)
-
-                    </h4>
+                       (0)
                 {% endif %}
 
-            </div>
+                <a id=\"btnAdd\" href=\"{{ path('fault_add', { 'subModel': subModel.id}) }}\">
+                    <i class=\"fas fa-plus-circle\"></i>
+                </a>
+            </h4>
+
             {% if subModel.rims is not empty %}
             <h4 class=\"mt-5\">
                 {{ 'List of rims which were installed'|trans }}

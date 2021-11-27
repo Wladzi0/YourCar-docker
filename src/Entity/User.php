@@ -106,6 +106,11 @@ class User implements UserInterface
      */
     private $fuelConsumption;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $googleId;
+
 
 
     public function __construct()
@@ -446,6 +451,18 @@ class User implements UserInterface
     public function setFuelConsumption(?string $fuelConsumption): self
     {
         $this->fuelConsumption = $fuelConsumption;
+
+        return $this;
+    }
+
+    public function getGoogleId(): ?string
+    {
+        return $this->googleId;
+    }
+
+    public function setGoogleId(?string $googleId): self
+    {
+        $this->googleId = $googleId;
 
         return $this;
     }

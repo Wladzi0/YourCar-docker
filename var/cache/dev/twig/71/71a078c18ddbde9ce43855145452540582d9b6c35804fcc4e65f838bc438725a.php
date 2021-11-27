@@ -144,88 +144,89 @@ class __TwigTemplate_5cd8e575fd6effa6f3655617272ef7f4e31996668d8d53f48c841cd4518
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Title"), "html", null, true);
         echo "
             </h3>
+            <h3>
             ";
-        // line 22
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["fault"]) || array_key_exists("fault", $context) ? $context["fault"] : (function () { throw new RuntimeError('Variable "fault" does not exist.', 22, $this->source); })()), "name", [], "any", false, false, false, 22), "html", null, true);
+        // line 23
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["fault"]) || array_key_exists("fault", $context) ? $context["fault"] : (function () { throw new RuntimeError('Variable "fault" does not exist.', 23, $this->source); })()), "name", [], "any", false, false, false, 23), "html", null, true);
         echo "
             </h3>
             ";
-        // line 24
-        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["fault"]) || array_key_exists("fault", $context) ? $context["fault"] : (function () { throw new RuntimeError('Variable "fault" does not exist.', 24, $this->source); })()), "images", [], "any", false, false, false, 24))) {
-            // line 25
+        // line 25
+        if ( !twig_test_empty(twig_get_attribute($this->env, $this->source, (isset($context["fault"]) || array_key_exists("fault", $context) ? $context["fault"] : (function () { throw new RuntimeError('Variable "fault" does not exist.', 25, $this->source); })()), "images", [], "any", false, false, false, 25))) {
+            // line 26
             echo "            <div class=\"slider-inner\">
                     ";
-            // line 26
+            // line 27
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["fault"]) || array_key_exists("fault", $context) ? $context["fault"] : (function () { throw new RuntimeError('Variable "fault" does not exist.', 26, $this->source); })()), "images", [], "any", false, false, false, 26));
+            $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["fault"]) || array_key_exists("fault", $context) ? $context["fault"] : (function () { throw new RuntimeError('Variable "fault" does not exist.', 27, $this->source); })()), "images", [], "any", false, false, false, 27));
             foreach ($context['_seq'] as $context["_key"] => $context["image"]) {
-                // line 27
+                // line 28
                 echo "                        <img src=\"";
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/car_details/" . twig_get_attribute($this->env, $this->source, $context["image"], "image", [], "any", false, false, false, 27))), "html", null, true);
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/car_details/" . twig_get_attribute($this->env, $this->source, $context["image"], "image", [], "any", false, false, false, 28))), "html", null, true);
                 echo "\" alt=\"\">
                     ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['image'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 29
+            // line 30
             echo "            </div>
             ";
         }
-        // line 31
-        echo "            <h3 class=\"m-3\">
-                ";
         // line 32
+        echo "            <h3 class=\"mt-3\">
+                ";
+        // line 33
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Description"), "html", null, true);
         echo "
             </h3>
             <p class=\"mb-5\">
                 ";
-        // line 35
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["fault"]) || array_key_exists("fault", $context) ? $context["fault"] : (function () { throw new RuntimeError('Variable "fault" does not exist.', 35, $this->source); })()), "description", [], "any", false, false, false, 35), "html", null, true);
+        // line 36
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["fault"]) || array_key_exists("fault", $context) ? $context["fault"] : (function () { throw new RuntimeError('Variable "fault" does not exist.', 36, $this->source); })()), "description", [], "any", false, false, false, 36), "html", null, true);
         echo "
             </p>
             <div class=\"comments mt-5\">
                 <h3 id=\"commentsCount\">
                     Comments (";
-        // line 39
-        echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["fault"]) || array_key_exists("fault", $context) ? $context["fault"] : (function () { throw new RuntimeError('Variable "fault" does not exist.', 39, $this->source); })()), "comments", [], "any", false, false, false, 39)), "html", null, true);
+        // line 40
+        echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["fault"]) || array_key_exists("fault", $context) ? $context["fault"] : (function () { throw new RuntimeError('Variable "fault" does not exist.', 40, $this->source); })()), "comments", [], "any", false, false, false, 40)), "html", null, true);
         echo ")
                 </h3>
 
                 ";
-        // line 42
-        $this->loadTemplate("comment/form.html.twig", "car/catalog/fault/details.html.twig", 42)->display($context);
         // line 43
+        $this->loadTemplate("comment/form.html.twig", "car/catalog/fault/details.html.twig", 43)->display($context);
+        // line 44
         echo "
                 <div class=\"comment pt-5 mb-5\" id=\"commentFields\">
                     ";
-        // line 45
+        // line 46
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_reverse_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["fault"]) || array_key_exists("fault", $context) ? $context["fault"] : (function () { throw new RuntimeError('Variable "fault" does not exist.', 45, $this->source); })()), "comments", [], "any", false, false, false, 45)));
+        $context['_seq'] = twig_ensure_traversable(twig_reverse_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["fault"]) || array_key_exists("fault", $context) ? $context["fault"] : (function () { throw new RuntimeError('Variable "fault" does not exist.', 46, $this->source); })()), "comments", [], "any", false, false, false, 46)));
         foreach ($context['_seq'] as $context["_key"] => $context["comment"]) {
-            // line 46
+            // line 47
             echo "                        <p>
                             <b>
                                 ";
-            // line 48
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 48), "firstName", [], "any", false, false, false, 48), "html", null, true);
+            // line 49
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 49), "firstName", [], "any", false, false, false, 49), "html", null, true);
             echo "
                                 ";
-            // line 49
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 49), "lastName", [], "any", false, false, false, 49), "html", null, true);
+            // line 50
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["comment"], "user", [], "any", false, false, false, 50), "lastName", [], "any", false, false, false, 50), "html", null, true);
             echo "
                             </b>
                             <small class=\"text-secondary ml-4\">
                                 ";
-            // line 52
-            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "createdAt", [], "any", false, false, false, 52)), "html", null, true);
+            // line 53
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "createdAt", [], "any", false, false, false, 53)), "html", null, true);
             echo "
                             </small>
                             <br>
                             ";
-            // line 55
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "content", [], "any", false, false, false, 55), "html", null, true);
+            // line 56
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["comment"], "content", [], "any", false, false, false, 56), "html", null, true);
             echo "
                         </p>
 
@@ -234,7 +235,7 @@ class __TwigTemplate_5cd8e575fd6effa6f3655617272ef7f4e31996668d8d53f48c841cd4518
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['comment'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 59
+        // line 60
         echo "                </div>
             </div>
 
@@ -242,7 +243,7 @@ class __TwigTemplate_5cd8e575fd6effa6f3655617272ef7f4e31996668d8d53f48c841cd4518
     </div>
 
     ";
-        // line 65
+        // line 66
         $this->displayBlock('javasriptsblock', $context, $blocks);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -261,13 +262,13 @@ class __TwigTemplate_5cd8e575fd6effa6f3655617272ef7f4e31996668d8d53f48c841cd4518
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javasriptsblock"));
 
-        // line 66
+        // line 67
         echo "        <script src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/comment.js"), "html", null, true);
         echo "\"></script>
         ";
-        // line 67
-        echo twig_include($this->env, $context, "like_slider_compare.html.twig");
+        // line 68
+        echo twig_include($this->env, $context, "like_slider_comsrc/symfony/templates/car/catalog/fault/details.html.twig:68pare.html.twig");
         echo "
     ";
         
@@ -290,7 +291,7 @@ class __TwigTemplate_5cd8e575fd6effa6f3655617272ef7f4e31996668d8d53f48c841cd4518
 
     public function getDebugInfo()
     {
-        return array (  270 => 67,  265 => 66,  246 => 65,  238 => 59,  228 => 55,  222 => 52,  216 => 49,  212 => 48,  208 => 46,  204 => 45,  200 => 43,  198 => 42,  192 => 39,  185 => 35,  179 => 32,  176 => 31,  172 => 29,  163 => 27,  159 => 26,  156 => 25,  154 => 24,  149 => 22,  144 => 20,  141 => 19,  134 => 15,  130 => 14,  127 => 13,  125 => 12,  121 => 10,  111 => 9,  99 => 7,  94 => 6,  84 => 5,  71 => 3,  61 => 2,  38 => 1,);
+        return array (  271 => 68,  266 => 67,  247 => 66,  239 => 60,  229 => 56,  223 => 53,  217 => 50,  213 => 49,  209 => 47,  205 => 46,  201 => 44,  199 => 43,  193 => 40,  186 => 36,  180 => 33,  177 => 32,  173 => 30,  164 => 28,  160 => 27,  157 => 26,  155 => 25,  150 => 23,  144 => 20,  141 => 19,  134 => 15,  130 => 14,  127 => 13,  125 => 12,  121 => 10,  111 => 9,  99 => 7,  94 => 6,  84 => 5,  71 => 3,  61 => 2,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -316,6 +317,7 @@ class __TwigTemplate_5cd8e575fd6effa6f3655617272ef7f4e31996668d8d53f48c841cd4518
             <h3>
                 {{ 'Title'|trans }}
             </h3>
+            <h3>
             {{ fault.name }}
             </h3>
             {% if fault.images is not empty %}
@@ -325,7 +327,7 @@ class __TwigTemplate_5cd8e575fd6effa6f3655617272ef7f4e31996668d8d53f48c841cd4518
                     {% endfor %}
             </div>
             {% endif %}
-            <h3 class=\"m-3\">
+            <h3 class=\"mt-3\">
                 {{ 'Description'|trans }}
             </h3>
             <p class=\"mb-5\">
@@ -361,7 +363,7 @@ class __TwigTemplate_5cd8e575fd6effa6f3655617272ef7f4e31996668d8d53f48c841cd4518
 
     {% block javasriptsblock %}
         <script src=\"{{ asset('js/comment.js') }}\"></script>
-        {{ include('like_slider_compare.html.twig') }}
+        {{ include('like_slider_comsrc/symfony/templates/car/catalog/fault/details.html.twig:68pare.html.twig') }}
     {% endblock %}
 {% endblock %}", "car/catalog/fault/details.html.twig", "/var/www/php/symfony/templates/car/catalog/fault/details.html.twig");
     }

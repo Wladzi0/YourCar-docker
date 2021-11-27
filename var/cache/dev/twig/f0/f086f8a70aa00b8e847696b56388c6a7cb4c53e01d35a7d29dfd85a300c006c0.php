@@ -65,7 +65,7 @@ class __TwigTemplate_1c513f96bd62302a0019cd86cb9390bf00a85fb42b42f4d96d2a7d6bae8
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Reset your password";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Reset your password"), "html", null, true);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -85,7 +85,9 @@ class __TwigTemplate_1c513f96bd62302a0019cd86cb9390bf00a85fb42b42f4d96d2a7d6bae8
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <h1>Reset your password</h1>
+        echo "    <h1>";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Reset your password"), "html", null, true);
+        echo "</h1>
 
     ";
         // line 8
@@ -96,7 +98,10 @@ class __TwigTemplate_1c513f96bd62302a0019cd86cb9390bf00a85fb42b42f4d96d2a7d6bae8
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["resetForm"]) || array_key_exists("resetForm", $context) ? $context["resetForm"] : (function () { throw new RuntimeError('Variable "resetForm" does not exist.', 9, $this->source); })()), "plainPassword", [], "any", false, false, false, 9), 'row', ["attr" => ["class" => "form-control", "required" => "true"]]);
         // line 12
         echo "
-    <button class=\"btn btn-primary\">Reset password</button>
+    <button class=\"btn btn-primary\">";
+        // line 13
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Reset password"), "html", null, true);
+        echo "</button>
     ";
         // line 14
         echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["resetForm"]) || array_key_exists("resetForm", $context) ? $context["resetForm"] : (function () { throw new RuntimeError('Variable "resetForm" does not exist.', 14, $this->source); })()), 'form_end');
@@ -122,24 +127,24 @@ class __TwigTemplate_1c513f96bd62302a0019cd86cb9390bf00a85fb42b42f4d96d2a7d6bae8
 
     public function getDebugInfo()
     {
-        return array (  102 => 14,  98 => 12,  96 => 9,  92 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
+        return array (  107 => 14,  103 => 13,  100 => 12,  98 => 9,  94 => 8,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Reset your password{% endblock %}
+{% block title %}{{ 'Reset your password'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Reset your password</h1>
+    <h1>{{ 'Reset your password'|trans }}</h1>
 
     {{ form_start(resetForm, {'attr': {'class': 'form-horizontal'}}) }}
     {{ form_row(resetForm.plainPassword,
         {'attr':
             {'class': 'form-control', 'required': 'true'}
         }) }}
-    <button class=\"btn btn-primary\">Reset password</button>
+    <button class=\"btn btn-primary\">{{ 'Reset password'|trans }}</button>
     {{ form_end(resetForm) }}
 {% endblock %}
 ", "reset_password/reset.html.twig", "/var/www/php/symfony/templates/reset_password/reset.html.twig");

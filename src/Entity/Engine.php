@@ -101,6 +101,11 @@ class Engine
      */
     private $parts;
 
+    /**
+     * @ORM\Column(type="string", length=20)
+     */
+    private $life;
+
     public function __construct()
     {
         $this->subModels = new ArrayCollection();
@@ -427,6 +432,18 @@ class Engine
                 $part->setEngine(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getLife(): ?string
+    {
+        return $this->life;
+    }
+
+    public function setLife(string $life): self
+    {
+        $this->life = $life;
 
         return $this;
     }

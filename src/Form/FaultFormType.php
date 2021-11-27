@@ -9,15 +9,21 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class FaultFormType extends AbstractType
 {
+    private $translator;
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator=$translator;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('images', FileType::class,[
                 'required'=>true,
-                'label'=>'Please upload a file',
+                'label'=>$this->translator->trans('Please upload a file'),
                 'multiple'=>true,
                 'mapped'=>false,
             ])

@@ -91,7 +91,7 @@ class __TwigTemplate_1aa86711d76db35e4190317a723f20bedfdd895c0c7b12f0d83f1c97886
         // line 6
         echo "    <div class=\"mt-3 container col-3\">
         <br>
-        <form class=\"form \" method=\"post\">
+        <form class=\"form\" method=\"post\">
             <br>
             ";
         // line 10
@@ -146,7 +146,7 @@ class __TwigTemplate_1aa86711d76db35e4190317a723f20bedfdd895c0c7b12f0d83f1c97886
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
         echo "\">
             <div class=\"checkbox\">
-                <label>
+                <label class=\"remember_me\">
                     <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\">
                     ";
         // line 36
@@ -157,7 +157,7 @@ class __TwigTemplate_1aa86711d76db35e4190317a723f20bedfdd895c0c7b12f0d83f1c97886
             <a href=\"";
         // line 39
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_forgot_password_request");
-        echo "\"  class=\"mb-5\" type=\"submit\">
+        echo "\" class=\"mb-4\" type=\"submit\">
                 ";
         // line 40
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Forgot password?"), "html", null, true);
@@ -171,12 +171,20 @@ class __TwigTemplate_1aa86711d76db35e4190317a723f20bedfdd895c0c7b12f0d83f1c97886
         echo "
             </button>
         </form>
-        <button class=\"btn registration\" onclick=\"window.location.href='/register'\">
-              ";
+        <button class=\"btn registration btn-info\" onclick=\"window.location.href='/register'\">
+            ";
         // line 48
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Create new account"), "html", null, true);
         echo "
         </button>
+        <hr class=\"w-100  bg-info mt-4\">
+        <a class=\"h3 d-flex justify-content-sm-center\" style=\"text-decoration: none\"
+           href=\"";
+        // line 52
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("connect_google_start");
+        echo "\">
+            <i class=\"fab fa-google\"></i>
+        </a>
     </div>
 ";
         
@@ -199,7 +207,7 @@ class __TwigTemplate_1aa86711d76db35e4190317a723f20bedfdd895c0c7b12f0d83f1c97886
 
     public function getDebugInfo()
     {
-        return array (  177 => 48,  170 => 44,  163 => 40,  159 => 39,  153 => 36,  146 => 32,  141 => 30,  135 => 27,  128 => 23,  123 => 21,  118 => 19,  112 => 16,  109 => 15,  103 => 12,  100 => 11,  98 => 10,  92 => 6,  82 => 5,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  184 => 52,  177 => 48,  170 => 44,  163 => 40,  159 => 39,  153 => 36,  146 => 32,  141 => 30,  135 => 27,  128 => 23,  123 => 21,  118 => 19,  112 => 16,  109 => 15,  103 => 12,  100 => 11,  98 => 10,  92 => 6,  82 => 5,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -211,7 +219,7 @@ class __TwigTemplate_1aa86711d76db35e4190317a723f20bedfdd895c0c7b12f0d83f1c97886
 {% block body %}
     <div class=\"mt-3 container col-3\">
         <br>
-        <form class=\"form \" method=\"post\">
+        <form class=\"form\" method=\"post\">
             <br>
             {% if error %}
                 <div class=\"alert-danger\">
@@ -237,12 +245,12 @@ class __TwigTemplate_1aa86711d76db35e4190317a723f20bedfdd895c0c7b12f0d83f1c97886
             <br>
             <input type=\"hidden\" name=\"_csrf_token\" value=\"{{ csrf_token('authenticate') }}\">
             <div class=\"checkbox\">
-                <label>
+                <label class=\"remember_me\">
                     <input type=\"checkbox\" id=\"remember_me\" name=\"_remember_me\">
                     {{ 'Remember me'|trans }}
                 </label>
             </div>
-            <a href=\"{{ path('app_forgot_password_request') }}\"  class=\"mb-5\" type=\"submit\">
+            <a href=\"{{ path('app_forgot_password_request') }}\" class=\"mb-4\" type=\"submit\">
                 {{ 'Forgot password?'|trans }}
             </a>
             <br>
@@ -250,9 +258,14 @@ class __TwigTemplate_1aa86711d76db35e4190317a723f20bedfdd895c0c7b12f0d83f1c97886
                 {{ 'Sign in'|trans }}
             </button>
         </form>
-        <button class=\"btn registration\" onclick=\"window.location.href='/register'\">
-              {{ 'Create new account'|trans }}
+        <button class=\"btn registration btn-info\" onclick=\"window.location.href='/register'\">
+            {{ 'Create new account'|trans }}
         </button>
+        <hr class=\"w-100  bg-info mt-4\">
+        <a class=\"h3 d-flex justify-content-sm-center\" style=\"text-decoration: none\"
+           href=\"{{ path('connect_google_start') }}\">
+            <i class=\"fab fa-google\"></i>
+        </a>
     </div>
 {% endblock %}", "security/login.html.twig", "/var/www/php/symfony/templates/security/login.html.twig");
     }

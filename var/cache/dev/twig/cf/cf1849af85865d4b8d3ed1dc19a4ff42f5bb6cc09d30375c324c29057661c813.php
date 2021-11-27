@@ -67,7 +67,7 @@ class __TwigTemplate_68e17a7690c965a0d32c9877974011092ca2a2342918ce00bb4e9eb04d3
 
         // line 3
         echo "    ";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Welcome lo YourCar"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Welcome to YourCar"), "html", null, true);
         echo "
 ";
         
@@ -89,31 +89,40 @@ class __TwigTemplate_68e17a7690c965a0d32c9877974011092ca2a2342918ce00bb4e9eb04d3
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "    <div class=\" container col-5 top d-flex flex-column\">
+        echo "    <div class=\" container col-4 top d-flex flex-column\">
         <a href=\"";
         // line 7
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("makes_list");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("search_by_form");
         echo "\" class=\"btn btn-success mt-4\">
             ";
         // line 8
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Catalog of cars"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Search car with us"), "html", null, true);
         echo "
         </a>
         <a href=\"";
         // line 10
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("comparing_list");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("makes_list");
         echo "\" class=\"btn btn-success mt-4\">
             ";
         // line 11
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Comparing of cars"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Catalog of cars"), "html", null, true);
         echo "
         </a>
         <a href=\"";
         // line 13
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("favourite_cars_list");
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("comparing_list");
         echo "\" class=\"btn btn-success mt-4\">
             ";
         // line 14
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Comparing of cars"), "html", null, true);
+        echo "
+        </a>
+        <a href=\"";
+        // line 16
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("favourite_cars_list");
+        echo "\" class=\"btn btn-success mt-4\">
+            ";
+        // line 17
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Your favourite cars"), "html", null, true);
         echo "
         </a>
@@ -139,17 +148,20 @@ class __TwigTemplate_68e17a7690c965a0d32c9877974011092ca2a2342918ce00bb4e9eb04d3
 
     public function getDebugInfo()
     {
-        return array (  117 => 14,  113 => 13,  108 => 11,  104 => 10,  99 => 8,  95 => 7,  92 => 6,  82 => 5,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  126 => 17,  122 => 16,  117 => 14,  113 => 13,  108 => 11,  104 => 10,  99 => 8,  95 => 7,  92 => 6,  82 => 5,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 {% block title %}
-    {{ 'Welcome lo YourCar'|trans }}
+    {{ 'Welcome to YourCar'|trans }}
 {% endblock %}
 {% block body %}
-    <div class=\" container col-5 top d-flex flex-column\">
+    <div class=\" container col-4 top d-flex flex-column\">
+        <a href=\"{{ path('search_by_form') }}\" class=\"btn btn-success mt-4\">
+            {{ 'Search car with us'|trans }}
+        </a>
         <a href=\"{{ path('makes_list') }}\" class=\"btn btn-success mt-4\">
             {{ 'Catalog of cars'|trans }}
         </a>

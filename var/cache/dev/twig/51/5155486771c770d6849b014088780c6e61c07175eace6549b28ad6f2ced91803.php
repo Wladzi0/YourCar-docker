@@ -88,7 +88,7 @@ class __TwigTemplate_d09c928ff9750340e87203e599e00a3d31d9af2a6ca2c67a426232b8780
 
         // line 7
         echo "
-    <div class=\"container row\">
+    <div class=\"container row  mt-4\">
         <div class=\"container col-5\">
             ";
         // line 10
@@ -97,10 +97,10 @@ class __TwigTemplate_d09c928ff9750340e87203e599e00a3d31d9af2a6ca2c67a426232b8780
 ";
         // line 12
         echo "
-            ";
+            <h5>";
         // line 13
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["settingsForm"]) || array_key_exists("settingsForm", $context) ? $context["settingsForm"] : (function () { throw new RuntimeError('Variable "settingsForm" does not exist.', 13, $this->source); })()), "preferLanguage", [], "any", false, false, false, 13), 'label');
-        echo "
+        echo "</h5>
             ";
         // line 14
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["settingsForm"]) || array_key_exists("settingsForm", $context) ? $context["settingsForm"] : (function () { throw new RuntimeError('Variable "settingsForm" does not exist.', 14, $this->source); })()), "preferLanguage", [], "any", false, false, false, 14), 'widget', ["attr" => ["class" => "form-control", "required" => "true", "autocomplete" => "off"]]);
@@ -109,30 +109,30 @@ class __TwigTemplate_d09c928ff9750340e87203e599e00a3d31d9af2a6ca2c67a426232b8780
 ";
         // line 18
         echo "            <br>
-            ";
+            <h5> ";
         // line 19
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["settingsForm"]) || array_key_exists("settingsForm", $context) ? $context["settingsForm"] : (function () { throw new RuntimeError('Variable "settingsForm" does not exist.', 19, $this->source); })()), "carType", [], "any", false, false, false, 19), 'label');
-        echo "<br>
+        echo "</h5>
             ";
         // line 20
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["settingsForm"]) || array_key_exists("settingsForm", $context) ? $context["settingsForm"] : (function () { throw new RuntimeError('Variable "settingsForm" does not exist.', 20, $this->source); })()), "carType", [], "any", false, false, false, 20), 'widget', ["attr" => ["class" => "form-control", "required" => "true"]]);
         // line 22
         echo "
             <br>
-            ";
+             <h5>";
         // line 24
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["settingsForm"]) || array_key_exists("settingsForm", $context) ? $context["settingsForm"] : (function () { throw new RuntimeError('Variable "settingsForm" does not exist.', 24, $this->source); })()), "tuning", [], "any", false, false, false, 24), 'label');
-        echo "<br>
+        echo "</h5>
             ";
         // line 25
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["settingsForm"]) || array_key_exists("settingsForm", $context) ? $context["settingsForm"] : (function () { throw new RuntimeError('Variable "settingsForm" does not exist.', 25, $this->source); })()), "tuning", [], "any", false, false, false, 25), 'widget', ["attr" => ["class" => "form-control", "required" => "true"]]);
         // line 27
         echo "
             <br>
-            ";
+             <h5>";
         // line 29
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["settingsForm"]) || array_key_exists("settingsForm", $context) ? $context["settingsForm"] : (function () { throw new RuntimeError('Variable "settingsForm" does not exist.', 29, $this->source); })()), "fuelConsumption", [], "any", false, false, false, 29), 'label');
-        echo "<br>
+        echo "</h5>
             ";
         // line 30
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["settingsForm"]) || array_key_exists("settingsForm", $context) ? $context["settingsForm"] : (function () { throw new RuntimeError('Variable "settingsForm" does not exist.', 30, $this->source); })()), "fuelConsumption", [], "any", false, false, false, 30), 'widget', ["attr" => ["class" => "form-control", "required" => "true"]]);
@@ -152,12 +152,10 @@ class __TwigTemplate_d09c928ff9750340e87203e599e00a3d31d9af2a6ca2c67a426232b8780
 
                 </a>
 
-";
-        // line 44
-        echo "        </div>
+        </div>
     </div>
     ";
-        // line 46
+        // line 43
         $this->displayBlock('javasriptsblock', $context, $blocks);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -176,7 +174,7 @@ class __TwigTemplate_d09c928ff9750340e87203e599e00a3d31d9af2a6ca2c67a426232b8780
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javasriptsblock"));
 
-        // line 47
+        // line 44
         echo "        <script src=\"";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/settings.js"), "html", null, true);
         echo "\"></script>
@@ -201,7 +199,7 @@ class __TwigTemplate_d09c928ff9750340e87203e599e00a3d31d9af2a6ca2c67a426232b8780
 
     public function getDebugInfo()
     {
-        return array (  180 => 47,  161 => 46,  157 => 44,  150 => 37,  144 => 34,  140 => 32,  138 => 30,  134 => 29,  130 => 27,  128 => 25,  124 => 24,  120 => 22,  118 => 20,  114 => 19,  111 => 18,  108 => 16,  106 => 14,  102 => 13,  99 => 12,  95 => 10,  90 => 7,  80 => 6,  60 => 4,  37 => 2,);
+        return array (  178 => 44,  159 => 43,  150 => 37,  144 => 34,  140 => 32,  138 => 30,  134 => 29,  130 => 27,  128 => 25,  124 => 24,  120 => 22,  118 => 20,  114 => 19,  111 => 18,  108 => 16,  106 => 14,  102 => 13,  99 => 12,  95 => 10,  90 => 7,  80 => 6,  60 => 4,  37 => 2,);
     }
 
     public function getSourceContext()
@@ -213,28 +211,28 @@ class __TwigTemplate_d09c928ff9750340e87203e599e00a3d31d9af2a6ca2c67a426232b8780
 
 {% block body %}
 
-    <div class=\"container row\">
+    <div class=\"container row  mt-4\">
         <div class=\"container col-5\">
             {{ form_start(settingsForm, {'attr': {'class': 'form-horizontal','id': 'settingsForm'}}) }}
 {#            {% if included != true %}#}
 
-            {{ form_label(settingsForm.preferLanguage) }}
+            <h5>{{ form_label(settingsForm.preferLanguage) }}</h5>
             {{ form_widget(settingsForm.preferLanguage,
                 {'attr': {'class': 'form-control','required': 'true', 'autocomplete':'off'}}
             ) }}
 {#            {% endif %}#}
             <br>
-            {{ form_label(settingsForm.carType) }}<br>
+            <h5> {{ form_label(settingsForm.carType) }}</h5>
             {{ form_widget(settingsForm.carType,
                 {'attr': {'class': 'form-control', 'required': 'true'}}
             ) }}
             <br>
-            {{ form_label(settingsForm.tuning) }}<br>
+             <h5>{{ form_label(settingsForm.tuning) }}</h5>
             {{ form_widget(settingsForm.tuning,
                 {'attr': {'class': 'form-control', 'required': 'true'}}
             ) }}
             <br>
-            {{ form_label(settingsForm.fuelConsumption) }}<br>
+             <h5>{{ form_label(settingsForm.fuelConsumption) }}</h5>
             {{ form_widget(settingsForm.fuelConsumption,
                 {'attr': {'class': 'form-control', 'required': 'true'}}
             ) }}
@@ -246,9 +244,6 @@ class __TwigTemplate_d09c928ff9750340e87203e599e00a3d31d9af2a6ca2c67a426232b8780
 
                 </a>
 
-{#            <a id=\"reset\" style=\"position: absolute ;margin-top: 50px; padding: 5px;\" href=\"{{ path('deletePreferences') }}\"#}
-{#               class=\" btn-danger\">{{ 'Reset all settings'|trans }}#}
-{#            </a>#}
         </div>
     </div>
     {% block javasriptsblock %}

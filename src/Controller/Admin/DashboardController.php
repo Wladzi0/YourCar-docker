@@ -45,9 +45,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoCrud('Comments', 'fa fa-comment', Comment::class);
         yield MenuItem::section('Car');
         yield MenuItem::linktoCrud('Makes', 'fas fa-list-ul', Make::class);
-        yield MenuItem::linktoCrud('Models', null, Model::class);
-        yield MenuItem::linktoCrud('SubModels', 'fa fa-car', SubModel::class);
+        yield MenuItem::linktoCrud('Models', 'fas fa-list-ol', Model::class);
         yield MenuItem::linktoCrud('Engines', 'fa fa-cog', Engine::class);
+        yield MenuItem::linktoCrud('SubModels', 'fa fa-car', SubModel::class);
         yield MenuItem::linktoCrud('Car Details', 'fas fa-puzzle-piece', CarDetails::class);
         yield MenuItem::linktoCrud('Parts', 'fas fa-dolly-flatbed', Part::class);
         yield MenuItem::linktoCrud('Rims', 'fab fa-empire', Rim::class);
@@ -55,7 +55,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linktoCrud($this->newFaultCount(), 'fas fa-exclamation', Fault::class);
         yield MenuItem::linktoCrud('Transmissions', 'fa fa-cogs', Transmission::class);
         yield MenuItem::section();
-        yield MenuItem::linktoCrud('Filters', 'fas fa-filter', FilterOptions::class);
     }
 
 

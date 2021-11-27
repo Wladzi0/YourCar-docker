@@ -28,6 +28,7 @@ class __TwigTemplate_a39d49262ae3535c0415727cc5df61d035585a25bca23de8e3927b6d3a8
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
             'body' => [$this, 'block_body'],
+            'javasriptsblock' => [$this, 'block_javasriptsblock'],
         ];
     }
 
@@ -117,56 +118,98 @@ class __TwigTemplate_a39d49262ae3535c0415727cc5df61d035585a25bca23de8e3927b6d3a8
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 10
-        echo "    <div class=\"container\">
-        ";
+        echo "    <div class=\"container col-4\">
+        <h1 class=\"mt-5\">";
         // line 11
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 11, $this->source); })()), 'form_start', ["attr" => ["class" => "form-horizontal"]]);
-        echo "
+        echo "Request for addition fault";
+        echo "</h1>
+
         ";
-        // line 12
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 12, $this->source); })()), "images", [], "any", false, false, false, 12), 'label');
+        // line 13
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 13, $this->source); })()), 'form_start', ["attr" => ["class" => "form-horizontal mt-3"]]);
         echo "
-        <br>
-        ";
-        // line 14
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 14, $this->source); })()), "images", [], "any", false, false, false, 14), 'widget', ["attr" => ["class" => "form-control", "required" => "true"]]);
-        // line 17
-        echo "
-        <br>
-        ";
-        // line 19
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 19, $this->source); })()), "name", [], "any", false, false, false, 19), 'label');
-        echo "
-        <br>
-        ";
-        // line 21
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 21, $this->source); })()), "name", [], "any", false, false, false, 21), 'widget', ["attr" => ["class" => "form-control", "required" => "true"]]);
-        // line 24
-        echo "
-        <br>
-        ";
-        // line 26
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 26, $this->source); })()), "description", [], "any", false, false, false, 26), 'label');
-        echo "
-        <br>
-        ";
-        // line 28
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 28, $this->source); })()), "description", [], "any", false, false, false, 28), 'widget', ["attr" => ["class" => "form-control", "required" => "true"]]);
-        // line 31
-        echo "
-        <br>
-        <button class=\"btn btn-success w-25 \" type=\"submit\">
+        <p class=\"font-weight-bold label-form\">
             ";
+        // line 15
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 15, $this->source); })()), "images", [], "any", false, false, false, 15), 'label');
+        echo "
+            <i class=\"fas fa-asterisk\"></i>
+        </p>
+        ";
+        // line 18
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 18, $this->source); })()), "images", [], "any", false, false, false, 18), 'widget', ["attr" => ["class" => "form-images", "required" => "true"]]);
+        // line 21
+        echo "
+        <br>
+
+        <div id=\"selectedImage\" class=\" mb-2\"></div>
+        <br>
+        <p class=\"font-weight-bold label-form\">
+            ";
+        // line 27
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 27, $this->source); })()), "name", [], "any", false, false, false, 27), 'label');
+        echo "
+            <i class=\"fas fa-asterisk\"></i>
+        </p>
+
+        ";
+        // line 31
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 31, $this->source); })()), "name", [], "any", false, false, false, 31), 'widget', ["attr" => ["class" => "form-control", "required" => "true"]]);
         // line 34
+        echo "
+        <br>
+        <p class=\"font-weight-bold label-form\">
+            ";
+        // line 37
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 37, $this->source); })()), "description", [], "any", false, false, false, 37), 'label');
+        echo "
+            <i class=\"fas fa-asterisk\"></i>
+        </p>
+        ";
+        // line 40
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 40, $this->source); })()), "description", [], "any", false, false, false, 40), 'widget', ["attr" => ["class" => "form-control", "required" => "true"]]);
+        // line 43
+        echo "
+        <button class=\"btn btn-success w-25 mt-5 \" type=\"submit\">
+            ";
+        // line 45
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Add"), "html", null, true);
         echo "
         </button>
         ";
-        // line 36
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 36, $this->source); })()), 'form_end');
+        // line 47
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["faultForm"]) || array_key_exists("faultForm", $context) ? $context["faultForm"] : (function () { throw new RuntimeError('Variable "faultForm" does not exist.', 47, $this->source); })()), 'form_end');
         echo "
     </div>
-";
+    ";
+        // line 49
+        $this->displayBlock('javasriptsblock', $context, $blocks);
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    public function block_javasriptsblock($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javasriptsblock"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javasriptsblock"));
+
+        // line 50
+        echo "        <script src=\"";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/deleteImage.js"), "html", null, true);
+        echo "\"></script>
+        <script src=\"";
+        // line 51
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/selectedImage.js"), "html", null, true);
+        echo "\"></script>
+    ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -187,7 +230,7 @@ class __TwigTemplate_a39d49262ae3535c0415727cc5df61d035585a25bca23de8e3927b6d3a8
 
     public function getDebugInfo()
     {
-        return array (  166 => 36,  161 => 34,  156 => 31,  154 => 28,  149 => 26,  145 => 24,  143 => 21,  138 => 19,  134 => 17,  132 => 14,  127 => 12,  123 => 11,  120 => 10,  110 => 9,  98 => 7,  93 => 6,  83 => 5,  70 => 3,  60 => 2,  37 => 1,);
+        return array (  210 => 51,  205 => 50,  186 => 49,  181 => 47,  176 => 45,  172 => 43,  170 => 40,  164 => 37,  159 => 34,  157 => 31,  150 => 27,  142 => 21,  140 => 18,  134 => 15,  129 => 13,  124 => 11,  121 => 10,  111 => 9,  99 => 7,  94 => 6,  84 => 5,  71 => 3,  61 => 2,  38 => 1,);
     }
 
     public function getSourceContext()
@@ -201,34 +244,49 @@ class __TwigTemplate_a39d49262ae3535c0415727cc5df61d035585a25bca23de8e3927b6d3a8
     <link rel=\"stylesheet\" href=\"{{ asset('css/slick.css') }}\">
 {% endblock %}
 {% block body %}
-    <div class=\"container\">
-        {{ form_start(faultForm, {'attr': {'class': 'form-horizontal'}}) }}
-        {{ form_label(faultForm.images) }}
-        <br>
+    <div class=\"container col-4\">
+        <h1 class=\"mt-5\">{{ 'Request for addition fault' }}</h1>
+
+        {{ form_start(faultForm, {'attr': {'class': 'form-horizontal mt-3'}}) }}
+        <p class=\"font-weight-bold label-form\">
+            {{ form_label(faultForm.images) }}
+            <i class=\"fas fa-asterisk\"></i>
+        </p>
         {{ form_widget(faultForm.images,
             {'attr':
-                {'class': 'form-control', 'required': 'true'}
+                {'class': 'form-images', 'required': 'true'}
             }) }}
         <br>
-        {{ form_label(faultForm.name) }}
+
+        <div id=\"selectedImage\" class=\" mb-2\"></div>
         <br>
+        <p class=\"font-weight-bold label-form\">
+            {{ form_label(faultForm.name) }}
+            <i class=\"fas fa-asterisk\"></i>
+        </p>
+
         {{ form_widget(faultForm.name,
             {'attr':
                 {'class': 'form-control', 'required': 'true'}
             }) }}
         <br>
-        {{ form_label(faultForm.description) }}
-        <br>
+        <p class=\"font-weight-bold label-form\">
+            {{ form_label(faultForm.description) }}
+            <i class=\"fas fa-asterisk\"></i>
+        </p>
         {{ form_widget(faultForm.description,
             {'attr':
                 {'class': 'form-control', 'required': 'true'}
             }) }}
-        <br>
-        <button class=\"btn btn-success w-25 \" type=\"submit\">
+        <button class=\"btn btn-success w-25 mt-5 \" type=\"submit\">
             {{ 'Add'|trans }}
         </button>
         {{ form_end(faultForm) }}
     </div>
+    {% block javasriptsblock %}
+        <script src=\"{{ asset('js/deleteImage.js') }}\"></script>
+        <script src=\"{{ asset('js/selectedImage.js') }}\"></script>
+    {% endblock %}
 {% endblock %}
 ", "car/catalog/fault/fault_form.html.twig", "/var/www/php/symfony/templates/car/catalog/fault/fault_form.html.twig");
     }

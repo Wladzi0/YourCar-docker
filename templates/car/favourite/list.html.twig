@@ -1,61 +1,69 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    {{ 'Your best cars list'|trans }}
+    {{ 'Your favourite cars list'|trans }}
 {% endblock %}
 
 {% block body %}
-
-    {% for best in bests %}
-        <div class="border m-5 row " id="{{ loop.index }}">
-            <a href="{{ path('details_by_engine',
+    {% if favorites %}
+        <div class="container">
+    {% for favourite in favorites %}
+        <div class="d-flex border m-5 flex-row"  id="{{ loop.index }}">
+            <a style="overflow: hidden" href="{{ path('details_by_engine',
                 {
-                    'engine': best.carDetails.engine.id,
-                    'make': best.carDetails.subModel.model.make.id,
-                    'model': best.carDetails.subModel.model.id,
-                    'subModel': best.carDetails.subModel.id
+                    'engine': favourite.carDetails.engine.id,
+                    'make': favourite.carDetails.subModel.model.make.id,
+                    'model': favourite.carDetails.subModel.model.id,
+                    'subModel': favourite.carDetails.subModel.id
                 }
-            ) }}" class="row">
+            ) }}">
 
                 <img src="
-            {{ asset('images/car_details/'~ best.carDetails.subModel.images|first) }}"
-                     width="460" height="300" alt="">
-                <h4>
-                    {{ best.carDetails.subModel.model.make }}
-                    {{ best.carDetails.subModel.model }}
-                    ({{ best.carDetails.subModel.bodyPlatform }})
+            {{ asset('images/car_details/'~ favourite.carDetails.subModel.images|first) }}"
+                     width="300" height="300" alt="" style="display: inline-block">
+
+                <div class="description col mt-4">
+                    <h4>
+                    {{ favourite.carDetails.subModel.model.make }}
+                    {{ favourite.carDetails.subModel.model }}
+                    ({{ favourite.carDetails.subModel.bodyPlatform }})
                 </h4>
-            </a>
-            <div class="description col mt-4">
+
                 <p>
-                    {{ best.carDetails.engine }}
-                    ({{ best.carDetails.power }} HP)
+                    {{ favourite.carDetails.engine }}
+                    ({{ favourite.carDetails.power }} HP)
 
                 </p>
             </div >
+            </a>
             <div class="d-flex align-items-start flex-column bd-highlight mb-3">
-            <a href="{{ path('comparing',{ 'id': best.carDetails.id }) }}"  id="js-compare"
-               class="text-white mb-auto p-2 bd-highlight">
+            <a href="{{ path('comparing',{ 'id': favourite.carDetails.id }) }}"
+               id="js-compare" class="text-white mb-auto p-2 bd-highlight">
 
-                {% if app.user and best.carDetails.isScaledByUser(app.user) %}
-                    <i class="fas fa-balance-scale-right "></i>
+                {% if app.user and favourite.carDetails.isScaledByUser(app.user) %}
+                    <i class="fas fa-balance-scale-right scale"></i>
                 {% else %}
-                    <i class="fas fa-balance-scale"></i>
+                    <i class="fas fa-balance-scale scale"></i>
                 {% endif %}
             </a>
 
-            <a href="{{ path('add_favourite',{'id':best.carDetails.id }) }}"
+            <a href="{{ path('add_favourite',{'id':favourite.carDetails.id }) }}"
                id="js-favourite" data-car="{{ loop.index }}" class=" like btn-link ">
-
-                {% if app.user and best.carDetails.isFavouredByUser(app.user) %}
-                    <i class=" fas fa-heart"></i>
+                {% if app.user and favourite.carDetails.isFavouredByUser(app.user) %}
+                    <i class=" fas fa-heart heart"></i>
                 {% else %}
-                    <i class="far fa-heart"></i>
+                    <i class="far fa-heart heart"></i>
                 {% endif %}
             </a>
         </div>
         </div>
     {% endfor %}
-
+    {% else %}
+        <h2 class="d-flex justify-content-center align-items-center flex-column"
+            style="height: 600px;">
+            {{ 'You forgot to add cars to favourite list'|trans }}
+        </h2>
+        </div>
+    {% endif %}
     {% block javasriptsblock %}
         {{ include('like_slider_compare.html.twig') }}
     {% endblock %}

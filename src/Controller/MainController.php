@@ -8,34 +8,43 @@ use App\Entity\Make;
 use App\Entity\Model;
 use App\Entity\Part;
 use App\Entity\SubModel;
+use App\Entity\User;
+use App\Form\LanguageFormType;
 use App\Repository\CarDetailsRepository;
 use App\Repository\FaultRepository;
 use App\Repository\MakeRepository;
 use App\Repository\ModelRepository;
 use App\Repository\SubModelRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class MainController extends AbstractController
 {
     private $rating;
+    private $session;
 
-    public function __construct(RatingController $rating)
+    public function __construct(RatingController $rating, SessionInterface $session)
     {
         $this->rating = $rating;
+        $this->session = $session;
     }
 
     /**
+     *
      * @Route("/", name="main")
      */
     public function index(): Response
     {
+        dump($this->session->get('_locale'));
         return $this->render('main/index.html.twig', [
 
         ]);
     }
+
 
     /**
      * @Route("/makes/list", name="makes_list")
@@ -215,10 +224,18 @@ class MainController extends AbstractController
     {
         $result = $this->rating->averageRating($engine, true);
         $foundParts = $this->searchedParts('engine', $engine);
+        $engineFaults= $engine->getFaults();
+        $faultList = [];
+        foreach ($engineFaults as $fault){
+        if($fault->getPublished() == '1') {
+            $faultList [] = $fault;
+        }
+        }
         return $this->render('car/catalog/engine/details.html.twig', [
             'result' => $result,
             'engine' => $engine,
-            'parts' => $foundParts
+            'parts' => $foundParts,
+            'faults' => $faultList
 
         ]);
     }

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
+    <link rel="shortcut icon" href="#">
     <meta charset="UTF-8">
     <title>{% block title %}
             {{ 'Welcome'|trans }}
         {% endblock %}
     </title>
-    {% trans_default_domain "translate" %}
     {% block stylesheets %}
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
               integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -27,55 +28,76 @@
         </script>
         <script src="{{ asset('js/dropdown.js') }}">
         </script>
+        <script src="{{ asset('js/search.js') }}">
+        </script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
                 integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
                 crossorigin="anonymous">
+        </script>
+        <script src="{{ asset('js/language.js') }}">
         </script>
     {% endblock %}
 </head>
 <body>
 {% block navigation %}
-    <div class="d-flex flex-row justify-content-between bg-dark">
-        <a class="logo text-light " href="{{ path('main') }}">
-            YourCar
-        </a>
+    <div class="nav justify-content-lg-between bg-dark">
+        <a class="logo" href="{{ path('main') }}">YourCar</a>
+        <form id="search-box" class="mr-sm-5">
+            <button id="btn-search">
+                <i class="fas fa-search h5 text-white "></i>
+            </button>
+            <input type="text" id="input-search" autocomplete="off" placeholder="Search a cars...">
+            <ul class="bg-dark " id="searchResult"></ul>
+        </form>
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        {% if app.request.attributes.get('_route') != 'main' %}
-            <div class="col-2 d-flex flex-row justify-content-between mt-3">
-                <a href="{{ path('favourite_cars_list') }}">
-                    <i class="fas fa-heart button-link"></i>
-                    <input type="button" readonly id="like-count" value={{  app.user.favourites|length }}>
-                </a>
-                <a href="{{ path('comparing_list') }}">
-                    <i class="fas fa-balance-scale button-link"></i>
-                    <input type="button" readonly id="compare-count" value={{  app.user.scales|length }}>
-                </a>
-            </div>
+
+            {% if app.request.attributes.get('_route') != 'main' %}
+                <div class="d-flex flex-row mt-4 main">
+                    <a class="d-flex flex-row mr-5" style="text-decoration:none"
+                       href="{{ path('favourite_cars_list') }}">
+                        <i class="fas fa-heart h3 heart"></i>
+                        <input id="like-count" class="text-white bg-dark h4 p-1 border-0" type="button"
+                               value="{{ app.user.favourites|length }}">
+                    </a>
+                    <a class="d-flex flex-row scale" style="text-decoration:none"
+                       href="{{ path('comparing_list') }}">
+                        <i class="fas fa-balance-scale h3"></i>
+                        <input id="compare-count" class="text-white bg-dark h4 p-1 border-0" type="button"
+                               value="{{ app.user.scales|length }}">
+                    </a>
+                </div>
             {% endif %}
-            {% if is_granted('ROLE_ADMIN') %}
-                <a href="{{ path('admin') }}" class="sign-in text-light ">
+            <select class="bg-dark text-white" id="language">
+                <option value="{{ app.user.preferLanguage }}">{{ app.user.preferLanguage }}</option>
+            </select>
+            <a id="account" class="button-link text-light pointer">
+                {% if is_granted('ROLE_ADMIN') %}
                     <i class="fa fa-user-cog">
                     </i>
-                </a>
-            {% endif %}
-            <a id="account" class="button-link btn text-light ">
-                <i class="fa fa-user">
-                </i>
+                {% else %}
+                    <i class="fa fa-user">
+                    </i>
+                {% endif %}
             </a>
             <div id="dropdown" class="dropdown-content bg-dark ">
-                <div class="col-3">
-                <a href="{{ path('userPreferences') }}">
-                    Preferences
-                </a>
-                <a href="{{ path('app_logout') }}">
-                    Logout
-                </a>
+                <div class="d-flex flex-column m-3 ">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="h6 mb-3" href="{{ path('admin') }}">
+                            {{ 'Admin panel'|trans }}
+                        </a>
+                    {% endif %}
+                    <a class="h6 mb-3" href="{{ path('userPreferences') }}">
+                        {{ 'Preferences'|trans }}
+                    </a>
+                    <a class="h6" href="{{ path('app_logout') }}">
+                        {{ 'Logout'|trans }}
+                    </a>
                 </div>
             </div>
         {% else %}
-            <a class="button-link text-light " href="{{ path('app_login') }}">
-                <i class="fa fa-sign-in">
-                </i>
+            <a class="button-link text-light position-sticky justify-content-end"
+               href="{{ path('app_login') }}">
+                <i class="fa fa-sign-in"></i>
             </a>
         {% endif %}
     </div>
@@ -83,8 +105,8 @@
 {% block messages %}
     {% for type, messages in app.session.flashbag.all() %}
         {% for message in messages %}
-            <div class="alert-{{ type }}" role="alert">
-                {{ message|trans }}
+            <div class=" alert-{{ type }}" role="alert">
+                <h5 class="ml-4">{{ message|trans }}</h5>
             </div>
         {% endfor %}
     {% endfor %}

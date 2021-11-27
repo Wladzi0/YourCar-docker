@@ -28,6 +28,8 @@
       <parameter key="SymfonyCastsResetPasswordBundle">SymfonyCasts\Bundle\ResetPassword\SymfonyCastsResetPasswordBundle</parameter>
       <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
       <parameter key="FOSElasticaBundle">FOS\ElasticaBundle\FOSElasticaBundle</parameter>
+      <parameter key="KnpUOAuth2ClientBundle">KnpU\OAuth2ClientBundle\KnpUOAuth2ClientBundle</parameter>
+      <parameter key="WebpackEncoreBundle">Symfony\WebpackEncoreBundle\WebpackEncoreBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -106,11 +108,21 @@
         <parameter key="path">/var/www/php/symfony/vendor/friendsofsymfony/elastica-bundle/src</parameter>
         <parameter key="namespace">FOS\ElasticaBundle</parameter>
       </parameter>
+      <parameter key="KnpUOAuth2ClientBundle" type="collection">
+        <parameter key="path">/var/www/php/symfony/vendor/knpuniversity/oauth2-client-bundle/src</parameter>
+        <parameter key="namespace">KnpU\OAuth2ClientBundle</parameter>
+      </parameter>
+      <parameter key="WebpackEncoreBundle" type="collection">
+        <parameter key="path">/var/www/php/symfony/vendor/symfony/webpack-encore-bundle/src</parameter>
+        <parameter key="namespace">Symfony\WebpackEncoreBundle</parameter>
+      </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">App_KernelDevDebugContainer</parameter>
+    <parameter key="locale">en</parameter>
     <parameter key="fault_images_directory">/var/www/php/symfony/public/images/car_details</parameter>
     <parameter key="makes_images_directory">/var/www/php/symfony/public/images/makes</parameter>
+    <parameter key="parts_images_directory">/var/www/php/symfony/public/images/parts</parameter>
     <parameter key="event_dispatcher.event_aliases" type="collection">
       <parameter key="Symfony\Component\Console\Event\ConsoleCommandEvent">console.command</parameter>
       <parameter key="Symfony\Component\Console\Event\ConsoleErrorEvent">console.error</parameter>
@@ -337,6 +349,22 @@
         </parameter>
         <parameter key="db_driver">orm</parameter>
       </parameter>
+      <parameter key="parts" type="collection">
+        <parameter key="uri_prefix">/images/parts</parameter>
+        <parameter key="upload_destination">/var/www/php/symfony/public/images/parts</parameter>
+        <parameter key="namer" type="collection">
+          <parameter key="service">Vich\UploaderBundle\Naming\UniqidNamer.parts</parameter>
+          <parameter key="options" type="collection"/>
+        </parameter>
+        <parameter key="inject_on_load">false</parameter>
+        <parameter key="delete_on_update">true</parameter>
+        <parameter key="delete_on_remove">true</parameter>
+        <parameter key="directory_namer" type="collection">
+          <parameter key="service">null</parameter>
+          <parameter key="options">null</parameter>
+        </parameter>
+        <parameter key="db_driver">orm</parameter>
+      </parameter>
     </parameter>
     <parameter key="vich_uploader.file_injector.class">Vich\UploaderBundle\Injector\FileInjector</parameter>
     <parameter key="easyadmin.config" type="collection"/>
@@ -461,7 +489,7 @@
       <tag name="container.service_subscriber"/>
       <argument type="service" id="translator.data_collector"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\CarDetailsCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\CarDetailsCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\CommentCrudController" class="App\Controller\Admin\CommentCrudController" public="true" autowire="true" autoconfigure="true">
@@ -469,7 +497,7 @@
       <tag name="ea.crud_controller"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\CommentCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\CommentCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\DashboardController" class="App\Controller\Admin\DashboardController" public="true" autowire="true" autoconfigure="true">
@@ -477,7 +505,7 @@
       <tag name="ea.dashboard_controller"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.2NhYGWe.App\Controller\Admin\DashboardController"/>
+        <argument type="service" id=".service_locator.YxliMzB.App\Controller\Admin\DashboardController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\EngineCrudController" class="App\Controller\Admin\EngineCrudController" public="true" autowire="true" autoconfigure="true">
@@ -485,7 +513,7 @@
       <tag name="ea.crud_controller"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\EngineCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\EngineCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\FaultCrudController" class="App\Controller\Admin\FaultCrudController" public="true" autowire="true" autoconfigure="true">
@@ -493,7 +521,7 @@
       <tag name="ea.crud_controller"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\FaultCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\FaultCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\FilterOptionsCrudController" class="App\Controller\Admin\FilterOptionsCrudController" public="true" autowire="true" autoconfigure="true">
@@ -501,7 +529,7 @@
       <tag name="ea.crud_controller"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\FilterOptionsCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\FilterOptionsCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\MakeCrudController" class="App\Controller\Admin\MakeCrudController" public="true" autowire="true" autoconfigure="true">
@@ -509,7 +537,7 @@
       <tag name="ea.crud_controller"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\MakeCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\MakeCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\ModelCrudController" class="App\Controller\Admin\ModelCrudController" public="true" autowire="true" autoconfigure="true">
@@ -518,7 +546,7 @@
       <tag name="container.service_subscriber"/>
       <argument type="service" id="translator.data_collector"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\ModelCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\ModelCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\PartCrudController" class="App\Controller\Admin\PartCrudController" public="true" autowire="true" autoconfigure="true">
@@ -526,7 +554,7 @@
       <tag name="ea.crud_controller"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\PartCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\PartCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\RimCrudController" class="App\Controller\Admin\RimCrudController" public="true" autowire="true" autoconfigure="true">
@@ -534,7 +562,7 @@
       <tag name="ea.crud_controller"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\RimCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\RimCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\SubModelCrudController" class="App\Controller\Admin\SubModelCrudController" public="true" autowire="true" autoconfigure="true">
@@ -543,7 +571,7 @@
       <tag name="container.service_subscriber"/>
       <argument type="service" id="translator.data_collector"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\SubModelCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\SubModelCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\TireCrudController" class="App\Controller\Admin\TireCrudController" public="true" autowire="true" autoconfigure="true">
@@ -551,7 +579,7 @@
       <tag name="ea.crud_controller"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\TireCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\TireCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\TransmissionCrudController" class="App\Controller\Admin\TransmissionCrudController" public="true" autowire="true" autoconfigure="true">
@@ -559,7 +587,7 @@
       <tag name="ea.crud_controller"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\TransmissionCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\TransmissionCrudController"/>
       </call>
     </service>
     <service id="App\Controller\Admin\UserCrudController" class="App\Controller\Admin\UserCrudController" public="true" autowire="true" autoconfigure="true">
@@ -567,91 +595,104 @@
       <tag name="ea.crud_controller"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Z2dd43Q.App\Controller\Admin\UserCrudController"/>
+        <argument type="service" id=".service_locator.AJZghCA.App\Controller\Admin\UserCrudController"/>
       </call>
     </service>
     <service id="App\Controller\BaseController" class="App\Controller\BaseController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="translator.data_collector"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.B8xSpvP.App\Controller\BaseController"/>
+        <argument type="service" id=".service_locator.n2gAzJB.App\Controller\BaseController"/>
       </call>
     </service>
     <service id="App\Controller\CommentController" class="App\Controller\CommentController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.B8xSpvP.App\Controller\CommentController"/>
+        <argument type="service" id=".service_locator.n2gAzJB.App\Controller\CommentController"/>
       </call>
     </service>
     <service id="App\Controller\FavouriteController" class="App\Controller\FavouriteController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.B8xSpvP.App\Controller\FavouriteController"/>
+        <argument type="service" id=".service_locator.n2gAzJB.App\Controller\FavouriteController"/>
+      </call>
+    </service>
+    <service id="App\Controller\GoogleController" class="App\Controller\GoogleController" public="true" autowire="true" autoconfigure="true">
+      <tag name="controller.service_arguments"/>
+      <tag name="container.service_subscriber"/>
+      <call method="setContainer">
+        <argument type="service" id=".service_locator.n2gAzJB.App\Controller\GoogleController"/>
       </call>
     </service>
     <service id="App\Controller\MainController" class="App\Controller\MainController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="App\Controller\RatingController"/>
+      <argument type="service" id="session"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.B8xSpvP.App\Controller\MainController"/>
+        <argument type="service" id=".service_locator.n2gAzJB.App\Controller\MainController"/>
       </call>
     </service>
     <service id="App\Controller\PreferenceController" class="App\Controller\PreferenceController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.B8xSpvP.App\Controller\PreferenceController"/>
+        <argument type="service" id=".service_locator.n2gAzJB.App\Controller\PreferenceController"/>
       </call>
     </service>
     <service id="App\Controller\RatingController" class="App\Controller\RatingController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.B8xSpvP.App\Controller\RatingController"/>
+        <argument type="service" id=".service_locator.n2gAzJB.App\Controller\RatingController"/>
       </call>
     </service>
     <service id="App\Controller\RegistrationController" class="App\Controller\RegistrationController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="translator.data_collector"/>
       <argument type="service" id="App\Security\EmailVerifier"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.B8xSpvP.App\Controller\RegistrationController"/>
+        <argument type="service" id=".service_locator.n2gAzJB.App\Controller\RegistrationController"/>
       </call>
     </service>
     <service id="App\Controller\ResetPasswordController" class="App\Controller\ResetPasswordController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
       <argument type="service" id="symfonycasts.reset_password.helper"/>
+      <argument type="service" id="translator.data_collector"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.B8xSpvP.App\Controller\ResetPasswordController"/>
+        <argument type="service" id=".service_locator.n2gAzJB.App\Controller\ResetPasswordController"/>
       </call>
     </service>
     <service id="App\Controller\ScaleController" class="App\Controller\ScaleController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="session"/>
+      <argument type="service" id="fos_elastica.finder.cardetails"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.Hu2Mgx4.App\Controller\ScaleController"/>
+        <argument type="service" id=".service_locator.n2gAzJB.App\Controller\ScaleController"/>
       </call>
     </service>
     <service id="App\Controller\SearchFilterController" class="App\Controller\SearchFilterController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="fos_elastica.finder.cars"/>
+      <argument type="service" id="translator.data_collector"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.B8xSpvP.App\Controller\SearchFilterController"/>
+        <argument type="service" id=".service_locator._WtQPBo.App\Controller\SearchFilterController"/>
       </call>
     </service>
     <service id="App\Controller\SecurityController" class="App\Controller\SecurityController" public="true" autowire="true" autoconfigure="true">
       <tag name="controller.service_arguments"/>
       <tag name="container.service_subscriber"/>
+      <argument type="service" id="translator.data_collector"/>
       <call method="setContainer">
-        <argument type="service" id=".service_locator.B8xSpvP.App\Controller\SecurityController"/>
+        <argument type="service" id=".service_locator.n2gAzJB.App\Controller\SecurityController"/>
       </call>
-    </service>
-    <service id="App\Controller\SubModelController" class="App\Controller\SubModelController" public="true" autowire="true" autoconfigure="true">
-      <tag name="controller.service_arguments"/>
     </service>
     <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
       <tag name="doctrine.fixture.orm"/>
@@ -671,30 +712,41 @@
     </service>
     <service id="App\Form\ChangePasswordFormType" class="App\Form\ChangePasswordFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
     </service>
     <service id="App\Form\CommentFormType" class="App\Form\CommentFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
     </service>
     <service id="App\Form\FaultFormType" class="App\Form\FaultFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
     </service>
     <service id="App\Form\FilterFormType" class="App\Form\FilterFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
     </service>
     <service id="App\Form\ImageFormType" class="App\Form\ImageFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
     </service>
     <service id="App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" autoconfigure="true">
+      <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
+    </service>
+    <service id="App\Form\SearchFormType" class="App\Form\SearchFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
     </service>
     <service id="App\Form\UserFormType" class="App\Form\UserFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
     </service>
     <service id="App\Form\UserSettingsFormType" class="App\Form\UserSettingsFormType" autowire="true" autoconfigure="true">
       <tag name="form.type"/>
+      <argument type="service" id="translator.data_collector"/>
     </service>
     <service id="App\Repository\CarDetailsRepository" class="App\Repository\CarDetailsRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -756,6 +808,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\SearchRepository" class="App\Repository\SearchRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\SubModelRepository" class="App\Repository\SubModelRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -777,12 +833,29 @@
       <argument type="service" id="mailer.mailer"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
     </service>
+    <service id="App\Security\GoogleAuthenticator" class="App\Security\GoogleAuthenticator" autowire="true" autoconfigure="true">
+      <argument type="service" id="router.default"/>
+      <argument type="service" id="knpu.oauth2.registry"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+      <argument type="service" id="security.user_password_encoder.generic"/>
+    </service>
     <service id="App\Security\LoginFormAuthAuthenticator" class="App\Security\LoginFormAuthAuthenticator" autowire="true" autoconfigure="true">
       <argument type="service" id="session"/>
       <argument type="service" id="doctrine.orm.default_entity_manager"/>
       <argument type="service" id="router.default"/>
       <argument type="service" id="security.csrf.token_manager"/>
       <argument type="service" id="security.user_password_encoder.generic"/>
+    </service>
+    <service id="App\Subscribers\LocalSubscriber" class="App\Subscribers\LocalSubscriber" autowire="true" autoconfigure="true">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+      <argument type="service" id="security.token_storage"/>
+      <argument type="service" id="session"/>
+      <argument type="service" id="App\Repository\UserRepository"/>
+    </service>
+    <service id="App\Subscribers\UserLocateSubscriber" class="App\Subscribers\UserLocateSubscriber" autowire="true" autoconfigure="true">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="session"/>
     </service>
     <service id="argument_metadata_factory" class="Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory"/>
     <service id="response_listener" class="Symfony\Component\HttpKernel\EventListener\ResponseListener">
@@ -906,6 +979,9 @@
         <argument key="form.type.entity" type="service" id="form.type.entity" on-invalid="ignore_uninitialized"/>
         <argument key="security.token_storage" type="service" id="security.token_storage" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="webpack_encore.tag_renderer" type="service" id="webpack_encore.tag_renderer" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
+        <argument key="webpack_encore.entrypoint_lookup[_default]" type="service" id="webpack_encore.entrypoint_lookup[_default]" on-invalid="ignore_uninitialized"/>
       </argument>
       <argument type="collection">
         <argument key="cache.app" type="collection">
@@ -961,6 +1037,15 @@
           <argument>setToken</argument>
         </argument>
         <argument key="cache.security_expression_language" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="webpack_encore.tag_renderer" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="cache.webpack_encore" type="collection">
+          <argument>reset</argument>
+        </argument>
+        <argument key="webpack_encore.entrypoint_lookup[_default]" type="collection">
           <argument>reset</argument>
         </argument>
       </argument>
@@ -1104,6 +1189,7 @@
         <argument>cache.doctrine.orm.default.result</argument>
         <argument>cache.doctrine.orm.default.query</argument>
         <argument>cache.security_expression_language</argument>
+        <argument>cache.webpack_encore</argument>
       </argument>
       <call method="setName">
         <argument>cache:pool:list</argument>
@@ -1265,6 +1351,7 @@
         <argument>App\Form\ImageFormType</argument>
         <argument>App\Form\RegistrationFormType</argument>
         <argument>App\Form\ResetPasswordRequestFormType</argument>
+        <argument>App\Form\SearchFormType</argument>
         <argument>App\Form\UserFormType</argument>
         <argument>App\Form\UserSettingsFormType</argument>
         <argument>Symfony\Component\Form\Extension\Core\Type\FormType</argument>
@@ -1505,6 +1592,7 @@
         <argument key="cache.annotations" type="service" id="cache.annotations" on-invalid="ignore_uninitialized"/>
         <argument key="cache.property_info" type="service" id="cache.property_info" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="cache.global_clearer" class="Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="true">
@@ -1519,6 +1607,7 @@
         <argument key="cache.doctrine.orm.default.result" type="service" id="cache.doctrine.orm.default.result" on-invalid="ignore_uninitialized"/>
         <argument key="cache.doctrine.orm.default.query" type="service" id="cache.doctrine.orm.default.query" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.webpack_encore" type="service" id="cache.webpack_encore" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="identity_translator" class="Symfony\Component\Translation\IdentityTranslator"/>
@@ -1630,7 +1719,7 @@
       <argument type="service" id="form.registry"/>
     </service>
     <service id="form.extension" class="Symfony\Component\Form\Extension\DependencyInjection\DependencyInjectionExtension">
-      <argument type="service" id=".service_locator..Esax9c"/>
+      <argument type="service" id=".service_locator.L0vvmz8"/>
       <argument type="collection">
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="iterator">
           <argument type="service" id="form.type_extension.form.transformation_failure_handling"/>
@@ -1770,10 +1859,18 @@
       <argument type="abstract">manifest url</argument>
       <argument type="service" id=".debug.http_client"/>
     </service>
+    <service id="assets._version__default" class="Symfony\Component\Asset\VersionStrategy\JsonManifestVersionStrategy">
+      <argument>/var/www/php/symfony/public/build/manifest.json</argument>
+    </service>
     <service id="assets._default_package" class="Symfony\Component\Asset\PathPackage">
       <argument></argument>
-      <argument type="service" id="assets.empty_version_strategy"/>
+      <argument type="service" id="assets._version__default"/>
       <argument type="service" id="assets.context"/>
+    </service>
+    <service id="psr18.http_client" class="Symfony\Component\HttpClient\Psr18Client">
+      <argument type="service" id=".debug.http_client"/>
+      <argument>null</argument>
+      <argument>null</argument>
     </service>
     <service id="http_client.abstract_retry_strategy" class="Symfony\Component\HttpClient\Retry\GenericRetryStrategy" abstract="true">
       <argument type="abstract">http codes</argument>
@@ -2178,6 +2275,12 @@
             <argument>/var/www/php/symfony/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.fr.php</argument>
             <argument>/var/www/php/symfony/vendor/symfonycasts/reset-password-bundle/src/Resources/translations/ResetPasswordBundle.fr.xlf</argument>
             <argument>/var/www/php/symfony/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.fr.xliff</argument>
+            <argument>/var/www/php/symfony/translations/EasyAdminBundle+intl-icu.fr.xlf</argument>
+            <argument>/var/www/php/symfony/translations/messages.fr.xlf</argument>
+            <argument>/var/www/php/symfony/translations/messages.fr.yaml</argument>
+            <argument>/var/www/php/symfony/translations/search+intl-icu.fr.xlf</argument>
+            <argument>/var/www/php/symfony/translations/security.fr.xlf</argument>
+            <argument>/var/www/php/symfony/translations/validators.fr.xlf</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>/var/www/php/symfony/vendor/symfony/validator/Resources/translations/validators.gl.xlf</argument>
@@ -2450,6 +2553,8 @@
           <argument>/var/www/php/symfony/vendor/symfony/web-server-bundle/translations</argument>
           <argument>/var/www/php/symfony/vendor/doctrine/doctrine-fixtures-bundle/translations</argument>
           <argument>/var/www/php/symfony/vendor/friendsofsymfony/elastica-bundle/src/translations</argument>
+          <argument>/var/www/php/symfony/vendor/knpuniversity/oauth2-client-bundle/src/translations</argument>
+          <argument>/var/www/php/symfony/vendor/symfony/webpack-encore-bundle/src/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -2476,6 +2581,8 @@
             <argument>vendor/symfony/web-server-bundle/translations</argument>
             <argument>vendor/doctrine/doctrine-fixtures-bundle/translations</argument>
             <argument>vendor/friendsofsymfony/elastica-bundle/src/translations</argument>
+            <argument>vendor/knpuniversity/oauth2-client-bundle/src/translations</argument>
+            <argument>vendor/symfony/webpack-encore-bundle/src/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -2862,6 +2969,10 @@
         <argument>cache.security_expression_language</argument>
         <argument type="service" id="cache.security_expression_language"/>
       </call>
+      <call method="addInstance">
+        <argument>cache.webpack_encore</argument>
+        <argument type="service" id="cache.webpack_encore"/>
+      </call>
     </service>
     <service id="cache_pool_clearer.cache_warmer" class="Symfony\Bundle\FrameworkBundle\CacheWarmer\CachePoolClearerCacheWarmer">
       <tag name="kernel.cache_warmer" priority="64"/>
@@ -2985,6 +3096,30 @@
           <argument>onPostIndexPopulate</argument>
         </argument>
         <argument>-9999</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.exception</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="webpack_encore.exception_listener"/>
+          <argument>onKernelException</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="App\Subscribers\LocalSubscriber"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>17</argument>
+      </call>
+      <call method="addListener">
+        <argument>security.interactive_login</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="App\Subscribers\UserLocateSubscriber"/>
+          <argument>onInteractiveLogin</argument>
+        </argument>
+        <argument>15</argument>
       </call>
       <call method="addListener">
         <argument>kernel.response</argument>
@@ -3574,7 +3709,7 @@
     <service id="router.default" class="Symfony\Bundle\FrameworkBundle\Routing\Router">
       <tag name="monolog.logger" channel="router"/>
       <tag name="container.service_subscriber" id="routing.loader"/>
-      <argument type="service" id=".service_locator.491LSII.router.default"/>
+      <argument type="service" id=".service_locator.C6PVGlk.router.default"/>
       <argument>kernel::loadRoutes</argument>
       <argument type="collection">
         <argument key="cache_dir">/var/www/php/symfony/var/cache/dev</argument>
@@ -4069,6 +4204,12 @@
       </call>
       <call method="addExtension">
         <argument type="service" id="knp_paginator.twig.extension.pagination"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="webpack_encore.twig_entry_files_extension"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="webpack_encore.twig_stimulus_extension"/>
       </call>
       <call method="addGlobal">
         <argument>app</argument>
@@ -4831,11 +4972,12 @@
       </argument>
     </service>
     <service id="doctrine.dbal.default_connection.event_manager" class="Symfony\Bridge\Doctrine\ContainerAwareEventManager">
-      <argument type="service" id=".service_locator.mMijwfG"/>
+      <argument type="service" id=".service_locator.qPhAaHz"/>
       <argument type="collection">
         <argument>vich_uploader.listener.clean.makes</argument>
         <argument>vich_uploader.listener.clean.common_models</argument>
         <argument>vich_uploader.listener.clean.car_details</argument>
+        <argument>vich_uploader.listener.clean.parts</argument>
         <argument>doctrine.orm.listeners.pdo_cache_adapter_doctrine_schema_subscriber</argument>
         <argument>vich_uploader.listener.remove.makes</argument>
         <argument>vich_uploader.listener.upload.makes</argument>
@@ -4843,6 +4985,8 @@
         <argument>vich_uploader.listener.upload.common_models</argument>
         <argument>vich_uploader.listener.remove.car_details</argument>
         <argument>vich_uploader.listener.upload.car_details</argument>
+        <argument>vich_uploader.listener.remove.parts</argument>
+        <argument>vich_uploader.listener.upload.parts</argument>
       </argument>
       <call method="addEventListener">
         <argument type="collection">
@@ -4873,6 +5017,54 @@
           <argument>postFlush</argument>
         </argument>
         <argument>fos_elastica.listener.cardetails</argument>
+      </call>
+      <call method="addEventListener">
+        <argument type="collection">
+          <argument>postPersist</argument>
+        </argument>
+        <argument>fos_elastica.listener.model</argument>
+      </call>
+      <call method="addEventListener">
+        <argument type="collection">
+          <argument>postUpdate</argument>
+        </argument>
+        <argument>fos_elastica.listener.model</argument>
+      </call>
+      <call method="addEventListener">
+        <argument type="collection">
+          <argument>preRemove</argument>
+        </argument>
+        <argument>fos_elastica.listener.model</argument>
+      </call>
+      <call method="addEventListener">
+        <argument type="collection">
+          <argument>postFlush</argument>
+        </argument>
+        <argument>fos_elastica.listener.model</argument>
+      </call>
+      <call method="addEventListener">
+        <argument type="collection">
+          <argument>postPersist</argument>
+        </argument>
+        <argument>fos_elastica.listener.cars</argument>
+      </call>
+      <call method="addEventListener">
+        <argument type="collection">
+          <argument>postUpdate</argument>
+        </argument>
+        <argument>fos_elastica.listener.cars</argument>
+      </call>
+      <call method="addEventListener">
+        <argument type="collection">
+          <argument>preRemove</argument>
+        </argument>
+        <argument>fos_elastica.listener.cars</argument>
+      </call>
+      <call method="addEventListener">
+        <argument type="collection">
+          <argument>postFlush</argument>
+        </argument>
+        <argument>fos_elastica.listener.cars</argument>
       </call>
     </service>
     <service id="doctrine.dbal.default_connection" class="Doctrine\DBAL\Connection" public="true">
@@ -4925,7 +5117,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator._D6qg1P"/>
+      <argument type="service" id=".service_locator.lRN.0bW"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5863,6 +6055,14 @@
         <argument>0</argument>
       </call>
       <call method="addListener">
+        <argument>security.interactive_login</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="App\Subscribers\UserLocateSubscriber"/>
+          <argument>onInteractiveLogin</argument>
+        </argument>
+        <argument>15</argument>
+      </call>
+      <call method="addListener">
         <argument>Symfony\Component\Security\Http\Event\LogoutEvent</argument>
         <argument type="collection">
           <argument type="service_closure" id="security.logout.listener.csrf_token_clearing"/>
@@ -5906,6 +6106,7 @@
     <service id="security.authentication.provider.guard.main" class="Symfony\Component\Security\Guard\Provider\GuardAuthenticationProvider">
       <argument type="iterator">
         <argument type="service" id="App\Security\LoginFormAuthAuthenticator"/>
+        <argument type="service" id="App\Security\GoogleAuthenticator"/>
       </argument>
       <argument type="service" id="security.user.provider.concrete.app_user_provider"/>
       <argument>main</argument>
@@ -5919,6 +6120,7 @@
       <argument>main</argument>
       <argument type="iterator">
         <argument type="service" id="App\Security\LoginFormAuthAuthenticator"/>
+        <argument type="service" id="App\Security\GoogleAuthenticator"/>
       </argument>
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <argument>true</argument>
@@ -6080,6 +6282,7 @@
     <service id="Vich\UploaderBundle\Naming\UniqidNamer.makes" class="Vich\UploaderBundle\Naming\UniqidNamer" public="true"/>
     <service id="Vich\UploaderBundle\Naming\UniqidNamer.common_models" class="Vich\UploaderBundle\Naming\UniqidNamer" public="true"/>
     <service id="Vich\UploaderBundle\Naming\UniqidNamer.car_details" class="Vich\UploaderBundle\Naming\UniqidNamer" public="true"/>
+    <service id="Vich\UploaderBundle\Naming\UniqidNamer.parts" class="Vich\UploaderBundle\Naming\UniqidNamer" public="true"/>
     <service id="vich_uploader.adapter.mongodb" class="Vich\UploaderBundle\Adapter\ODM\MongoDB\MongoDBAdapter"/>
     <service id="vich_uploader.adapter.orm" class="Vich\UploaderBundle\Adapter\ORM\DoctrineORMAdapter"/>
     <service id="vich_uploader.adapter.phpcr" class="Vich\UploaderBundle\Adapter\PHPCR\PHPCRAdapter"/>
@@ -6360,6 +6563,27 @@
     <service id="vich_uploader.listener.upload.car_details" class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener">
       <tag name="doctrine.event_subscriber" priority="0"/>
       <argument>car_details</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.clean.parts" class="Vich\UploaderBundle\EventListener\Doctrine\CleanListener">
+      <tag name="doctrine.event_subscriber" priority="50"/>
+      <argument>parts</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.remove.parts" class="Vich\UploaderBundle\EventListener\Doctrine\RemoveListener">
+      <tag name="doctrine.event_subscriber" priority="0"/>
+      <argument>parts</argument>
+      <argument type="service" id="vich_uploader.adapter.orm"/>
+      <argument type="service" id="vich_uploader.metadata_reader"/>
+      <argument type="service" id="vich_uploader.upload_handler"/>
+    </service>
+    <service id="vich_uploader.listener.upload.parts" class="Vich\UploaderBundle\EventListener\Doctrine\UploadListener">
+      <tag name="doctrine.event_subscriber" priority="0"/>
+      <argument>parts</argument>
       <argument type="service" id="vich_uploader.adapter.orm"/>
       <argument type="service" id="vich_uploader.metadata_reader"/>
       <argument type="service" id="vich_uploader.upload_handler"/>
@@ -6793,6 +7017,14 @@
         <argument>cardetails</argument>
         <argument type="service" id="fos_elastica.finder.cardetails"/>
       </call>
+      <call method="addIndex">
+        <argument>model</argument>
+        <argument type="service" id="fos_elastica.finder.model"/>
+      </call>
+      <call method="addIndex">
+        <argument>cars</argument>
+        <argument type="service" id="fos_elastica.finder.cars"/>
+      </call>
     </service>
     <service id="fos_elastica.alias_processor" class="FOS\ElasticaBundle\Index\AliasProcessor"/>
     <service id="fos_elastica.indexable" class="FOS\ElasticaBundle\Provider\Indexable">
@@ -6807,6 +7039,8 @@
     <service id="fos_elastica.index_manager" class="FOS\ElasticaBundle\Index\IndexManager">
       <argument type="collection">
         <argument key="cardetails" type="service" id="fos_elastica.index.cardetails"/>
+        <argument key="model" type="service" id="fos_elastica.index.model"/>
+        <argument key="cars" type="service" id="fos_elastica.index.cars"/>
       </argument>
       <argument type="service" id="fos_elastica.index.cardetails"/>
     </service>
@@ -6839,7 +7073,7 @@
       <argument type="service" id=".service_locator.3pSGpH8"/>
     </service>
     <service id="fos_elastica.persister_registry" class="FOS\ElasticaBundle\Persister\PersisterRegistry">
-      <argument type="service" id=".service_locator.UaWgc_W"/>
+      <argument type="service" id=".service_locator.ieuvUL5"/>
     </service>
     <service id="fos_elastica.filter_objects_listener" class="FOS\ElasticaBundle\Persister\Listener\FilterObjectsListener">
       <tag name="kernel.event_subscriber"/>
@@ -6860,7 +7094,7 @@
       <argument></argument>
     </service>
     <service id="fos_elastica.pager_provider_registry" class="FOS\ElasticaBundle\Provider\PagerProviderRegistry">
-      <argument type="service" id=".service_locator.fqQQ0ii"/>
+      <argument type="service" id=".service_locator.GTNEmgj"/>
     </service>
     <service id="fos_elastica.config_source.container" class="FOS\ElasticaBundle\Configuration\Source\ContainerSource">
       <tag name="fos_elastica.config_source"/>
@@ -6879,9 +7113,84 @@
               <argument key="fuelConsumption" type="collection">
                 <argument key="type">float</argument>
               </argument>
-              <argument key="power" type="collection"/>
-              <argument key="age" type="collection"/>
-              <argument key="tuning" type="collection"/>
+              <argument key="power" type="collection">
+                <argument key="type">float</argument>
+              </argument>
+              <argument key="age" type="collection">
+                <argument key="type">integer</argument>
+              </argument>
+              <argument key="tuning" type="collection">
+                <argument key="type">text</argument>
+              </argument>
+            </argument>
+          </argument>
+          <argument key="config" type="collection">
+            <argument key="analyzer">null</argument>
+            <argument key="search_analyzer">null</argument>
+            <argument key="dynamic">null</argument>
+            <argument key="date_detection">null</argument>
+            <argument key="dynamic_date_formats" type="collection"/>
+            <argument key="numeric_detection">null</argument>
+          </argument>
+        </argument>
+        <argument key="model" type="collection">
+          <argument key="elasticsearch_name">model</argument>
+          <argument key="reference" type="service" id="fos_elastica.index.model"/>
+          <argument key="model">App\Entity\Model</argument>
+          <argument key="name">model</argument>
+          <argument key="settings" type="collection"/>
+          <argument key="index_prototype" type="collection"/>
+          <argument key="use_alias">false</argument>
+          <argument key="mapping" type="collection">
+            <argument key="dynamic_templates" type="collection"/>
+            <argument key="properties" type="collection">
+              <argument key="name" type="collection">
+                <argument key="type">text</argument>
+              </argument>
+              <argument key="make" type="collection"/>
+            </argument>
+          </argument>
+          <argument key="config" type="collection">
+            <argument key="analyzer">null</argument>
+            <argument key="search_analyzer">null</argument>
+            <argument key="dynamic">null</argument>
+            <argument key="date_detection">null</argument>
+            <argument key="dynamic_date_formats" type="collection"/>
+            <argument key="numeric_detection">null</argument>
+          </argument>
+        </argument>
+        <argument key="cars" type="collection">
+          <argument key="elasticsearch_name">cars</argument>
+          <argument key="reference" type="service" id="fos_elastica.index.cars"/>
+          <argument key="model">App\Entity\CarDetails</argument>
+          <argument key="name">cars</argument>
+          <argument key="settings" type="collection"/>
+          <argument key="index_prototype" type="collection"/>
+          <argument key="use_alias">false</argument>
+          <argument key="mapping" type="collection">
+            <argument key="dynamic_templates" type="collection"/>
+            <argument key="properties" type="collection">
+              <argument key="purpose" type="collection">
+                <argument key="type">text</argument>
+              </argument>
+              <argument key="subModel.model.make.name" type="collection">
+                <argument key="type">text</argument>
+              </argument>
+              <argument key="subModel.model.make.country" type="collection">
+                <argument key="type">text</argument>
+              </argument>
+              <argument key="fuelConsumption" type="collection">
+                <argument key="type">float</argument>
+              </argument>
+              <argument key="size" type="collection">
+                <argument key="type">text</argument>
+              </argument>
+              <argument key="age" type="collection">
+                <argument key="type">integer</argument>
+              </argument>
+              <argument key="engineLife" type="collection">
+                <argument key="type">text</argument>
+              </argument>
             </argument>
           </argument>
           <argument key="config" type="collection">
@@ -7038,6 +7347,14 @@
         <argument>App\Entity\CarDetails</argument>
         <argument>cardetails</argument>
       </call>
+      <call method="addEntity">
+        <argument>App\Entity\Model</argument>
+        <argument>model</argument>
+      </call>
+      <call method="addEntity">
+        <argument>App\Entity\CarDetails</argument>
+        <argument>cars</argument>
+      </call>
     </service>
     <service id="fos_elastica.elastica_to_model_transformer.cardetails" class="FOS\ElasticaBundle\Doctrine\ORM\ElasticaToModelTransformer">
       <tag name="fos_elastica.elastica_to_model_transformer" index="cardetails"/>
@@ -7073,9 +7390,15 @@
         <argument key="fuelConsumption" type="collection">
           <argument key="type">float</argument>
         </argument>
-        <argument key="power" type="collection"/>
-        <argument key="age" type="collection"/>
-        <argument key="tuning" type="collection"/>
+        <argument key="power" type="collection">
+          <argument key="type">float</argument>
+        </argument>
+        <argument key="age" type="collection">
+          <argument key="type">integer</argument>
+        </argument>
+        <argument key="tuning" type="collection">
+          <argument key="type">text</argument>
+        </argument>
       </argument>
       <argument type="collection"/>
     </service>
@@ -7107,6 +7430,258 @@
         <argument key="indexName">cardetails</argument>
       </argument>
       <argument>null</argument>
+    </service>
+    <service id="fos_elastica.index.model" class="FOS\ElasticaBundle\Elastica\Index">
+      <tag name="model">fos_elastica.index</tag>
+      <argument>model</argument>
+      <factory service="fos_elastica.client.default" method="getIndex"/>
+    </service>
+    <service id="fos_elastica.elastica_to_model_transformer.model" class="FOS\ElasticaBundle\Doctrine\ORM\ElasticaToModelTransformer">
+      <tag name="fos_elastica.elastica_to_model_transformer" index="model"/>
+      <argument type="service" id="doctrine"/>
+      <argument>App\Entity\Model</argument>
+      <argument type="collection">
+        <argument key="hints" type="collection"/>
+        <argument key="hydrate">true</argument>
+        <argument key="ignore_missing">false</argument>
+        <argument key="query_builder_method">createQueryBuilder</argument>
+        <argument key="identifier">id</argument>
+      </argument>
+      <call method="setPropertyAccessor">
+        <argument type="service" id="fos_elastica.property_accessor"/>
+      </call>
+    </service>
+    <service id="fos_elastica.model_to_elastica_transformer.model" class="FOS\ElasticaBundle\Transformer\ModelToElasticaAutoTransformer">
+      <argument type="collection">
+        <argument key="identifier">id</argument>
+        <argument key="index">model</argument>
+      </argument>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <call method="setPropertyAccessor">
+        <argument type="service" id="fos_elastica.property_accessor"/>
+      </call>
+    </service>
+    <service id="fos_elastica.object_persister.model" class="FOS\ElasticaBundle\Persister\ObjectPersister">
+      <tag name="fos_elastica.persister" index="model"/>
+      <argument type="service" id="fos_elastica.index.model"/>
+      <argument type="service" id="fos_elastica.model_to_elastica_transformer.model"/>
+      <argument>App\Entity\Model</argument>
+      <argument type="collection">
+        <argument key="name" type="collection">
+          <argument key="type">text</argument>
+        </argument>
+        <argument key="make" type="collection"/>
+      </argument>
+      <argument type="collection"/>
+    </service>
+    <service id="fos_elastica.pager_provider.model" class="FOS\ElasticaBundle\Doctrine\ORMPagerProvider">
+      <tag name="fos_elastica.pager_provider" index="model"/>
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="fos_elastica.doctrine.register_listeners"/>
+      <argument>App\Entity\Model</argument>
+      <argument type="collection">
+        <argument key="batch_size">100</argument>
+        <argument key="clear_object_manager">true</argument>
+        <argument key="debug_logging">true</argument>
+        <argument key="query_builder_method">createQueryBuilder</argument>
+      </argument>
+    </service>
+    <service id="fos_elastica.finder.model" class="FOS\ElasticaBundle\Finder\TransformedFinder">
+      <argument type="service" id="fos_elastica.index.model"/>
+      <argument type="service" id="fos_elastica.elastica_to_model_transformer.model"/>
+    </service>
+    <service id="fos_elastica.listener.model" class="FOS\ElasticaBundle\Doctrine\Listener">
+      <tag name="doctrine.event_listener" event="postPersist"/>
+      <tag name="doctrine.event_listener" event="postUpdate"/>
+      <tag name="doctrine.event_listener" event="preRemove"/>
+      <tag name="doctrine.event_listener" event="postFlush"/>
+      <argument type="service" id="fos_elastica.object_persister.model"/>
+      <argument type="service" id="fos_elastica.indexable"/>
+      <argument type="collection">
+        <argument key="identifier">id</argument>
+        <argument key="indexName">model</argument>
+      </argument>
+      <argument>null</argument>
+    </service>
+    <service id="fos_elastica.index.cars" class="FOS\ElasticaBundle\Elastica\Index">
+      <tag name="cars">fos_elastica.index</tag>
+      <argument>cars</argument>
+      <factory service="fos_elastica.client.default" method="getIndex"/>
+    </service>
+    <service id="fos_elastica.elastica_to_model_transformer.cars" class="FOS\ElasticaBundle\Doctrine\ORM\ElasticaToModelTransformer">
+      <tag name="fos_elastica.elastica_to_model_transformer" index="cars"/>
+      <argument type="service" id="doctrine"/>
+      <argument>App\Entity\CarDetails</argument>
+      <argument type="collection">
+        <argument key="hints" type="collection"/>
+        <argument key="hydrate">true</argument>
+        <argument key="ignore_missing">false</argument>
+        <argument key="query_builder_method">createQueryBuilder</argument>
+        <argument key="identifier">id</argument>
+      </argument>
+      <call method="setPropertyAccessor">
+        <argument type="service" id="fos_elastica.property_accessor"/>
+      </call>
+    </service>
+    <service id="fos_elastica.model_to_elastica_transformer.cars" class="FOS\ElasticaBundle\Transformer\ModelToElasticaAutoTransformer">
+      <argument type="collection">
+        <argument key="identifier">id</argument>
+        <argument key="index">cars</argument>
+      </argument>
+      <argument type="service" id="debug.event_dispatcher"/>
+      <call method="setPropertyAccessor">
+        <argument type="service" id="fos_elastica.property_accessor"/>
+      </call>
+    </service>
+    <service id="fos_elastica.object_persister.cars" class="FOS\ElasticaBundle\Persister\ObjectPersister">
+      <tag name="fos_elastica.persister" index="cars"/>
+      <argument type="service" id="fos_elastica.index.cars"/>
+      <argument type="service" id="fos_elastica.model_to_elastica_transformer.cars"/>
+      <argument>App\Entity\CarDetails</argument>
+      <argument type="collection">
+        <argument key="purpose" type="collection">
+          <argument key="type">text</argument>
+        </argument>
+        <argument key="subModel.model.make.name" type="collection">
+          <argument key="type">text</argument>
+        </argument>
+        <argument key="subModel.model.make.country" type="collection">
+          <argument key="type">text</argument>
+        </argument>
+        <argument key="fuelConsumption" type="collection">
+          <argument key="type">float</argument>
+        </argument>
+        <argument key="size" type="collection">
+          <argument key="type">text</argument>
+        </argument>
+        <argument key="age" type="collection">
+          <argument key="type">integer</argument>
+        </argument>
+        <argument key="engineLife" type="collection">
+          <argument key="type">text</argument>
+        </argument>
+      </argument>
+      <argument type="collection"/>
+    </service>
+    <service id="fos_elastica.pager_provider.cars" class="FOS\ElasticaBundle\Doctrine\ORMPagerProvider">
+      <tag name="fos_elastica.pager_provider" index="cars"/>
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="fos_elastica.doctrine.register_listeners"/>
+      <argument>App\Entity\CarDetails</argument>
+      <argument type="collection">
+        <argument key="batch_size">100</argument>
+        <argument key="clear_object_manager">true</argument>
+        <argument key="debug_logging">true</argument>
+        <argument key="query_builder_method">createQueryBuilder</argument>
+      </argument>
+    </service>
+    <service id="fos_elastica.finder.cars" class="FOS\ElasticaBundle\Finder\TransformedFinder">
+      <argument type="service" id="fos_elastica.index.cars"/>
+      <argument type="service" id="fos_elastica.elastica_to_model_transformer.cars"/>
+    </service>
+    <service id="fos_elastica.listener.cars" class="FOS\ElasticaBundle\Doctrine\Listener">
+      <tag name="doctrine.event_listener" event="postPersist"/>
+      <tag name="doctrine.event_listener" event="postUpdate"/>
+      <tag name="doctrine.event_listener" event="preRemove"/>
+      <tag name="doctrine.event_listener" event="postFlush"/>
+      <argument type="service" id="fos_elastica.object_persister.cars"/>
+      <argument type="service" id="fos_elastica.indexable"/>
+      <argument type="collection">
+        <argument key="identifier">id</argument>
+        <argument key="indexName">cars</argument>
+      </argument>
+      <argument>null</argument>
+    </service>
+    <service id="knpu.oauth2.provider_factory" class="KnpU\OAuth2ClientBundle\DependencyInjection\ProviderFactory">
+      <argument type="service" id="router.default"/>
+    </service>
+    <service id="knpu.oauth2.registry" class="KnpU\OAuth2ClientBundle\Client\ClientRegistry" public="true">
+      <argument type="service" id="service_container"/>
+      <argument type="collection">
+        <argument key="google">knpu.oauth2.client.google</argument>
+      </argument>
+    </service>
+    <service id="knpu.oauth2.user_provider" class="KnpU\OAuth2ClientBundle\Security\User\OAuthUserProvider"/>
+    <service id="knpu.oauth2.provider.google" class="League\OAuth2\Client\Provider\Google">
+      <argument>League\OAuth2\Client\Provider\Google</argument>
+      <argument type="collection">
+        <argument key="clientId">%env(OAUTH_GOOGLE_ID)%</argument>
+        <argument key="clientSecret">%env(OAUTH_GOOGLE_SECRET)%</argument>
+      </argument>
+      <argument>connect_google_check</argument>
+      <argument type="collection"/>
+      <argument type="collection"/>
+      <factory service="knpu.oauth2.provider_factory" method="createProvider"/>
+    </service>
+    <service id="knpu.oauth2.client.google" class="KnpU\OAuth2ClientBundle\Client\Provider\GoogleClient" public="true">
+      <argument type="service" id="knpu.oauth2.provider.google"/>
+      <argument type="service" id="request_stack"/>
+    </service>
+    <service id=".1_ServiceLocator~hJoByER" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="webpack_encore.entrypoint_lookup_collection" type="service_closure" id="webpack_encore.entrypoint_lookup_collection"/>
+        <argument key="webpack_encore.tag_renderer" type="service_closure" id="webpack_encore.tag_renderer"/>
+      </argument>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup_collection" class="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollection">
+      <argument type="service" id=".service_locator.Yi4Ff.p"/>
+      <argument>_default</argument>
+    </service>
+    <service id="webpack_encore.tag_renderer" class="Symfony\WebpackEncoreBundle\Asset\TagRenderer">
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+      <argument type="service" id="assets.packages"/>
+      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="defer">true</argument>
+      </argument>
+      <argument type="collection"/>
+      <argument type="service" id="debug.event_dispatcher"/>
+    </service>
+    <service id="webpack_encore.twig_entry_files_extension" class="Symfony\WebpackEncoreBundle\Twig\EntryFilesTwigExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id=".1_ServiceLocator~hJoByER"/>
+    </service>
+    <service id="webpack_encore.twig_stimulus_extension" class="Symfony\WebpackEncoreBundle\Twig\StimulusTwigExtension">
+      <tag name="twig.extension"/>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup.cache_warmer" class="Symfony\WebpackEncoreBundle\CacheWarmer\EntrypointCacheWarmer">
+      <tag name="kernel.cache_warmer"/>
+      <argument type="collection">
+        <argument key="_default">/var/www/php/symfony/public/build/entrypoints.json</argument>
+      </argument>
+      <argument>/var/www/php/symfony/var/cache/dev/webpack_encore.cache.php</argument>
+    </service>
+    <service id="webpack_encore.cache" class="Symfony\Component\Cache\Adapter\PhpArrayAdapter">
+      <argument>/var/www/php/symfony/var/cache/dev/webpack_encore.cache.php</argument>
+      <argument type="service" id="cache.webpack_encore"/>
+      <factory class="Symfony\Component\Cache\Adapter\PhpArrayAdapter" method="create"/>
+    </service>
+    <service id="cache.webpack_encore" class="Symfony\Component\Cache\Adapter\TraceableAdapter">
+      <tag name="cache.pool"/>
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="cache.webpack_encore.recorder_inner"/>
+    </service>
+    <service id="webpack_encore.exception_listener" class="Symfony\WebpackEncoreBundle\EventListener\ExceptionListener">
+      <tag name="kernel.event_listener" event="kernel.exception"/>
+      <argument type="service" id="webpack_encore.entrypoint_lookup_collection"/>
+      <argument type="collection">
+        <argument>_default</argument>
+      </argument>
+    </service>
+    <service id="webpack_encore.entrypoint_lookup[_default]" class="Symfony\WebpackEncoreBundle\Asset\EntrypointLookup">
+      <tag name="kernel.reset" method="reset"/>
+      <argument>/var/www/php/symfony/public/build/entrypoints.json</argument>
+      <argument>null</argument>
+      <argument>_default</argument>
+      <argument>true</argument>
+    </service>
+    <service id=".service_locator.Yi4Ff.p" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="_default" type="service_closure" id="webpack_encore.entrypoint_lookup[_default]"/>
+      </argument>
     </service>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\Admin\CarDetailsCrudController" class="App\Controller\Admin\CarDetailsCrudController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\Admin\CarDetailsCrudController" class="App\Controller\Admin\CarDetailsCrudController" autowire="true" abstract="true"/>
@@ -7173,6 +7748,9 @@
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\FavouriteController" class="App\Controller\FavouriteController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\FavouriteController" class="App\Controller\FavouriteController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\FavouriteController" class="App\Controller\FavouriteController" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Controller\GoogleController" class="App\Controller\GoogleController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Contracts\Service\ServiceSubscriberInterface.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".instanceof.Symfony\Bundle\FrameworkBundle\Controller\AbstractController.0.App\Controller\MainController" class="App\Controller\MainController" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Controller\MainController" class="App\Controller\MainController" autowire="true" autoconfigure="true" abstract="true"/>
@@ -7221,6 +7799,8 @@
     <service id=".abstract.instanceof.App\Form\RegistrationFormType" class="App\Form\RegistrationFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\ResetPasswordRequestFormType" class="App\Form\ResetPasswordRequestFormType" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\SearchFormType" class="App\Form\SearchFormType" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Form\SearchFormType" class="App\Form\SearchFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserFormType" class="App\Form\UserFormType" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Form\UserFormType" class="App\Form\UserFormType" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\Form\FormTypeInterface.0.App\Form\UserSettingsFormType" class="App\Form\UserSettingsFormType" autowire="true" abstract="true"/>
@@ -7255,6 +7835,8 @@
     <service id=".abstract.instanceof.App\Repository\RimRepository" class="App\Repository\RimRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ScaleRepository" class="App\Repository\ScaleRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ScaleRepository" class="App\Repository\ScaleRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SearchRepository" class="App\Repository\SearchRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\SearchRepository" class="App\Repository\SearchRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\SubModelRepository" class="App\Repository\SubModelRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\SubModelRepository" class="App\Repository\SubModelRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\TireRepository" class="App\Repository\TireRepository" autowire="true" abstract="true"/>
@@ -7263,6 +7845,10 @@
     <service id=".abstract.instanceof.App\Repository\TransmissionRepository" class="App\Repository\TransmissionRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.App\Subscribers\LocalSubscriber" class="App\Subscribers\LocalSubscriber" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Subscribers\LocalSubscriber" class="App\Subscribers\LocalSubscriber" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.App\Subscribers\UserLocateSubscriber" class="App\Subscribers\UserLocateSubscriber" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Subscribers\UserLocateSubscriber" class="App\Subscribers\UserLocateSubscriber" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Filter\FilterConfiguratorInterface.0.EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\ChoiceConfigurator" class="EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\ChoiceConfigurator" abstract="true"/>
     <service id=".abstract.instanceof.EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\ChoiceConfigurator" class="EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\ChoiceConfigurator" abstract="true"/>
     <service id=".instanceof.EasyCorp\Bundle\EasyAdminBundle\Contracts\Filter\FilterConfiguratorInterface.0.EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\CommonConfigurator" class="EasyCorp\Bundle\EasyAdminBundle\Filter\Configurator\CommonConfigurator" abstract="true"/>
@@ -7725,6 +8311,12 @@
         <argument key="session" type="service_closure" id=".errored..service_locator.LQ80LD8.Symfony\Component\HttpFoundation\Session\Session"/>
       </argument>
     </service>
+    <service id=".service_locator.xlRbV4." class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="image" type="service_closure" id=".errored..service_locator.xlRbV4..App\Entity\Image"/>
+      </argument>
+    </service>
     <service id=".service_locator.FTx7Api" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -7743,6 +8335,12 @@
       <argument type="collection">
         <argument key="car" type="service_closure" id=".errored..service_locator.7pCCtwT.App\Entity\CarDetails"/>
         <argument key="favouriteRepository" type="service_closure" id="App\Repository\FavouriteRepository"/>
+      </argument>
+    </service>
+    <service id=".service_locator.B13LZRJ" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="clientRegistry" type="service_closure" id="knpu.oauth2.registry"/>
       </argument>
     </service>
     <service id=".service_locator.bs2Eeyi" class="Symfony\Component\DependencyInjection\ServiceLocator">
@@ -7815,10 +8413,9 @@
         <argument key="mailer" type="service_closure" id="mailer.mailer"/>
       </argument>
     </service>
-    <service id=".service_locator.HLa0FTT" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.znRR847" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
-        <argument key="finderCarDetails" type="service_closure" id="fos_elastica.finder.cardetails"/>
         <argument key="scaleRepository" type="service_closure" id="App\Repository\ScaleRepository"/>
       </argument>
     </service>
@@ -7829,19 +8426,19 @@
         <argument key="scaleRepository" type="service_closure" id="App\Repository\ScaleRepository"/>
       </argument>
     </service>
+    <service id=".service_locator.qmtTLZn" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="finderModel" type="service_closure" id="fos_elastica.finder.model"/>
+      </argument>
+    </service>
     <service id=".service_locator.UDgw6Ol" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.YDBsVhv" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator"/>
-      <argument type="collection">
-        <argument key="finder" type="service_closure" id="fos_elastica.manager.orm"/>
-      </argument>
-    </service>
-    <service id=".service_locator.cHgJwnE" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.MVgULKH" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\CarDetailsCrudController::autocomplete" type="service_closure" id=".service_locator.ZOQ9v2d"/>
@@ -8118,11 +8715,16 @@
         <argument key="App\Controller\Admin\UserCrudController::persistEntity" type="service_closure" id=".service_locator.l2QwsaZ"/>
         <argument key="App\Controller\Admin\UserCrudController::renderFilters" type="service_closure" id=".service_locator.ZOQ9v2d"/>
         <argument key="App\Controller\Admin\UserCrudController::updateEntity" type="service_closure" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\BaseController::addLanguage" type="service_closure" id=".service_locator.q6hA_O0"/>
         <argument key="App\Controller\BaseController::addToSession" type="service_closure" id=".service_locator.LQ80LD8"/>
+        <argument key="App\Controller\BaseController::changeLanguage" type="service_closure" id=".service_locator.LQ80LD8"/>
+        <argument key="App\Controller\BaseController::deleteImage" type="service_closure" id=".service_locator.xlRbV4."/>
         <argument key="App\Controller\BaseController::userDefinedFault" type="service_closure" id=".service_locator.LQ80LD8"/>
         <argument key="App\Controller\CommentController::add" type="service_closure" id=".service_locator.FTx7Api"/>
         <argument key="App\Controller\FavouriteController::add" type="service_closure" id=".service_locator.7pCCtwT"/>
         <argument key="App\Controller\FavouriteController::list" type="service_closure" id=".service_locator.ySLo1CP"/>
+        <argument key="App\Controller\GoogleController::connectAction" type="service_closure" id=".service_locator.B13LZRJ"/>
+        <argument key="App\Controller\GoogleController::connectCheckAction" type="service_closure" id=".service_locator.B13LZRJ"/>
         <argument key="App\Controller\MainController::detailsByEngine" type="service_closure" id=".service_locator.WQu24rL"/>
         <argument key="App\Controller\MainController::engineDetails" type="service_closure" id=".service_locator.BumXePT"/>
         <argument key="App\Controller\MainController::engineFault" type="service_closure" id=".service_locator.W6YiuSx"/>
@@ -8130,15 +8732,16 @@
         <argument key="App\Controller\MainController::modelsList" type="service_closure" id=".service_locator.ra8SdsS"/>
         <argument key="App\Controller\MainController::subModelFault" type="service_closure" id=".service_locator.P2IrcZ."/>
         <argument key="App\Controller\PreferenceController::deleteSettings" type="service_closure" id=".service_locator.HtrqSaY"/>
+        <argument key="App\Controller\PreferenceController::settings" type="service_closure" id=".service_locator.LQ80LD8"/>
         <argument key="App\Controller\RatingController::add" type="service_closure" id=".service_locator.luKKtH5"/>
         <argument key="App\Controller\RegistrationController::register" type="service_closure" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\RegistrationController::verifyUserEmail" type="service_closure" id=".service_locator..Ae5NXw"/>
         <argument key="App\Controller\ResetPasswordController::request" type="service_closure" id=".service_locator.CpaXrFh"/>
         <argument key="App\Controller\ResetPasswordController::reset" type="service_closure" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\ScaleController::comparing" type="service_closure" id=".service_locator.I8253bs"/>
-        <argument key="App\Controller\ScaleController::list" type="service_closure" id=".service_locator.HLa0FTT"/>
+        <argument key="App\Controller\ScaleController::list" type="service_closure" id=".service_locator.znRR847"/>
+        <argument key="App\Controller\SearchFilterController::searchAction" type="service_closure" id=".service_locator.qmtTLZn"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.UDgw6Ol"/>
-        <argument key="App\Controller\SubModelController::searchElastic" type="service_closure" id=".service_locator.YDBsVhv"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="App\Kernel::terminate" type="service_closure" id=".service_locator.KfwZsne"/>
@@ -8419,11 +9022,16 @@
         <argument key="App\Controller\Admin\UserCrudController:persistEntity" type="service_closure" id=".service_locator.l2QwsaZ"/>
         <argument key="App\Controller\Admin\UserCrudController:renderFilters" type="service_closure" id=".service_locator.ZOQ9v2d"/>
         <argument key="App\Controller\Admin\UserCrudController:updateEntity" type="service_closure" id=".service_locator.l2QwsaZ"/>
+        <argument key="App\Controller\BaseController:addLanguage" type="service_closure" id=".service_locator.q6hA_O0"/>
         <argument key="App\Controller\BaseController:addToSession" type="service_closure" id=".service_locator.LQ80LD8"/>
+        <argument key="App\Controller\BaseController:changeLanguage" type="service_closure" id=".service_locator.LQ80LD8"/>
+        <argument key="App\Controller\BaseController:deleteImage" type="service_closure" id=".service_locator.xlRbV4."/>
         <argument key="App\Controller\BaseController:userDefinedFault" type="service_closure" id=".service_locator.LQ80LD8"/>
         <argument key="App\Controller\CommentController:add" type="service_closure" id=".service_locator.FTx7Api"/>
         <argument key="App\Controller\FavouriteController:add" type="service_closure" id=".service_locator.7pCCtwT"/>
         <argument key="App\Controller\FavouriteController:list" type="service_closure" id=".service_locator.ySLo1CP"/>
+        <argument key="App\Controller\GoogleController:connectAction" type="service_closure" id=".service_locator.B13LZRJ"/>
+        <argument key="App\Controller\GoogleController:connectCheckAction" type="service_closure" id=".service_locator.B13LZRJ"/>
         <argument key="App\Controller\MainController:detailsByEngine" type="service_closure" id=".service_locator.WQu24rL"/>
         <argument key="App\Controller\MainController:engineDetails" type="service_closure" id=".service_locator.BumXePT"/>
         <argument key="App\Controller\MainController:engineFault" type="service_closure" id=".service_locator.W6YiuSx"/>
@@ -8431,15 +9039,16 @@
         <argument key="App\Controller\MainController:modelsList" type="service_closure" id=".service_locator.ra8SdsS"/>
         <argument key="App\Controller\MainController:subModelFault" type="service_closure" id=".service_locator.P2IrcZ."/>
         <argument key="App\Controller\PreferenceController:deleteSettings" type="service_closure" id=".service_locator.HtrqSaY"/>
+        <argument key="App\Controller\PreferenceController:settings" type="service_closure" id=".service_locator.LQ80LD8"/>
         <argument key="App\Controller\RatingController:add" type="service_closure" id=".service_locator.luKKtH5"/>
         <argument key="App\Controller\RegistrationController:register" type="service_closure" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\RegistrationController:verifyUserEmail" type="service_closure" id=".service_locator..Ae5NXw"/>
         <argument key="App\Controller\ResetPasswordController:request" type="service_closure" id=".service_locator.CpaXrFh"/>
         <argument key="App\Controller\ResetPasswordController:reset" type="service_closure" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\ScaleController:comparing" type="service_closure" id=".service_locator.I8253bs"/>
-        <argument key="App\Controller\ScaleController:list" type="service_closure" id=".service_locator.HLa0FTT"/>
+        <argument key="App\Controller\ScaleController:list" type="service_closure" id=".service_locator.znRR847"/>
+        <argument key="App\Controller\SearchFilterController:searchAction" type="service_closure" id=".service_locator.qmtTLZn"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.UDgw6Ol"/>
-        <argument key="App\Controller\SubModelController:searchElastic" type="service_closure" id=".service_locator.YDBsVhv"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:registerContainerConfiguration" type="service_closure" id=".service_locator.KfbR3DY"/>
         <argument key="kernel:terminate" type="service_closure" id=".service_locator.KfwZsne"/>
@@ -8514,7 +9123,7 @@
       <argument type="service" id="debug.argument_resolver.not_tagged_controller.inner"/>
       <argument type="service" id="debug.stopwatch"/>
     </service>
-    <service id=".service_locator..Esax9c" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.L0vvmz8" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Form\CarFormType" type="service_closure" id="App\Form\CarFormType"/>
@@ -8525,6 +9134,7 @@
         <argument key="App\Form\ImageFormType" type="service_closure" id="App\Form\ImageFormType"/>
         <argument key="App\Form\RegistrationFormType" type="service_closure" id="App\Form\RegistrationFormType"/>
         <argument key="App\Form\ResetPasswordRequestFormType" type="service_closure" id="App\Form\ResetPasswordRequestFormType"/>
+        <argument key="App\Form\SearchFormType" type="service_closure" id="App\Form\SearchFormType"/>
         <argument key="App\Form\UserFormType" type="service_closure" id="App\Form\UserFormType"/>
         <argument key="App\Form\UserSettingsFormType" type="service_closure" id="App\Form\UserSettingsFormType"/>
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Form\Type\CrudFormType" type="service_closure" id="EasyCorp\Bundle\EasyAdminBundle\Form\Type\CrudFormType"/>
@@ -8706,21 +9316,26 @@
       <configurator class="Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddDebugLogProcessorPass" method="configureLogger"/>
     </service>
     <service id="monolog.handler.null_internal" class="Monolog\Handler\NullHandler"/>
-    <service id=".service_locator.mMijwfG" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.qPhAaHz" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="doctrine.orm.default_listeners.attach_entity_listeners" type="service_closure" id="doctrine.orm.default_listeners.attach_entity_listeners"/>
         <argument key="doctrine.orm.listeners.pdo_cache_adapter_doctrine_schema_subscriber" type="service_closure" id="doctrine.orm.listeners.pdo_cache_adapter_doctrine_schema_subscriber"/>
         <argument key="fos_elastica.listener.cardetails" type="service_closure" id="fos_elastica.listener.cardetails"/>
+        <argument key="fos_elastica.listener.cars" type="service_closure" id="fos_elastica.listener.cars"/>
+        <argument key="fos_elastica.listener.model" type="service_closure" id="fos_elastica.listener.model"/>
         <argument key="vich_uploader.listener.clean.car_details" type="service_closure" id="vich_uploader.listener.clean.car_details"/>
         <argument key="vich_uploader.listener.clean.common_models" type="service_closure" id="vich_uploader.listener.clean.common_models"/>
         <argument key="vich_uploader.listener.clean.makes" type="service_closure" id="vich_uploader.listener.clean.makes"/>
+        <argument key="vich_uploader.listener.clean.parts" type="service_closure" id="vich_uploader.listener.clean.parts"/>
         <argument key="vich_uploader.listener.remove.car_details" type="service_closure" id="vich_uploader.listener.remove.car_details"/>
         <argument key="vich_uploader.listener.remove.common_models" type="service_closure" id="vich_uploader.listener.remove.common_models"/>
         <argument key="vich_uploader.listener.remove.makes" type="service_closure" id="vich_uploader.listener.remove.makes"/>
+        <argument key="vich_uploader.listener.remove.parts" type="service_closure" id="vich_uploader.listener.remove.parts"/>
         <argument key="vich_uploader.listener.upload.car_details" type="service_closure" id="vich_uploader.listener.upload.car_details"/>
         <argument key="vich_uploader.listener.upload.common_models" type="service_closure" id="vich_uploader.listener.upload.common_models"/>
         <argument key="vich_uploader.listener.upload.makes" type="service_closure" id="vich_uploader.listener.upload.makes"/>
+        <argument key="vich_uploader.listener.upload.parts" type="service_closure" id="vich_uploader.listener.upload.parts"/>
       </argument>
     </service>
     <service id="cache.doctrine.orm.default.query.compatibility_layer" class="Doctrine\Common\Cache\CacheProvider">
@@ -8731,7 +9346,7 @@
       <argument type="service" id="cache.doctrine.orm.default.result"/>
       <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
     </service>
-    <service id=".service_locator._D6qg1P" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.lRN.0bW" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CarDetailsRepository" type="service_closure" id="App\Repository\CarDetailsRepository"/>
@@ -8749,6 +9364,7 @@
         <argument key="App\Repository\ResetPasswordRequestRepository" type="service_closure" id="App\Repository\ResetPasswordRequestRepository"/>
         <argument key="App\Repository\RimRepository" type="service_closure" id="App\Repository\RimRepository"/>
         <argument key="App\Repository\ScaleRepository" type="service_closure" id="App\Repository\ScaleRepository"/>
+        <argument key="App\Repository\SearchRepository" type="service_closure" id="App\Repository\SearchRepository"/>
         <argument key="App\Repository\SubModelRepository" type="service_closure" id="App\Repository\SubModelRepository"/>
         <argument key="App\Repository\TireRepository" type="service_closure" id="App\Repository\TireRepository"/>
         <argument key="App\Repository\TransmissionRepository" type="service_closure" id="App\Repository\TransmissionRepository"/>
@@ -8829,7 +9445,7 @@
         <argument key="translation.loader.yml" type="service_closure" id="translation.loader.yml"/>
       </argument>
     </service>
-    <service id=".service_locator.Z2dd43Q" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Factory\ActionFactory" type="service_closure" id="EasyCorp\Bundle\EasyAdminBundle\Factory\ActionFactory" on-invalid="ignore"/>
@@ -8859,19 +9475,19 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\CarDetailsCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\CarDetailsCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\CarDetailsCrudController"/>
       <argument>App\Controller\Admin\CarDetailsCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\CommentCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\CommentCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\CommentCrudController"/>
       <argument>App\Controller\Admin\CommentCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.2NhYGWe" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.YxliMzB" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator" type="service_closure" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator" on-invalid="ignore"/>
@@ -8890,79 +9506,79 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.2NhYGWe.App\Controller\Admin\DashboardController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.YxliMzB.App\Controller\Admin\DashboardController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\DashboardController"/>
       <argument>App\Controller\Admin\DashboardController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.2NhYGWe" method="withContext"/>
+      <factory service=".service_locator.YxliMzB" method="withContext"/>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\EngineCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\EngineCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\EngineCrudController"/>
       <argument>App\Controller\Admin\EngineCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\FaultCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\FaultCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\FaultCrudController"/>
       <argument>App\Controller\Admin\FaultCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\FilterOptionsCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\FilterOptionsCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\FilterOptionsCrudController"/>
       <argument>App\Controller\Admin\FilterOptionsCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\MakeCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\MakeCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\MakeCrudController"/>
       <argument>App\Controller\Admin\MakeCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\ModelCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\ModelCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\ModelCrudController"/>
       <argument>App\Controller\Admin\ModelCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\PartCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\PartCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\PartCrudController"/>
       <argument>App\Controller\Admin\PartCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\RimCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\RimCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\RimCrudController"/>
       <argument>App\Controller\Admin\RimCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\SubModelCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\SubModelCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\SubModelCrudController"/>
       <argument>App\Controller\Admin\SubModelCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\TireCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\TireCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\TireCrudController"/>
       <argument>App\Controller\Admin\TireCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\TransmissionCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\TransmissionCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\TransmissionCrudController"/>
       <argument>App\Controller\Admin\TransmissionCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.Z2dd43Q.App\Controller\Admin\UserCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.AJZghCA.App\Controller\Admin\UserCrudController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\Admin\UserCrudController"/>
       <argument>App\Controller\Admin\UserCrudController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Z2dd43Q" method="withContext"/>
+      <factory service=".service_locator.AJZghCA" method="withContext"/>
     </service>
-    <service id=".service_locator.B8xSpvP" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.n2gAzJB" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="doctrine" type="service_closure" id="doctrine" on-invalid="ignore"/>
@@ -8979,55 +9595,67 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.B8xSpvP.App\Controller\BaseController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.n2gAzJB.App\Controller\BaseController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\BaseController"/>
       <argument>App\Controller\BaseController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.B8xSpvP" method="withContext"/>
+      <factory service=".service_locator.n2gAzJB" method="withContext"/>
     </service>
-    <service id=".service_locator.B8xSpvP.App\Controller\CommentController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.n2gAzJB.App\Controller\CommentController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\CommentController"/>
       <argument>App\Controller\CommentController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.B8xSpvP" method="withContext"/>
+      <factory service=".service_locator.n2gAzJB" method="withContext"/>
     </service>
-    <service id=".service_locator.B8xSpvP.App\Controller\FavouriteController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.n2gAzJB.App\Controller\FavouriteController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\FavouriteController"/>
       <argument>App\Controller\FavouriteController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.B8xSpvP" method="withContext"/>
+      <factory service=".service_locator.n2gAzJB" method="withContext"/>
     </service>
-    <service id=".service_locator.B8xSpvP.App\Controller\MainController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.n2gAzJB.App\Controller\GoogleController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\GoogleController"/>
+      <argument>App\Controller\GoogleController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.n2gAzJB" method="withContext"/>
+    </service>
+    <service id=".service_locator.n2gAzJB.App\Controller\MainController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\MainController"/>
       <argument>App\Controller\MainController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.B8xSpvP" method="withContext"/>
+      <factory service=".service_locator.n2gAzJB" method="withContext"/>
     </service>
-    <service id=".service_locator.B8xSpvP.App\Controller\PreferenceController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.n2gAzJB.App\Controller\PreferenceController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\PreferenceController"/>
       <argument>App\Controller\PreferenceController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.B8xSpvP" method="withContext"/>
+      <factory service=".service_locator.n2gAzJB" method="withContext"/>
     </service>
-    <service id=".service_locator.B8xSpvP.App\Controller\RatingController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.n2gAzJB.App\Controller\RatingController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\RatingController"/>
       <argument>App\Controller\RatingController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.B8xSpvP" method="withContext"/>
+      <factory service=".service_locator.n2gAzJB" method="withContext"/>
     </service>
-    <service id=".service_locator.B8xSpvP.App\Controller\RegistrationController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.n2gAzJB.App\Controller\RegistrationController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\RegistrationController"/>
       <argument>App\Controller\RegistrationController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.B8xSpvP" method="withContext"/>
+      <factory service=".service_locator.n2gAzJB" method="withContext"/>
     </service>
-    <service id=".service_locator.B8xSpvP.App\Controller\ResetPasswordController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.n2gAzJB.App\Controller\ResetPasswordController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\ResetPasswordController"/>
       <argument>App\Controller\ResetPasswordController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.B8xSpvP" method="withContext"/>
+      <factory service=".service_locator.n2gAzJB" method="withContext"/>
     </service>
-    <service id=".service_locator.Hu2Mgx4" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.n2gAzJB.App\Controller\ScaleController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator_context" id="App\Controller\ScaleController"/>
+      <argument>App\Controller\ScaleController</argument>
+      <argument type="service" id="service_container"/>
+      <factory service=".service_locator.n2gAzJB" method="withContext"/>
+    </service>
+    <service id=".service_locator._WtQPBo" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="doctrine" type="service_closure" id="doctrine" on-invalid="ignore"/>
@@ -9044,23 +9672,17 @@
         <argument key="twig" type="service_closure" id="twig" on-invalid="ignore"/>
       </argument>
     </service>
-    <service id=".service_locator.Hu2Mgx4.App\Controller\ScaleController" class="Symfony\Component\DependencyInjection\ServiceLocator">
-      <tag name="container.service_locator_context" id="App\Controller\ScaleController"/>
-      <argument>App\Controller\ScaleController</argument>
-      <argument type="service" id="service_container"/>
-      <factory service=".service_locator.Hu2Mgx4" method="withContext"/>
-    </service>
-    <service id=".service_locator.B8xSpvP.App\Controller\SearchFilterController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator._WtQPBo.App\Controller\SearchFilterController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\SearchFilterController"/>
       <argument>App\Controller\SearchFilterController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.B8xSpvP" method="withContext"/>
+      <factory service=".service_locator._WtQPBo" method="withContext"/>
     </service>
-    <service id=".service_locator.B8xSpvP.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.n2gAzJB.App\Controller\SecurityController" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="App\Controller\SecurityController"/>
       <argument>App\Controller\SecurityController</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.B8xSpvP" method="withContext"/>
+      <factory service=".service_locator.n2gAzJB" method="withContext"/>
     </service>
     <service id=".service_locator.J4b.DPX" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
@@ -9074,17 +9696,17 @@
       <argument type="service" id="service_container"/>
       <factory service=".service_locator.J4b.DPX" method="withContext"/>
     </service>
-    <service id=".service_locator.491LSII" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.C6PVGlk" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="routing.loader" type="service_closure" id="routing.loader"/>
       </argument>
     </service>
-    <service id=".service_locator.491LSII.router.default" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.C6PVGlk.router.default" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator_context" id="router.default"/>
       <argument>router.default</argument>
       <argument type="service" id="service_container"/>
-      <factory service=".service_locator.491LSII" method="withContext"/>
+      <factory service=".service_locator.C6PVGlk" method="withContext"/>
     </service>
     <service id=".service_locator.HLwzKIm" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
@@ -9179,16 +9801,20 @@
         <argument key="in_place" type="service_closure" id="fos_elastica.in_place_pager_persister"/>
       </argument>
     </service>
-    <service id=".service_locator.UaWgc_W" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.ieuvUL5" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="cardetails" type="service_closure" id="fos_elastica.object_persister.cardetails"/>
+        <argument key="cars" type="service_closure" id="fos_elastica.object_persister.cars"/>
+        <argument key="model" type="service_closure" id="fos_elastica.object_persister.model"/>
       </argument>
     </service>
-    <service id=".service_locator.fqQQ0ii" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.GTNEmgj" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="cardetails" type="service_closure" id="fos_elastica.pager_provider.cardetails"/>
+        <argument key="cars" type="service_closure" id="fos_elastica.pager_provider.cars"/>
+        <argument key="model" type="service_closure" id="fos_elastica.pager_provider.model"/>
       </argument>
     </service>
     <service id="debug.validator.inner" class="Symfony\Component\Validator\Validator\ValidatorInterface">
@@ -9255,12 +9881,12 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.cHgJwnE"/>
+      <argument type="service" id=".service_locator.MVgULKH"/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.cHgJwnE"/>
+      <argument type="service" id=".service_locator.MVgULKH"/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -9299,6 +9925,7 @@
     <service id=".errored..service_locator.2dc0eaX.EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore" class="EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore"/>
     <service id=".errored..service_locator.q6hA_O0.Symfony\Component\Security\Core\User\UserInterface" class="Symfony\Component\Security\Core\User\UserInterface"/>
     <service id=".errored..service_locator.LQ80LD8.Symfony\Component\HttpFoundation\Session\Session" class="Symfony\Component\HttpFoundation\Session\Session"/>
+    <service id=".errored..service_locator.xlRbV4..App\Entity\Image" class="App\Entity\Image"/>
     <service id=".errored..service_locator.7pCCtwT.App\Entity\CarDetails" class="App\Entity\CarDetails"/>
     <service id=".errored..service_locator.BumXePT.App\Entity\Engine" class="App\Entity\Engine"/>
     <service id=".errored..service_locator.I8253bs.App\Entity\CarDetails" class="App\Entity\CarDetails"/>
@@ -9585,6 +10212,14 @@
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
+    <service id="cache.webpack_encore.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
+      <argument>HSaNcHXY6n</argument>
+      <argument>0</argument>
+      <argument>%container.build_id%</argument>
+      <argument>/var/www/php/symfony/var/cache/dev/pools</argument>
+      <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+      <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
+    </service>
     <service id=".service_locator.L1OAKmd" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -9643,6 +10278,7 @@
     <service id="form.choice_list_factory" alias="form.choice_list_factory.cached"/>
     <service id="Symfony\Component\Asset\Packages" alias="assets.packages"/>
     <service id="Symfony\Contracts\HttpClient\HttpClientInterface" alias=".debug.http_client"/>
+    <service id="Psr\Http\Client\ClientInterface" alias="psr18.http_client"/>
     <service id="mailer" alias="mailer.mailer"/>
     <service id="Symfony\Component\Mailer\MailerInterface" alias="mailer.mailer"/>
     <service id="Symfony\Component\Mailer\Transport\TransportInterface" alias="mailer.default_transport"/>
@@ -9769,9 +10405,14 @@
     <service id="fos_elastica.index" alias="fos_elastica.index.cardetails"/>
     <service id="fos_elastica.manager" alias="fos_elastica.manager.orm"/>
     <service id="FOS\ElasticaBundle\Manager\RepositoryManagerInterface" alias="fos_elastica.manager.orm"/>
+    <service id="KnpU\OAuth2ClientBundle\Client\ClientRegistry" alias="knpu.oauth2.registry"/>
+    <service id="oauth2.registry" alias="knpu.oauth2.registry" public="true"/>
+    <service id="KnpU\OAuth2ClientBundle\Client\Provider\GoogleClient" alias="knpu.oauth2.client.google"/>
+    <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupCollectionInterface" alias="webpack_encore.entrypoint_lookup_collection"/>
+    <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.cHgJwnE"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.MVgULKH"/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>
@@ -9788,6 +10429,7 @@
     <service id="Psr\Log\LoggerInterface $elasticaLogger" alias="monolog.logger.elastica"/>
     <service id="doctrine.id_generator_locator" alias=".service_locator.Hllcktv"/>
     <service id=".service_locator.Mo0FXEU" alias="service_locator_EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
+    <service id=".service_locator.XDGmiR3" alias=".1_ServiceLocator~hJoByER"/>
     <service id=".service_locator.wKF4yn1" alias=".service_locator.anofQPJ"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="translator.data_collector.inner" alias="translator.default"/>

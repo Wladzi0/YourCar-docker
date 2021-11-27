@@ -47,34 +47,35 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
 
         // line 1
         echo "<!DOCTYPE html>
-<html>
+<html lang=\"en\">
+
 <head>
+    <link rel=\"shortcut icon\" href=\"#\">
     <meta charset=\"UTF-8\">
     <title>";
-        // line 5
+        // line 7
         $this->displayBlock('title', $context, $blocks);
-        // line 8
+        // line 10
         echo "    </title>
     ";
-        // line 10
-        echo "    ";
+        // line 11
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 17
+        // line 18
         echo "
     ";
-        // line 18
+        // line 19
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 35
+        // line 40
         echo "</head>
 <body>
 ";
-        // line 37
+        // line 42
         $this->displayBlock('navigation', $context, $blocks);
-        // line 83
+        // line 105
         $this->displayBlock('messages', $context, $blocks);
-        // line 92
+        // line 114
         $this->displayBlock('body', $context, $blocks);
-        // line 94
+        // line 116
         echo "</body>
 </html>
 ";
@@ -86,7 +87,7 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
 
     }
 
-    // line 5
+    // line 7
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -96,9 +97,9 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        // line 6
+        // line 8
         echo "            ";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Welcome", [], "translate"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Welcome"), "html", null, true);
         echo "
         ";
         
@@ -109,7 +110,7 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
 
     }
 
-    // line 10
+    // line 11
     public function block_stylesheets($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -119,16 +120,16 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "stylesheets"));
 
-        // line 11
+        // line 12
         echo "        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\"
               integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\"
               crossorigin=\"anonymous\">
         <link rel=\"stylesheet\" href=\"";
-        // line 14
+        // line 15
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/font-awesome.css"), "html", null, true);
         echo "\">
         <link rel=\"stylesheet\" href=\"";
-        // line 15
+        // line 16
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/styles.css"), "html", null, true);
         echo "\">
     ";
@@ -140,7 +141,7 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
 
     }
 
-    // line 18
+    // line 19
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -150,7 +151,7 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
 
-        // line 19
+        // line 20
         echo "        <script src=\"https://kit.fontawesome.com/d29cbc6cc1.js\" crossorigin=\"anonymous\">
         </script>
         <script src=\"https://code.jquery.com/jquery-3.2.1.min.js\"
@@ -161,13 +162,23 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
                 crossorigin=\"anonymous\">
         </script>
         <script src=\"";
-        // line 28
+        // line 29
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/dropdown.js"), "html", null, true);
+        echo "\">
+        </script>
+        <script src=\"";
+        // line 31
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/search.js"), "html", null, true);
         echo "\">
         </script>
         <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js\"
                 integrity=\"sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ\"
                 crossorigin=\"anonymous\">
+        </script>
+        <script src=\"";
+        // line 37
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/language.js"), "html", null, true);
+        echo "\">
         </script>
     ";
         
@@ -178,7 +189,7 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
 
     }
 
-    // line 37
+    // line 42
     public function block_navigation($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -188,90 +199,130 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "navigation"));
 
-        // line 38
-        echo "    <div class=\"d-flex flex-row justify-content-between bg-dark\">
-        <a class=\"logo text-light \" href=\"";
-        // line 39
+        // line 43
+        echo "    <div class=\"nav justify-content-lg-between bg-dark\">
+        <a class=\"logo\" href=\"";
+        // line 44
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("main");
-        echo "\">
-            YourCar
-        </a>
+        echo "\">YourCar</a>
+        <form id=\"search-box\" class=\"mr-sm-5\">
+            <button id=\"btn-search\">
+                <i class=\"fas fa-search h5 text-white \"></i>
+            </button>
+            <input type=\"text\" id=\"input-search\" autocomplete=\"off\" placeholder=\"Search a cars...\">
+            <ul class=\"bg-dark \" id=\"searchResult\"></ul>
+        </form>
         ";
-        // line 42
+        // line 52
         if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 43
-            echo "        ";
-            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 43, $this->source); })()), "request", [], "any", false, false, false, 43), "attributes", [], "any", false, false, false, 43), "get", [0 => "_route"], "method", false, false, false, 43) != "main")) {
-                // line 44
-                echo "            <div class=\"col-2 d-flex flex-row justify-content-between mt-3\">
-                <a href=\"";
-                // line 45
+            // line 53
+            echo "
+            ";
+            // line 54
+            if ((twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 54, $this->source); })()), "request", [], "any", false, false, false, 54), "attributes", [], "any", false, false, false, 54), "get", [0 => "_route"], "method", false, false, false, 54) != "main")) {
+                // line 55
+                echo "                <div class=\"d-flex flex-row mt-4 main\">
+                    <a class=\"d-flex flex-row mr-5\" style=\"text-decoration:none\"
+                       href=\"";
+                // line 57
                 echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("favourite_cars_list");
                 echo "\">
-                    <i class=\"fas fa-heart button-link\"></i>
-                    <input type=\"button\" readonly id=\"like-count\" value=";
-                // line 47
-                echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 47, $this->source); })()), "user", [], "any", false, false, false, 47), "favourites", [], "any", false, false, false, 47)), "html", null, true);
-                echo ">
-                </a>
-                <a href=\"";
-                // line 49
+                        <i class=\"fas fa-heart h3 heart\"></i>
+                        <input id=\"like-count\" class=\"text-white bg-dark h4 p-1 border-0\" type=\"button\"
+                               value=\"";
+                // line 60
+                echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 60, $this->source); })()), "user", [], "any", false, false, false, 60), "favourites", [], "any", false, false, false, 60)), "html", null, true);
+                echo "\">
+                    </a>
+                    <a class=\"d-flex flex-row scale\" style=\"text-decoration:none\"
+                       href=\"";
+                // line 63
                 echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("comparing_list");
                 echo "\">
-                    <i class=\"fas fa-balance-scale button-link\"></i>
-                    <input type=\"button\" readonly id=\"compare-count\" value=";
-                // line 51
-                echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 51, $this->source); })()), "user", [], "any", false, false, false, 51), "scales", [], "any", false, false, false, 51)), "html", null, true);
-                echo ">
-                </a>
-            </div>
+                        <i class=\"fas fa-balance-scale h3\"></i>
+                        <input id=\"compare-count\" class=\"text-white bg-dark h4 p-1 border-0\" type=\"button\"
+                               value=\"";
+                // line 66
+                echo twig_escape_filter($this->env, twig_length_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 66, $this->source); })()), "user", [], "any", false, false, false, 66), "scales", [], "any", false, false, false, 66)), "html", null, true);
+                echo "\">
+                    </a>
+                </div>
             ";
             }
-            // line 55
-            echo "            ";
+            // line 70
+            echo "            <select class=\"bg-dark text-white\" id=\"language\">
+                <option value=\"";
+            // line 71
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 71, $this->source); })()), "user", [], "any", false, false, false, 71), "preferLanguage", [], "any", false, false, false, 71), "html", null, true);
+            echo "\">";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 71, $this->source); })()), "user", [], "any", false, false, false, 71), "preferLanguage", [], "any", false, false, false, 71), "html", null, true);
+            echo "</option>
+            </select>
+            <a id=\"account\" class=\"button-link text-light pointer\">
+                ";
+            // line 74
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 56
-                echo "                <a href=\"";
-                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin");
-                echo "\" class=\"sign-in text-light \">
-                    <i class=\"fa fa-user-cog\">
+                // line 75
+                echo "                    <i class=\"fa fa-user-cog\">
                     </i>
-                </a>
-            ";
+                ";
+            } else {
+                // line 78
+                echo "                    <i class=\"fa fa-user\">
+                    </i>
+                ";
             }
-            // line 61
-            echo "            <a id=\"account\" class=\"button-link btn text-light \">
-                <i class=\"fa fa-user\">
-                </i>
-            </a>
+            // line 81
+            echo "            </a>
             <div id=\"dropdown\" class=\"dropdown-content bg-dark \">
-                <div class=\"col-3\">
-                <a href=\"";
-            // line 67
+                <div class=\"d-flex flex-column m-3 \">
+                    ";
+            // line 84
+            if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
+                // line 85
+                echo "                        <a class=\"h6 mb-3\" href=\"";
+                echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin");
+                echo "\">
+                            ";
+                // line 86
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Admin panel"), "html", null, true);
+                echo "
+                        </a>
+                    ";
+            }
+            // line 89
+            echo "                    <a class=\"h6 mb-3\" href=\"";
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("userPreferences");
             echo "\">
-                    Preferences
-                </a>
-                <a href=\"";
-            // line 70
+                        ";
+            // line 90
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Preferences"), "html", null, true);
+            echo "
+                    </a>
+                    <a class=\"h6\" href=\"";
+            // line 92
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
             echo "\">
-                    Logout
-                </a>
+                        ";
+            // line 93
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Logout"), "html", null, true);
+            echo "
+                    </a>
                 </div>
             </div>
         ";
         } else {
-            // line 76
-            echo "            <a class=\"button-link text-light \" href=\"";
+            // line 98
+            echo "            <a class=\"button-link text-light position-sticky justify-content-end\"
+               href=\"";
+            // line 99
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">
-                <i class=\"fa fa-sign-in\">
-                </i>
+                <i class=\"fa fa-sign-in\"></i>
             </a>
         ";
         }
-        // line 81
+        // line 103
         echo "    </div>
 ";
         
@@ -282,7 +333,7 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
 
     }
 
-    // line 83
+    // line 105
     public function block_messages($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -292,31 +343,31 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "messages"));
 
-        // line 84
+        // line 106
         echo "    ";
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 84, $this->source); })()), "session", [], "any", false, false, false, 84), "flashbag", [], "any", false, false, false, 84), "all", [], "method", false, false, false, 84));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 106, $this->source); })()), "session", [], "any", false, false, false, 106), "flashbag", [], "any", false, false, false, 106), "all", [], "method", false, false, false, 106));
         foreach ($context['_seq'] as $context["type"] => $context["messages"]) {
-            // line 85
+            // line 107
             echo "        ";
             $context['_parent'] = $context;
             $context['_seq'] = twig_ensure_traversable($context["messages"]);
             foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-                // line 86
-                echo "            <div class=\"alert-";
+                // line 108
+                echo "            <div class=\" alert-";
                 echo twig_escape_filter($this->env, $context["type"], "html", null, true);
                 echo "\" role=\"alert\">
-                ";
-                // line 87
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans($context["message"], [], "translate"), "html", null, true);
-                echo "
+                <h5 class=\"ml-4\">";
+                // line 109
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans($context["message"]), "html", null, true);
+                echo "</h5>
             </div>
         ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 90
+            // line 112
             echo "    ";
         }
         $_parent = $context['_parent'];
@@ -330,7 +381,7 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
 
     }
 
-    // line 92
+    // line 114
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -355,20 +406,21 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
 
     public function getDebugInfo()
     {
-        return array (  334 => 92,  320 => 90,  311 => 87,  306 => 86,  301 => 85,  296 => 84,  286 => 83,  275 => 81,  266 => 76,  257 => 70,  251 => 67,  243 => 61,  234 => 56,  231 => 55,  224 => 51,  219 => 49,  214 => 47,  209 => 45,  206 => 44,  203 => 43,  201 => 42,  195 => 39,  192 => 38,  182 => 37,  165 => 28,  154 => 19,  144 => 18,  132 => 15,  128 => 14,  123 => 11,  113 => 10,  100 => 6,  90 => 5,  78 => 94,  76 => 92,  74 => 83,  72 => 37,  68 => 35,  66 => 18,  63 => 17,  60 => 10,  57 => 8,  55 => 5,  49 => 1,);
+        return array (  385 => 114,  371 => 112,  362 => 109,  357 => 108,  352 => 107,  347 => 106,  337 => 105,  326 => 103,  319 => 99,  316 => 98,  308 => 93,  304 => 92,  299 => 90,  294 => 89,  288 => 86,  283 => 85,  281 => 84,  276 => 81,  271 => 78,  266 => 75,  264 => 74,  256 => 71,  253 => 70,  246 => 66,  240 => 63,  234 => 60,  228 => 57,  224 => 55,  222 => 54,  219 => 53,  217 => 52,  206 => 44,  203 => 43,  193 => 42,  180 => 37,  171 => 31,  166 => 29,  155 => 20,  145 => 19,  133 => 16,  129 => 15,  124 => 12,  114 => 11,  101 => 8,  91 => 7,  79 => 116,  77 => 114,  75 => 105,  73 => 42,  69 => 40,  67 => 19,  64 => 18,  62 => 11,  59 => 10,  57 => 7,  49 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("<!DOCTYPE html>
-<html>
+<html lang=\"en\">
+
 <head>
+    <link rel=\"shortcut icon\" href=\"#\">
     <meta charset=\"UTF-8\">
     <title>{% block title %}
             {{ 'Welcome'|trans }}
         {% endblock %}
     </title>
-    {% trans_default_domain \"translate\" %}
     {% block stylesheets %}
         <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css\"
               integrity=\"sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm\"
@@ -389,55 +441,76 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
         </script>
         <script src=\"{{ asset('js/dropdown.js') }}\">
         </script>
+        <script src=\"{{ asset('js/search.js') }}\">
+        </script>
         <script src=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js\"
                 integrity=\"sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ\"
                 crossorigin=\"anonymous\">
+        </script>
+        <script src=\"{{ asset('js/language.js') }}\">
         </script>
     {% endblock %}
 </head>
 <body>
 {% block navigation %}
-    <div class=\"d-flex flex-row justify-content-between bg-dark\">
-        <a class=\"logo text-light \" href=\"{{ path('main') }}\">
-            YourCar
-        </a>
+    <div class=\"nav justify-content-lg-between bg-dark\">
+        <a class=\"logo\" href=\"{{ path('main') }}\">YourCar</a>
+        <form id=\"search-box\" class=\"mr-sm-5\">
+            <button id=\"btn-search\">
+                <i class=\"fas fa-search h5 text-white \"></i>
+            </button>
+            <input type=\"text\" id=\"input-search\" autocomplete=\"off\" placeholder=\"Search a cars...\">
+            <ul class=\"bg-dark \" id=\"searchResult\"></ul>
+        </form>
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-        {% if app.request.attributes.get('_route') != 'main' %}
-            <div class=\"col-2 d-flex flex-row justify-content-between mt-3\">
-                <a href=\"{{ path('favourite_cars_list') }}\">
-                    <i class=\"fas fa-heart button-link\"></i>
-                    <input type=\"button\" readonly id=\"like-count\" value={{  app.user.favourites|length }}>
-                </a>
-                <a href=\"{{ path('comparing_list') }}\">
-                    <i class=\"fas fa-balance-scale button-link\"></i>
-                    <input type=\"button\" readonly id=\"compare-count\" value={{  app.user.scales|length }}>
-                </a>
-            </div>
+
+            {% if app.request.attributes.get('_route') != 'main' %}
+                <div class=\"d-flex flex-row mt-4 main\">
+                    <a class=\"d-flex flex-row mr-5\" style=\"text-decoration:none\"
+                       href=\"{{ path('favourite_cars_list') }}\">
+                        <i class=\"fas fa-heart h3 heart\"></i>
+                        <input id=\"like-count\" class=\"text-white bg-dark h4 p-1 border-0\" type=\"button\"
+                               value=\"{{ app.user.favourites|length }}\">
+                    </a>
+                    <a class=\"d-flex flex-row scale\" style=\"text-decoration:none\"
+                       href=\"{{ path('comparing_list') }}\">
+                        <i class=\"fas fa-balance-scale h3\"></i>
+                        <input id=\"compare-count\" class=\"text-white bg-dark h4 p-1 border-0\" type=\"button\"
+                               value=\"{{ app.user.scales|length }}\">
+                    </a>
+                </div>
             {% endif %}
-            {% if is_granted('ROLE_ADMIN') %}
-                <a href=\"{{ path('admin') }}\" class=\"sign-in text-light \">
+            <select class=\"bg-dark text-white\" id=\"language\">
+                <option value=\"{{ app.user.preferLanguage }}\">{{ app.user.preferLanguage }}</option>
+            </select>
+            <a id=\"account\" class=\"button-link text-light pointer\">
+                {% if is_granted('ROLE_ADMIN') %}
                     <i class=\"fa fa-user-cog\">
                     </i>
-                </a>
-            {% endif %}
-            <a id=\"account\" class=\"button-link btn text-light \">
-                <i class=\"fa fa-user\">
-                </i>
+                {% else %}
+                    <i class=\"fa fa-user\">
+                    </i>
+                {% endif %}
             </a>
             <div id=\"dropdown\" class=\"dropdown-content bg-dark \">
-                <div class=\"col-3\">
-                <a href=\"{{ path('userPreferences') }}\">
-                    Preferences
-                </a>
-                <a href=\"{{ path('app_logout') }}\">
-                    Logout
-                </a>
+                <div class=\"d-flex flex-column m-3 \">
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class=\"h6 mb-3\" href=\"{{ path('admin') }}\">
+                            {{ 'Admin panel'|trans }}
+                        </a>
+                    {% endif %}
+                    <a class=\"h6 mb-3\" href=\"{{ path('userPreferences') }}\">
+                        {{ 'Preferences'|trans }}
+                    </a>
+                    <a class=\"h6\" href=\"{{ path('app_logout') }}\">
+                        {{ 'Logout'|trans }}
+                    </a>
                 </div>
             </div>
         {% else %}
-            <a class=\"button-link text-light \" href=\"{{ path('app_login') }}\">
-                <i class=\"fa fa-sign-in\">
-                </i>
+            <a class=\"button-link text-light position-sticky justify-content-end\"
+               href=\"{{ path('app_login') }}\">
+                <i class=\"fa fa-sign-in\"></i>
             </a>
         {% endif %}
     </div>
@@ -445,8 +518,8 @@ class __TwigTemplate_ec1e3932bf507d762371066db802c27d263f8a4e4e4d9df321a5b99e4c5
 {% block messages %}
     {% for type, messages in app.session.flashbag.all() %}
         {% for message in messages %}
-            <div class=\"alert-{{ type }}\" role=\"alert\">
-                {{ message|trans }}
+            <div class=\" alert-{{ type }}\" role=\"alert\">
+                <h5 class=\"ml-4\">{{ message|trans }}</h5>
             </div>
         {% endfor %}
     {% endfor %}

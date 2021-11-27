@@ -38,7 +38,7 @@ class Model
     private $make;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Engine::class, mappedBy="models")
+     * @ORM\ManyToMany(targetEntity=Engine::class, mappedBy="models", cascade={"persist"})
      */
     private $engines;
 

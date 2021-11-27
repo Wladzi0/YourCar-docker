@@ -1,76 +1,65 @@
-{% trans_default_domain 'search' %}
+{% extends 'base.html.twig' %}
 
-{% set esArticles = article_es() %} {# Don't do this! This is to avoid polluting the SearchController #}
-
-{% block content %}
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-header card-header-primary">
-                <p class="h3">{{ 'your_search_for'|trans}} <b>"{{ q }}"</b>, <b>{{ pagination.nbResults }}</b> {{ 'results'|trans}}.</p>
-            </div>
-            <div class="card-body">
-                <p class="h4">&raquo; {{ 'get_back'|trans}} "<a href="{{ path('blog_show', {'slug': esArticles[1].slug|a_slug(locale), 'q': q}) }}#search_form">{{ ('title_'~esArticles[1].id)|trans({}, 'blog') }}</a>"</p>
-                <p class="h4">&raquo; {{ 'get_back'|trans}} "<a href="{{ path('blog_show', {'slug': esArticles[2].slug|a_slug(locale), 'q': q}) }}#search_form">{{ ('title_'~esArticles[2].id)|trans({}, 'blog') }}</a>"</p>
-                <p class="h4">&raquo; {{ 'get_back'|trans}} "<a href="{{ path('blog_show', {'slug': esArticles[3].slug|a_slug(locale), 'q': q}) }}#search_form">{{ ('title_'~esArticles[3].id)|trans({}, 'blog') }}</a>"</p>
-            </div>
-        </div>
-    </div>
-
-    {% for result in pagination %}
-        {% set hit = result.result.hit %}
-        {% set article = result.transformed %}
-        {% if article.isArticle %}
-            {% set tag_route = 'blog_list_tag' %}
-            {% set pathEn = path('blog_show', {'_locale': 'en','slug': article.slug|a_slug('en')}) %}
-            {% set pathFr = path('blog_show', {'_locale': 'fr','slug': article.slug|a_slug('fr')}) %}
-            {% set title = ('title_'~article.id)|trans({}, 'blog') %}
-        {% else %}
-            {% set tag_route = 'snippet_list_tag' %}
-            {% set pathEn = path('snippet_show', {'_locale': 'en', 'slug': article.slug|s_slug('en') }) %}
-            {% set pathFr = path('snippet_show', {'_locale': 'fr', 'slug': article.slug|s_slug('fr') }) %}
-            {% set title = ('title_'~article.id)|trans({}, 'snippet') %}
-        {% endif %}
-        <div class="card">
-            <div class="card-header">
-                <h2 class="h3">
-                    [{{ ('type_'~article.type)|trans({}, 'blog') }}{{ is_dev() ? ' (id: '~article.id~')' : '' }}] {{ title }} &raquo; {{ 'score'|trans }} <b>{{ hit._score }}</b>
-                </h2>
-            </div>
-
-            <div class="card-body">
-                <div class="blog-tags">
-                    {% for tag in article.keywords %}<a class="badge badge-{{ random_class() }}" href="{{ path(tag_route, {'tag': tag}) }}"><i class="far fa-tag"></i> &nbsp;{{ tag|trans({}, 'breadcrumbs') }}</a> {% endfor %}
-                </div>
-                <br/>
-                <p class="card-text text-center">
-                    <a href="{{ pathEn }}" class="btn btn-primary card-link">🇬🇧 {{ 'read_in_english'|trans({}, 'blog') }}</a>
-                    {% if not strike %}
-                        <a href="{{ pathFr }}" class="btn btn-primary card-link">🇫🇷 {{ 'read_in_french'|trans({}, 'blog') }}</a>
-                    {% endif %}
+{% block body %}
+    <title>
+        {% block title %}
+            {{ 'Search form'|trans }}
+        {% endblock %}
+    </title>
+    <div class="container col-5 mt-3">
+        <h1>{{ 'Search by our form'|trans }}</h1>
+        {{ form_start(searchByForm,
+            {'attr':
+                {'class':' form-control p-3 ', 'id': 'filterForm'}
+            }) }}
+        <div class="d-flex flex-row">
+            <div class=" w-50 p-3 ">
+                {# <h5 style="margin-bottom: -8px; ">{{ form_label(searchByForm.transmission) }}</h5> #}
+                {# {{ form_widget(searchByForm.transmission,{'attr': {'class': 'form-control mb-3'}}) }} #}
+                <p class="font-weight-bold label-form">
+                    {{ form_label(searchByForm.purpose) }}
+                    <i class="fas fa-asterisk"></i>
                 </p>
+                {{ form_widget(searchByForm.purpose,
+                    {'attr':
+                        {'class': 'form-control mb-3 pointer'
+                        }}) }}
+                <p class="font-weight-bold label-form">{{ form_label(searchByForm.country) }}</p>
+                {{ form_widget(searchByForm.country ,
+                    {'attr':
+                        {'class': 'form-control  mb-3 pointer'
+                        }}) }}
+                <p class="font-weight-bold label-form">{{ form_label(searchByForm.fuelConsumption) }}</p>
+                {{ form_widget(searchByForm.fuelConsumption,
+                    {'attr':
+                        {'class': 'form-control mb-3 pointer'
+                        }}) }}
+                <p class="font-weight-bold label-form">{{ form_label(searchByForm.size) }}</p>
+                {{ form_widget(searchByForm.size,
+                    {'attr':
+                        {'class': 'form-control mb-3 pointer'
+                        }}) }}
+                <p class="font-weight-bold label-form">{{ form_label(searchByForm.engineLife) }}</p>
+                {{ form_widget(searchByForm.engineLife,
+                    {'attr': {'class': 'form-control mb-3 pointer'
+                    }}) }}
+            </div>
+            <div class="border rounded p-3 w-50 border-danger ">
+                <p class="font-weight-bold label-form">{{ form_label(searchByForm.exclCountry) }}</p>
+                {{ form_widget(searchByForm.exclCountry,
+                    {'attr':
+                        {'class': 'form-control mb-3 pointer'
+                        }}) }}
+                <p class="font-weight-bold label-form">{{ form_label(searchByForm.exclMake) }}</p>
+                {{ form_widget(searchByForm.exclMake,{'attr': {'class': 'form-control mb-3 pointer'}}) }}
             </div>
         </div>
-    {% endfor %}
-    <div class="col-md-12">
-        {% if pagination.nbResults == 0 %}
-            <p class="h3">{{ 'no_results'|trans }}</p>
-
-            {% if suggestions %}
-                <p class="h4">{{ 'do_you_mean'|trans }} <small>({{ 'click_to_run'|trans }})</small></p>
-                <ul class="h4">
-                    {% for suggestion in suggestions %}
-                        <li><a href="{{ path('search_main', {q: suggestion.text}) }}">{{ suggestion.text }}</a></li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endif %}
+        {{ form_widget(searchByForm.save,
+            {'attr':
+                {'class': 'd-flex mt-4 btn btn-success ml-3'
+                }}) }}
+        {# <input type="button" value="{{  results.length }}"> #}
+        {{ form_end(searchByForm) }}
     </div>
 
-    <div class="col-md-12">
-        {% include 'search/_form.html.twig' %}
-    </div>
-{% endblock %}
-
-{% block pagination %}
-    {% include '_pagination.html.twig' %}
 {% endblock %}

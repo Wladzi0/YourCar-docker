@@ -42,10 +42,14 @@ class Make
      * @ORM\OneToMany(
      *     targetEntity=Model::class,
      *     mappedBy="make",
-     *     orphanRemoval=true
      *     )
      */
     private $models;
+
+    /**
+     * @ORM\Column(type="string", length=30)
+     */
+    private $country;
 
 
     public function __construct()
@@ -128,6 +132,18 @@ class Make
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getCountry(): ?string
+    {
+        return $this->country;
+    }
+
+    public function setCountry(string $country): self
+    {
+        $this->country = $country;
+
+        return $this;
     }
 
 }

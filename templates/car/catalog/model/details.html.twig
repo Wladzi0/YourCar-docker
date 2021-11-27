@@ -7,6 +7,12 @@
     <div class="container top">
         <div class="col">
             <h2>
+                <a class="" href="{{ path('makes_list') }}">
+                    {{ 'Catalog of cars'|trans }}
+                </a>
+                ->
+            </h2>
+            <h2>
                 <a class="" href="{{ path('models_list', {'make': make.id}) }}">
                     {{ make.name }}
                 </a>
@@ -22,7 +28,7 @@
                         <a href="
                         {{ path('sub_model_details',
                             {'make': make.id,'model':model.id,'subModel':subModel.id }) }}">
-                            <img style="background-color: white; border-radius: 5px;"
+                            <img class="img"
                                  src="{{ asset('images/car_details/'~ subModel.images|first) }}" alt="" width="500px"
                                  height="350px">
                             <br>
@@ -38,17 +44,6 @@
                 {% endfor %}
 
             </h2>
-
-
-            {# {% if model.icon %} #}
-            {# <img style="background-color: white; border-radius: 5px;" #}
-            {# src="{{ asset('images/models/'~model.icon) }}" alt="" width="500px" #}
-            {# height="350px"> #}
-            {# {% else %} #}
-            {# <img style="background-color: white; border-radius: 5px;" #}
-            {# src="{{ asset('images/car_details/default.jpg') }}" alt="" width="500px" #}
-            {# height="350px"> #}
-            {# {% endif %} #}
             <h4 class="mt-5">
                 {{ 'List of engines which were installed'|trans }}
             </h4>

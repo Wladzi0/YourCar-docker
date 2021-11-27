@@ -9,6 +9,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CountryField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -30,7 +32,7 @@ class MakeCrudController extends AbstractCrudController
                 ->setBasePath('/images/makes')
                 ->setUploadDir('public/images/makes')
                 ->setUploadedFileNamePattern('[randomhash].[extension]')
-                ->setRequired(true),
+                ->setRequired(false),
             TextField::new('name'),
             AssociationField::new('models')
                 ->hideOnDetail()
@@ -41,6 +43,22 @@ class MakeCrudController extends AbstractCrudController
                 ]),
             ArrayField::new('models')
                 ->onlyOnDetail(),
+            ChoiceField::new('country')
+                ->setChoices([
+                    'Germany' => 'Germany',
+                    'France' => 'France',
+                    'China' => 'China',
+                    'USA' => 'USA',
+                    'Japan' => 'Japan',
+                    'India' => 'India',
+                    'South Korea' => 'South Korea',
+                    'Spain' => 'Spain',
+                    'England' => 'England',
+                    'Italy' => 'Italy',
+                    'Sweden'=>'Sweden'
+
+                ])
+                ->setRequired(true)
 
         ];
     }

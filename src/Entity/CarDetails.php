@@ -115,6 +115,21 @@ class CarDetails
      */
     private $age;
 
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    private $purpose;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=true)
+     */
+    private $size;
+
+    /**
+     * @ORM\Column(type="string", length=20, nullable=false)
+     */
+    private $engineLife;
+
     public function __construct()
     {
         $this->favourites = new ArrayCollection();
@@ -427,6 +442,42 @@ class CarDetails
     {
 
         $this->age = $age;
+
+        return $this;
+    }
+
+    public function getPurpose(): ?string
+    {
+        return $this->purpose;
+    }
+
+    public function setPurpose(string $purpose): self
+    {
+        $this->purpose = $purpose;
+
+        return $this;
+    }
+
+    public function getSize(): ?string
+    {
+        return $this->size;
+    }
+
+    public function setSize(?string $size): self
+    {
+        $this->size = $size;
+
+        return $this;
+    }
+
+    public function getEngineLife(): ?string
+    {
+        return $this->engineLife;
+    }
+
+    public function setEngineLife(string $engineLife): self
+    {
+        $this->engineLife = $engineLife;
 
         return $this;
     }

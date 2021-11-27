@@ -43,7 +43,7 @@ class Fault
      * @ORM\OneToMany(
      *     targetEntity=Image::class,
      *     mappedBy="fault",
-     *     cascade={"persist","remove"},
+     *     cascade={"persist",},
      *     orphanRemoval=true
      *     )
      */

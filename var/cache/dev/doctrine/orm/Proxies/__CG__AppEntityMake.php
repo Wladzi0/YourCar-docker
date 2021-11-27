@@ -66,10 +66,10 @@ class Make extends \App\Entity\Make implements \Doctrine\ORM\Proxy\Proxy
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'name', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'icon', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'iconFile', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'models'];
+            return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'name', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'icon', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'iconFile', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'models', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'country'];
         }
 
-        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'name', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'icon', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'iconFile', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'models'];
+        return ['__isInitialized__', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'id', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'name', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'icon', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'iconFile', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'models', '' . "\0" . 'App\\Entity\\Make' . "\0" . 'country'];
     }
 
     /**
@@ -299,6 +299,28 @@ class Make extends \App\Entity\Make implements \Doctrine\ORM\Proxy\Proxy
         $this->__initializer__ && $this->__initializer__->__invoke($this, '__toString', []);
 
         return parent::__toString();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getCountry(): ?string
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getCountry', []);
+
+        return parent::getCountry();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function setCountry(string $country): \App\Entity\Make
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'setCountry', [$country]);
+
+        return parent::setCountry($country);
     }
 
 }

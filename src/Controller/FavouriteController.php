@@ -22,11 +22,11 @@ class FavouriteController extends AbstractController
     public function list(FavouriteRepository $favouriteRepository): Response
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
-        $bests = $favouriteRepository->findBy([
+        $favorites = $favouriteRepository->findBy([
             'user' => $user
         ]);
         return $this->render('car/favourite/list.html.twig', [
-            'bests' => $bests
+            'favorites' => $favorites
         ]);
     }
 

@@ -13,15 +13,18 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 
 class RegistrationController extends AbstractController
 {
     private $emailVerifier;
+    private $translator;
 
-    public function __construct(EmailVerifier $emailVerifier)
+    public function __construct(TranslatorInterface $translator,EmailVerifier $emailVerifier)
     {
         $this->emailVerifier = $emailVerifier;
+        $this->translator=$translator;
     }
 
     /**
@@ -51,13 +54,13 @@ class RegistrationController extends AbstractController
                 (new TemplatedEmail())
                     ->from(new Address('mailer@your-domain.com', 'YourCar Assistant'))
                     ->to($user->getEmail())
-                    ->subject('Please Confirm your Email')
+                    ->subject($this->translator->trans('Please Confirm your Email'))
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
             // do anything else you need here, like send an email
             $request->getSession()
                 ->getFlashBag()
-                ->add('success', ' ' . $fistName . ', Link with confirm was sent to your mail!');
+                ->add('success', ' ' . $fistName . ','.$this->translator->trans('Link with confirm was sent to your mail!'));
             return $this->render('registration/waiting_to_confirm_email.html.twig');
         }
 
@@ -95,7 +98,7 @@ class RegistrationController extends AbstractController
         }
 
         // @TODO Change the redirect on success and handle or remove the flash message in your templates
-        $this->addFlash('success', 'Your email address has been verified.');
+        $this->addFlash('success', $this->translator->trans('Your email address has been verified.'));
 
         return $this->redirectToRoute('app_login');
     }

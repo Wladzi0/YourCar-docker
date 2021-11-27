@@ -8,10 +8,9 @@
 {% endblock %}
 {% block body %}
     <div class="container">
-        <br>
         {% set formErrors = registrationForm.vars.errors.form.getErrors(true) %}
         {% if formErrors | length %}
-            <ul class="col-5 alert-danger">
+            <ul class="col-5 alert-danger mt-3">
                 {% for error in formErrors %}
                     <li>
                         {{ error.message|trans }}
@@ -20,11 +19,11 @@
             </ul>
         {% endif %}
     </div>
-    <div class="mt-3 container col-3">
+    <div class="mt-5 container col-3">
         <div class="col">
             {% if edit is same as (true) %}
                 <h1>
-                    {{'Edit user'|trans }}
+                    {{ 'Edit user'|trans }}
                 </h1>
             {% else %}
                 <h1>
@@ -34,67 +33,75 @@
         </div>
         <div class="">
             {{ form_start(registrationForm, {'attr': {'class': 'form-horizontal'}}) }}
-            {{ form_label(registrationForm.firstName) }}
             <br>
+            <p class="font-weight-bold label-form">
+                {{ form_label(registrationForm.firstName) }}
+                <i class="fas fa-asterisk"></i>
+            </p>
             {{ form_widget(registrationForm.firstName,
                 {'attr':
-                    {'class': 'form-control', 'required': 'true'}
-                })
-            }}
+                    {'class': 'form-control'}}
+            ) }}
             <br>
-            {{ form_label(registrationForm.lastName) }}
-            <br>
+            <p class="font-weight-bold label-form">
+                {{ form_label(registrationForm.lastName) }}
+                <i class="fas fa-asterisk"></i>
+            </p>
             {{ form_widget(registrationForm.lastName,
                 {'attr':
-                    {'class': 'form-control', 'required': 'true'}
-                })
-            }}
+                    {'class': 'form-control'}
+                }) }}
             <br>
-            {{ form_label(registrationForm.email) }}
-            <br>
+            <p class="font-weight-bold label-form">
+                {{ form_label(registrationForm.email) }}
+                <i class="fas fa-asterisk"></i>
+            </p>
             {{ form_widget(registrationForm.email,
                 {'attr':
-                {'class': 'form-control', 'required': 'true'}
-            })
-            }}
+                    {'class': 'form-control'}
+                }) }}
             <br>
-            {{ form_label(registrationForm.preferLanguage) }}
-            <br>
+            <p class="font-weight-bold label-form">{{ form_label(registrationForm.preferLanguage) }}</p>
             {{ form_widget(registrationForm.preferLanguage,
                 {'attr':
-                {'class': 'form-control', 'required': 'true'}
-            })
-            }}
+                    {'class': 'form-control pointer'}
+                }) }}
             <br>
-            {{ form_label(registrationForm.plainPassword.first) }}
-            <br>
+            <p class="font-weight-bold label-form">
+                {{ form_label(registrationForm.plainPassword.first) }}
+                <i class="fas fa-asterisk "></i>
+            </p>
+
             {{ form_widget(registrationForm.plainPassword.first,
                 {'attr':
-                    {'class': 'form-control', 'required': 'true'}
-                })
-            }}
+                    {'class': 'form-control'}
+                }) }}
             <br>
-            {{ form_label(registrationForm.plainPassword.second) }}
-            <br>
+            <p class="font-weight-bold label-form">
+                {{ form_label(registrationForm.plainPassword.second) }}
+                <i class="fas fa-asterisk"></i>
+            </p>
             {{ form_widget(registrationForm.plainPassword.second,
                 {'attr':
-                    {'class': 'form-control', 'required': 'true'}
-                })
-            }}
+                    {'class': 'form-control'}
+                }) }}
             <br>
             {% if edit is same as (true) %}
                 <button class="btn  btn-success" type="submit">
-                   {{ 'Edit'|trans }}
+                    {{ 'Edit'|trans }}
                 </button>
             {% else %}
-                <button class="btn btn-success " type="submit">
-                   {{ 'Sign up'|trans }}
-                </button>
+                <div class="row justify-content-between mx-1 mt-3">
+                    <button class="btn btn-info" onclick="window.location.href='/login'">
+                        {{ 'Back to sign in'|trans }}
+                    </button>
+
+                    <button class="btn btn-success " type="submit">
+                        {{ 'Sign up'|trans }}
+                    </button>
+                </div>
                 {{ form_end(registrationForm) }}
-                <br>
-                <button class="btn btn-info mb-5" onclick="window.location.href='/login'">
-                    {{ 'Back to sign in'|trans }}
-                </button>
+
             {% endif %}
         </div>
     </div>

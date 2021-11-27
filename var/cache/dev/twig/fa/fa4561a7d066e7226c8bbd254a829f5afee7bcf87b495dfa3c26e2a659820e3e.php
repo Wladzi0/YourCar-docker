@@ -40,9 +40,14 @@ class __TwigTemplate_b35e78e0807117bcb5da150af23e2c321f7af68691ebc15b7333f57ae79
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "template", "reset_password/email.html.twig"));
 
         // line 1
-        echo "<h1>Hi!</h1>
+        echo "<h1>";
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Hi!"), "html", null, true);
+        echo "</h1>
 
-<p>To reset your password, please visit the following link</p>
+<p>";
+        // line 3
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("To reset your password, please visit the following link"), "html", null, true);
+        echo "</p>
 
 <a href=\"";
         // line 5
@@ -51,12 +56,18 @@ class __TwigTemplate_b35e78e0807117bcb5da150af23e2c321f7af68691ebc15b7333f57ae79
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getUrl("app_reset_password", ["token" => twig_get_attribute($this->env, $this->source, (isset($context["resetToken"]) || array_key_exists("resetToken", $context) ? $context["resetToken"] : (function () { throw new RuntimeError('Variable "resetToken" does not exist.', 5, $this->source); })()), "token", [], "any", false, false, false, 5)]), "html", null, true);
         echo "</a>
 
-<p>This link will expire in ";
+<p>";
         // line 7
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("This link will expire in"), "html", null, true);
+        echo " ";
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["resetToken"]) || array_key_exists("resetToken", $context) ? $context["resetToken"] : (function () { throw new RuntimeError('Variable "resetToken" does not exist.', 7, $this->source); })()), "expirationMessageKey", [], "any", false, false, false, 7), twig_get_attribute($this->env, $this->source, (isset($context["resetToken"]) || array_key_exists("resetToken", $context) ? $context["resetToken"] : (function () { throw new RuntimeError('Variable "resetToken" does not exist.', 7, $this->source); })()), "expirationMessageData", [], "any", false, false, false, 7), "ResetPasswordBundle"), "html", null, true);
-        echo ".</p>
+        echo "
+    .</p>
 
-<p>Cheers!</p>
+<p>";
+        // line 10
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Cheers!"), "html", null, true);
+        echo "</p>
 ";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -78,20 +89,21 @@ class __TwigTemplate_b35e78e0807117bcb5da150af23e2c321f7af68691ebc15b7333f57ae79
 
     public function getDebugInfo()
     {
-        return array (  56 => 7,  49 => 5,  43 => 1,);
+        return array (  69 => 10,  61 => 7,  54 => 5,  49 => 3,  43 => 1,);
     }
 
     public function getSourceContext()
     {
-        return new Source("<h1>Hi!</h1>
+        return new Source("<h1>{{ 'Hi!'|trans }}</h1>
 
-<p>To reset your password, please visit the following link</p>
+<p>{{ 'To reset your password, please visit the following link'|trans }}</p>
 
 <a href=\"{{ url('app_reset_password', {token: resetToken.token}) }}\">{{ url('app_reset_password', {token: resetToken.token}) }}</a>
 
-<p>This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+<p>{{ 'This link will expire in'|trans }} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}
+    .</p>
 
-<p>Cheers!</p>
+<p>{{ 'Cheers!'|trans }}</p>
 ", "reset_password/email.html.twig", "/var/www/php/symfony/templates/reset_password/email.html.twig");
     }
 }

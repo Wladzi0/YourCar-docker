@@ -11,21 +11,35 @@ use App\Repository\ScaleRepository;
 use FOS\ElasticaBundle\Finder\TransformedFinder;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
+
 
 /**
  * @IsGranted("ROLE_USER")
  */
 class ScaleController extends AbstractController
 {
+    private $carsIdResult = [];
+    private $session;
+    private $finderCarDetails;
+
+
+    public function __construct(SessionInterface $session, TransformedFinder $finderCarDetails)
+    {
+        $this->session = $session;
+
+        $this->finderCarDetails = $finderCarDetails;
+    }
+
     /**
      * @Route("/cars/comparing", name="comparing_list")
      */
-    public function list(Request          $request,
-                         ScaleRepository  $scaleRepository,
-                         TransformedFinder $finderCarDetails
+    public function list(Request         $request,
+                         ScaleRepository $scaleRepository,
     ): Response
     {
         $user = $this->get('security.token_storage')->getToken()->getUser();
@@ -33,26 +47,38 @@ class ScaleController extends AbstractController
             'user' => $user
         ]);
         $filter = new Filter();
+
         $filterForm = $this->createForm(FilterFormType::class, $filter);
-
         $filterForm->handleRequest($request);
-        if ($filterForm->isSubmitted() && $filterForm->isValid()) {
-            $consump=$filterForm['consumption']->getData();
-            $power=$filterForm['power']->getData();
-            $age=$filterForm['age']->getData();
-            $tuning=$filterForm['tuning']->getData();
-
-
-            $boolQuery = new Query\BoolQuery();
-            $fieldQuery = new Query\MatchQuery();
-            $fieldQuery->setField('fuelConsumption', '9');
-            $boolQuery->addMust($fieldQuery);
-            $idQuery = new Query\Terms('_id', ['21','22','23']);
-            $boolQuery->addFilter($idQuery);
-            $data = $finderCarDetails->find($boolQuery);
-            return $this->render('search_filter/paginator.html.twig',[
-                'data'=>$data ]);
+        if (isset($_SERVER['HTTP_CACHE_CONTROL']) && $_SERVER['HTTP_CACHE_CONTROL'] === 'max-age=0') {
+            $this->session->clear();
         }
+        if ($filterForm->isSubmitted() && $filterForm->isValid()) {
+            $paramsList = [];
+            $paramsList['fuelConsumption'] = $filterForm['consumption']->getData();
+            $paramsList['power'] = $filterForm['power']->getData();
+            $paramsList['age'] = $filterForm['age']->getData();
+            $paramsList['tuning'] = $filterForm['tuning']->getData();
+
+            foreach ($paramsList as $key=>$value) {
+                if (isset($key) && $value != null) {
+                    if (is_null($this->session->get($key))) {
+                        $this->session->set($key, $value);
+
+                        return new JsonResponse($this->searchField($key, $value));
+
+                    } else {
+                        $sess = $this->session->get($key);
+                        if ($value != $sess) {
+                            $this->session->set($key, $value);
+
+                            return new JsonResponse($this->searchField($key, $value));
+                        }
+                    }
+                }
+            }
+        }
+
         $date = new \DateTime();
         $age = $date->format('Y');
         return $this->render('comparing/list.html.twig', [
@@ -99,5 +125,54 @@ class ScaleController extends AbstractController
         }
     }
 
+    public function searchField($param, $values): array
+    {   $boolQuery = new Query\BoolQuery();
+        $carsQueryList = $this->session->get('carsList');
+       if($values == 'true' || $values == 'false' || $values == 'null'){
+
+        $fieldQuery = new Query\MatchQuery();
+        $fieldQuery->setFieldQuery($param, $values);
+        $boolQuery->addMust($fieldQuery);
+       } else{
+           $values = explode('-', $values);
+           $queryRange = new Query\Range();
+
+        if ($values[1] === '<') {
+            $queryRange->setParam(
+                $param, [
+                'lt' => $values[0]
+            ]);
+        } elseif ($values[1] === '>') {
+            $queryRange->setParam(
+                $param, [
+                'gt' => $values[0]
+            ]);
+        } else {
+            $queryRange->setParam(
+                $param, [
+                'gte' => $values[0],
+                'lte' => $values[1]
+            ]);
+        }
+        $boolQuery->addMust($queryRange);
+
+       }
+
+        $idQuery = new Query\Terms('_id', $carsQueryList);
+        $boolQuery->addFilter($idQuery);
+        $data = $this->finderCarDetails->find($boolQuery);
+
+        if (!empty($data)) {
+            foreach ($data as $carId)
+                $this->carsIdResult[] = $carId->getId();
+        }
+        return [
+            $this->carsIdResult,
+            $param,
+            $carsQueryList
+
+        ];
+
+    }
 
 }

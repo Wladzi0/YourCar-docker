@@ -100,35 +100,35 @@ class __TwigTemplate_a2a917c4dc2ef9f8219a662899d06c50a200d215c3bf4d1bc2306803c3d
             $context['_seq'] = twig_ensure_traversable((isset($context["models"]) || array_key_exists("models", $context) ? $context["models"] : (function () { throw new RuntimeError('Variable "models" does not exist.', 9, $this->source); })()));
             foreach ($context['_seq'] as $context["_key"] => $context["model"]) {
                 // line 10
-                echo "                    <div class=\"d-flex flex-column mb-5\">
+                echo "                    <div class=\" d-flex flex-column mb-5\">
                         <a class=\"link\"
                            href=\"";
                 // line 12
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("model_details", ["make" => (isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 12, $this->source); })()), "model" => twig_get_attribute($this->env, $this->source, $context["model"], "id", [], "any", false, false, false, 12)]), "html", null, true);
                 echo "\">
+                            <div class=\"image-box\">
                             ";
-                // line 13
-                if (twig_get_attribute($this->env, $this->source, $context["model"], "icon", [], "any", false, false, false, 13)) {
-                    // line 14
-                    echo "                                <img style=\"background-color: white; border-radius: 5px;\"
-                                     src=\"";
+                // line 14
+                if (twig_get_attribute($this->env, $this->source, $context["model"], "icon", [], "any", false, false, false, 14)) {
                     // line 15
-                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/models/" . twig_get_attribute($this->env, $this->source, $context["model"], "icon", [], "any", false, false, false, 15))), "html", null, true);
-                    echo "\" alt=\"\" width=\"500px\"
-                                     height=\"350px\">
+                    echo "                                <img class=\"img\"
+                                     src=\"";
+                    // line 16
+                    echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/models/" . twig_get_attribute($this->env, $this->source, $context["model"], "icon", [], "any", false, false, false, 16))), "html", null, true);
+                    echo "\" alt=\"\"
                             ";
                 } else {
                     // line 18
-                    echo "                                <img style=\"background-color: white; border-radius: 5px;\"
+                    echo "                                <img class=\"img\"
                                      src=\"";
                     // line 19
                     echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("images/car_details/default.jpg"), "html", null, true);
-                    echo "\" alt=\"\" width=\"500px\"
-                                     height=\"350px\">
+                    echo "\" alt=\"\"
                             ";
                 }
-                // line 22
-                echo "                            <p>
+                // line 21
+                echo "                            </div>
+                            <p class=\"mt-2\">
                                 ";
                 // line 23
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["model"], "name", [], "any", false, false, false, 23), "html", null, true);
@@ -154,10 +154,9 @@ class __TwigTemplate_a2a917c4dc2ef9f8219a662899d06c50a200d215c3bf4d1bc2306803c3d
                     echo "                                    - ";
                     echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("till now"), "html", null, true);
                     echo ")
-
                                 ";
                 }
-                // line 32
+                // line 31
                 echo "                            </p>
                         </a>
                     </div>
@@ -166,10 +165,10 @@ class __TwigTemplate_a2a917c4dc2ef9f8219a662899d06c50a200d215c3bf4d1bc2306803c3d
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['model'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 36
+            // line 35
             echo "            ";
         }
-        // line 37
+        // line 36
         echo "        </div>
     </div>
 ";
@@ -193,7 +192,7 @@ class __TwigTemplate_a2a917c4dc2ef9f8219a662899d06c50a200d215c3bf4d1bc2306803c3d
 
     public function getDebugInfo()
     {
-        return array (  173 => 37,  170 => 36,  161 => 32,  154 => 29,  148 => 27,  146 => 26,  142 => 25,  138 => 24,  134 => 23,  131 => 22,  125 => 19,  122 => 18,  116 => 15,  113 => 14,  111 => 13,  107 => 12,  103 => 10,  98 => 9,  96 => 8,  92 => 6,  82 => 5,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  172 => 36,  169 => 35,  160 => 31,  154 => 29,  148 => 27,  146 => 26,  142 => 25,  138 => 24,  134 => 23,  130 => 21,  125 => 19,  122 => 18,  117 => 16,  114 => 15,  112 => 14,  107 => 12,  103 => 10,  98 => 9,  96 => 8,  92 => 6,  82 => 5,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -207,19 +206,19 @@ class __TwigTemplate_a2a917c4dc2ef9f8219a662899d06c50a200d215c3bf4d1bc2306803c3d
         <div class=\"container col-5 top\">
             {% if models %}
                 {% for model in models %}
-                    <div class=\"d-flex flex-column mb-5\">
+                    <div class=\" d-flex flex-column mb-5\">
                         <a class=\"link\"
                            href=\"{{ path('model_details', {'make':make,'model': model.id}) }}\">
+                            <div class=\"image-box\">
                             {% if model.icon %}
-                                <img style=\"background-color: white; border-radius: 5px;\"
-                                     src=\"{{ asset('images/models/'~model.icon) }}\" alt=\"\" width=\"500px\"
-                                     height=\"350px\">
+                                <img class=\"img\"
+                                     src=\"{{ asset('images/models/'~model.icon) }}\" alt=\"\"
                             {% else %}
-                                <img style=\"background-color: white; border-radius: 5px;\"
-                                     src=\"{{ asset('images/car_details/default.jpg') }}\" alt=\"\" width=\"500px\"
-                                     height=\"350px\">
+                                <img class=\"img\"
+                                     src=\"{{ asset('images/car_details/default.jpg') }}\" alt=\"\"
                             {% endif %}
-                            <p>
+                            </div>
+                            <p class=\"mt-2\">
                                 {{ model.name }}
                                 ({{ 'years'|trans }}:
                                 {{ model.yearStart }}
@@ -227,7 +226,6 @@ class __TwigTemplate_a2a917c4dc2ef9f8219a662899d06c50a200d215c3bf4d1bc2306803c3d
                                     - {{ model.yearFinish }})
                                 {% else %}
                                     - {{ 'till now'|trans }})
-
                                 {% endif %}
                             </p>
                         </a>

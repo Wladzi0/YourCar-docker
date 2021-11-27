@@ -43,7 +43,7 @@ class __TwigTemplate_96d3eb3cef5c08b22b294778539cafeb32c817fc8d69567682e5f95a5c7
         echo "<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>
 <script src=\"";
         // line 2
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/like.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/favourite.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
         // line 3
@@ -55,7 +55,7 @@ class __TwigTemplate_96d3eb3cef5c08b22b294778539cafeb32c817fc8d69567682e5f95a5c7
         echo "\"></script>
 <script src=\"";
         // line 5
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/scale.js"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/compare.js"), "html", null, true);
         echo "\"></script>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -83,9 +83,9 @@ class __TwigTemplate_96d3eb3cef5c08b22b294778539cafeb32c817fc8d69567682e5f95a5c7
     public function getSourceContext()
     {
         return new Source("<script src=\"https://unpkg.com/axios/dist/axios.min.js\"></script>
-<script src=\"{{ asset('js/like.js') }}\"></script>
+<script src=\"{{ asset('js/favourite.js') }}\"></script>
 <script src=\"{{ asset('js/slick.js') }}\"></script>
 <script src=\"{{ asset('js/fade.js') }}\"></script>
-<script src=\"{{ asset('js/scale.js') }}\"></script>", "like_slider_compare.html.twig", "/var/www/php/symfony/templates/like_slider_compare.html.twig");
+<script src=\"{{ asset('js/compare.js') }}\"></script>", "like_slider_compare.html.twig", "/var/www/php/symfony/templates/like_slider_compare.html.twig");
     }
 }

@@ -44,11 +44,7 @@ class FaultCrudController extends AbstractCrudController
             AssociationField::new('subModel'),
             AssociationField::new('engine'),
             TextareaField::new('description'),
-            AssociationField::new('comments')
-//            AssociationField::new('user')
-//                ->setRequired(true)
-//                ->autocomplete()
-//                ->setFormTypeOption('by_reference', false),
+            AssociationField::new('comments')->hideOnForm()
 
         ];
     }

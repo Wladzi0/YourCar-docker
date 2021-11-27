@@ -5,28 +5,28 @@
 
 {% block body %}
 
-    <div class="container row">
+    <div class="container row  mt-4">
         <div class="container col-5">
             {{ form_start(settingsForm, {'attr': {'class': 'form-horizontal','id': 'settingsForm'}}) }}
 {#            {% if included != true %}#}
 
-            {{ form_label(settingsForm.preferLanguage) }}
+            <h5>{{ form_label(settingsForm.preferLanguage) }}</h5>
             {{ form_widget(settingsForm.preferLanguage,
                 {'attr': {'class': 'form-control','required': 'true', 'autocomplete':'off'}}
             ) }}
 {#            {% endif %}#}
             <br>
-            {{ form_label(settingsForm.carType) }}<br>
+            <h5> {{ form_label(settingsForm.carType) }}</h5>
             {{ form_widget(settingsForm.carType,
                 {'attr': {'class': 'form-control', 'required': 'true'}}
             ) }}
             <br>
-            {{ form_label(settingsForm.tuning) }}<br>
+             <h5>{{ form_label(settingsForm.tuning) }}</h5>
             {{ form_widget(settingsForm.tuning,
                 {'attr': {'class': 'form-control', 'required': 'true'}}
             ) }}
             <br>
-            {{ form_label(settingsForm.fuelConsumption) }}<br>
+             <h5>{{ form_label(settingsForm.fuelConsumption) }}</h5>
             {{ form_widget(settingsForm.fuelConsumption,
                 {'attr': {'class': 'form-control', 'required': 'true'}}
             ) }}
@@ -38,9 +38,6 @@
 
                 </a>
 
-{#            <a id="reset" style="position: absolute ;margin-top: 50px; padding: 5px;" href="{{ path('deletePreferences') }}"#}
-{#               class=" btn-danger">{{ 'Reset all settings'|trans }}#}
-{#            </a>#}
         </div>
     </div>
     {% block javasriptsblock %}

@@ -8,9 +8,16 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\LanguageType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class UserSettingsFormType extends AbstractType
 {
+    private $translator;
+
+    public function __construct(TranslatorInterface $translator)
+    {
+        $this->translator=$translator;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
@@ -19,7 +26,7 @@ class UserSettingsFormType extends AbstractType
                 'required' => true,
             ])
             ->add('carType', ChoiceType::class, [
-                'label' => 'Your prefer car type',
+                'label' =>  $this->translator->trans('Your prefer car type'),
                 'required' => false,
                 'placeholder' => 'Please select',
                 'choices' => [
@@ -34,7 +41,7 @@ class UserSettingsFormType extends AbstractType
                 ],
             ])
             ->add('tuning', ChoiceType::class, [
-                'label' => 'Suitability for tuning',
+                'label' =>  $this->translator->trans('Suitability for tuning'),
                 'required' => false,
                 'placeholder' => 'Please select',
                 'choices' => [

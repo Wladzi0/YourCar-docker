@@ -4,8 +4,11 @@
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
+    locale: 'en'
+
     fault_images_directory: '%kernel.project_dir%/public/images/car_details'
     makes_images_directory: '%kernel.project_dir%/public/images/makes'
+    parts_images_directory: '%kernel.project_dir%/public/images/parts'
 services:
     # default configuration for services in *this* file
     _defaults:
@@ -14,6 +17,8 @@ services:
 
         bind:
             FOS\ElasticaBundle\Finder\TransformedFinder $finderCarDetails: '@fos_elastica.finder.cardetails'
+            FOS\ElasticaBundle\Finder\TransformedFinder $finderModel: '@fos_elastica.finder.model'
+            FOS\ElasticaBundle\Finder\TransformedFinder $finderCars: '@fos_elastica.finder.cars'
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name

@@ -7,32 +7,47 @@
     <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
 {% endblock %}
 {% block body %}
-    <div class="container">
-        {{ form_start(faultForm, {'attr': {'class': 'form-horizontal'}}) }}
-        {{ form_label(faultForm.images) }}
-        <br>
+    <div class="container col-4">
+        <h1 class="mt-5">{{ 'Request for addition fault' }}</h1>
+
+        {{ form_start(faultForm, {'attr': {'class': 'form-horizontal mt-3'}}) }}
+        <p class="font-weight-bold label-form">
+            {{ form_label(faultForm.images) }}
+            <i class="fas fa-asterisk"></i>
+        </p>
         {{ form_widget(faultForm.images,
             {'attr':
-                {'class': 'form-control', 'required': 'true'}
+                {'class': 'form-images', 'required': 'true'}
             }) }}
         <br>
-        {{ form_label(faultForm.name) }}
+
+        <div id="selectedImage" class=" mb-2"></div>
         <br>
+        <p class="font-weight-bold label-form">
+            {{ form_label(faultForm.name) }}
+            <i class="fas fa-asterisk"></i>
+        </p>
+
         {{ form_widget(faultForm.name,
             {'attr':
                 {'class': 'form-control', 'required': 'true'}
             }) }}
         <br>
-        {{ form_label(faultForm.description) }}
-        <br>
+        <p class="font-weight-bold label-form">
+            {{ form_label(faultForm.description) }}
+            <i class="fas fa-asterisk"></i>
+        </p>
         {{ form_widget(faultForm.description,
             {'attr':
                 {'class': 'form-control', 'required': 'true'}
             }) }}
-        <br>
-        <button class="btn btn-success w-25 " type="submit">
+        <button class="btn btn-success w-25 mt-5 " type="submit">
             {{ 'Add'|trans }}
         </button>
         {{ form_end(faultForm) }}
     </div>
+    {% block javasriptsblock %}
+        <script src="{{ asset('js/deleteImage.js') }}"></script>
+        <script src="{{ asset('js/selectedImage.js') }}"></script>
+    {% endblock %}
 {% endblock %}

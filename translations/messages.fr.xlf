@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="wq1UqU." resname="For city driving">
+        <source>For city driving</source>
+        <target>Pour la conduite en ville</target>
+      </trans-unit>
+      <trans-unit id="pfbgjyV" resname="For long distance driving">
+        <source>For long distance driving</source>
+        <target>Pour la conduite longue distance</target>
+      </trans-unit>
+      <trans-unit id="aWtGeKp" resname="For driving on the highway">
+        <source>For driving on the highway</source>
+        <target>Pour conduire sur l'autoroute</target>
+      </trans-unit>
+      <trans-unit id="oFqd._n" resname="Car for every day">
+        <source>Car for every day</source>
+        <target>Voiture pour tous les jours</target>
+      </trans-unit>
+      <trans-unit id="95PeIF6" resname="Low">
+        <source>Low</source>
+        <target>Meugler</target>
+      </trans-unit>
+      <trans-unit id="s4rixbh" resname="Average">
+        <source>Average</source>
+        <target>Moyenne</target>
+      </trans-unit>
+      <trans-unit id="mUUmRuN" resname="Compact">
+        <source>Compact</source>
+        <target>Compact</target>
+      </trans-unit>
+      <trans-unit id="72aRVF0" resname="Standard">
+        <source>Standard</source>
+        <target>Compact</target>
+      </trans-unit>
+      <trans-unit id="9p.SY0Z" resname="Big">
+        <source>Big</source>
+        <target>Gros</target>
+      </trans-unit>
+      <trans-unit id="xOvG1KW" resname="High">
+        <source>High</source>
+        <target>Haute</target>
+      </trans-unit>
+      <trans-unit id="ScJmuqq" resname="Search">
+        <source>Search</source>
+        <target>Chercher</target>
+      </trans-unit>
+      <trans-unit id="Sw6IrUW" resname="Was found">
+        <source>Was found</source>
+        <target>A été trouvé</target>
+      </trans-unit>
+      <trans-unit id="KylhpDG" resname="car">
+        <source>car</source>
+        <target>auto</target>
+      </trans-unit>
+      <trans-unit id="H1ix6WW" resname="cars">
+        <source>cars</source>
+        <target>voitures</target>
+      </trans-unit>
+      <trans-unit id="f8Bfh8q" resname="Petrol">
+        <source>Petrol</source>
+        <target>Essence</target>
+      </trans-unit>
+      <trans-unit id="CjQIxHw" resname="Diesel">
+        <source>Diesel</source>
+        <target>Diesel</target>
+      </trans-unit>
+      <trans-unit id="mjQLrLk" resname="Front drive">
+        <source>Front drive</source>
+        <target>Front drive</target>
+      </trans-unit>
+      <trans-unit id="eKwTceg" resname="Turbocharging">
+        <source>Turbocharging</source>
+        <target>Suralimentation</target>
+      </trans-unit>
+      <trans-unit id="h.HR918" resname="Rear drive">
+        <source>Rear drive</source>
+        <target>Entraînement arrière</target>
+      </trans-unit>
+      <trans-unit id="SkaeTw9" resname="Please select">
+        <source>Please select</source>
+        <target>Veuillez sélectionner</target>
+      </trans-unit>
+      <trans-unit id="kP0qSbn" resname="Fuel consumption">
+        <source>Fuel consumption</source>
+        <target>Consommation de carburant</target>
+      </trans-unit>
+      <trans-unit id="eOYbNbc" resname="For add to favourite or to comparing you need to login">
+        <source>For add to favourite or to comparing you need to login</source>
+        <target>Pour ajouter aux favoris ou comparer, vous devez vous connecter</target>
+      </trans-unit>
+      <trans-unit id="hAenQXg" resname="Technical data of engine">
+        <source>Technical data of engine</source>
+        <target>Données techniques du moteur</target>
+      </trans-unit>
+      <trans-unit id="grwboll" resname="Search car with us">
+        <source>Search car with us</source>
+        <target>Rechercher une voiture avec nous</target>
+      </trans-unit>
+      <trans-unit id="DiImtSN" resname="Welcome">
+        <source>Welcome</source>
+        <target>Bienvenue</target>
+      </trans-unit>
+      <trans-unit id="M1ZxMQN" resname="Welcome to YourCar">
+        <source>Welcome to YourCar</source>
+        <target>Bienvenue sur YourCar</target>
+      </trans-unit>
+      <trans-unit id="ju9DX0w" resname="Catalog of cars">
+        <source>Catalog of cars</source>
+        <target>Catalogue de voitures</target>
+      </trans-unit>
+      <trans-unit id="yzs6LYr" resname="Comparing of cars">
+        <source>Comparing of cars</source>
+        <target>Comparaison de voitures</target>
+      </trans-unit>
+      <trans-unit id="Q_aFSoa" resname="Your favourite cars">
+        <source>Your favourite cars</source>
+        <target>Vos voitures préférées</target>
+      </trans-unit>
+      <trans-unit id="ADeNfkH" resname="Search a cars...">
+        <source>Search a cars...</source>
+        <target>Rechercher une voiture ...</target>
+      </trans-unit>
+      <trans-unit id="jC3twAE" resname="Admin Panel">
+        <source>Admin Panel</source>
+        <target>Panneau d'administration</target>
+      </trans-unit>
+      <trans-unit id="ZpYvcqC" resname="Preferences">
+        <source>Preferences</source>
+        <target>Préférences</target>
+      </trans-unit>
+      <trans-unit id="0FJ_Sz1" resname="Logout">
+        <source>Logout</source>
+        <target>Se déconnecter</target>
+      </trans-unit>
+      <trans-unit id="g66C61R" resname="Search by our form">
+        <source>Search by our form</source>
+        <target>Recherche par notre formulaire</target>
+      </trans-unit>
+      <trans-unit id="SlVUZCp" resname="Prefer manufacturer country">
+        <source>Prefer manufacturer country</source>
+        <target>Préférer le pays du fabricant</target>
+      </trans-unit>
+      <trans-unit id="fUuk97w" resname="Select value">
+        <source>Select value</source>
+        <target>Sélectionner la valeur</target>
+      </trans-unit>
+      <trans-unit id="39l2vdt" resname="Prefer purpose">
+        <source>Prefer purpose</source>
+        <target>Objectif préféré</target>
+      </trans-unit>
+      <trans-unit id="cfqir4N" resname="Prefer fuel consumption">
+        <source>Prefer fuel consumption</source>
+        <target>Privilégier la consommation de carburant</target>
+      </trans-unit>
+      <trans-unit id="eC5T5KW" resname="Prefer size of car">
+        <source>Prefer size of car</source>
+        <target>Privilégier la consommation de carburant</target>
+      </trans-unit>
+      <trans-unit id="GPq3mAn" resname="Engine life">
+        <source>Engine life</source>
+        <target>Durée de vie du moteur</target>
+      </trans-unit>
+      <trans-unit id="RN89e80" resname="Search form">
+        <source>Search form</source>
+        <target>Formulaire de recherche</target>
+      </trans-unit>
+      <trans-unit id=".Dv_jjA" resname="Does not matter">
+        <source>Does not matter</source>
+        <target>N'a pas d'importance</target>
+      </trans-unit>
+      <trans-unit id="YXZ26gK" resname="Please enter a password">
+        <source>Please enter a password</source>
+        <target>Veuillez entrer un mot de passe</target>
+      </trans-unit>
+      <trans-unit id="PdnfREH" resname="New password">
+        <source>New password</source>
+        <target>Nouveau mot de passe</target>
+      </trans-unit>
+      <trans-unit id="Hkmh4Tp" resname="Repeat Password">
+        <source>Repeat Password</source>
+        <target>Répéter le mot de passe</target>
+      </trans-unit>
+      <trans-unit id="7ZpuRB0" resname="The password fields must match">
+        <source>The password fields must match</source>
+        <target>Les champs de mot de passe doivent correspondre</target>
+      </trans-unit>
+      <trans-unit id="UN7VIxE" resname="Production start">
+        <source>Production start</source>
+        <target>Début de fabrication</target>
+      </trans-unit>
+      <trans-unit id="9Rh6I3u" resname="Production finish">
+        <source>Production finish</source>
+        <target>Finition de fabrication</target>
+      </trans-unit>
+      <trans-unit id="0XILmrP" resname="Your password should be at least %{{ limit }}% characters">
+        <source>Your password should be at least %{{ limit }}% characters</source>
+        <target>Votre mot de passe doit comporter au moins %{{ limit }}% caractères</target>
+      </trans-unit>
+      <trans-unit id="FXq9CJI" resname="Comparing list">
+        <source>Comparing list</source>
+        <target>Liste de comparaison</target>
+      </trans-unit>
+      <trans-unit id="jnXrvbI" resname="Engine">
+        <source>Engine</source>
+        <target>Moteur</target>
+      </trans-unit>
+      <trans-unit id="qA_UL0E" resname="Fuel">
+        <source>Fuel</source>
+        <target>Carburant</target>
+      </trans-unit>
+      <trans-unit id="hI6WVn1" resname="Power">
+        <source>Power</source>
+        <target>Puissance</target>
+      </trans-unit>
+      <trans-unit id="irxrOyI" resname="Torque">
+        <source>Torque</source>
+        <target>Couple</target>
+      </trans-unit>
+      <trans-unit id="Id8XZMj" resname="Ecology standart">
+        <source>Ecology standart</source>
+        <target>Norme écologique</target>
+      </trans-unit>
+      <trans-unit id="PhATQlm" resname="Transmission">
+        <source>Transmission</source>
+        <target>Transmission</target>
+      </trans-unit>
+      <trans-unit id="YxK0ubr" resname="Drive">
+        <source>Drive</source>
+        <target>Conduire</target>
+      </trans-unit>
+      <trans-unit id="cjZOtRc" resname="Fuel consumprion">
+        <source>Fuel consumprion</source>
+        <target></target>
+      </trans-unit>
+      <trans-unit id="Fk7Z_UR" resname="Fuel consumprion mixed">
+        <source>Fuel consumprion mixed</source>
+        <target>Consommation de carburant mixte</target>
+      </trans-unit>
+      <trans-unit id="umVJEl9" resname="Fuel consumprion extra">
+        <source>Fuel consumprion extra</source>
+        <target>Consommation de carburant en sus</target>
+      </trans-unit>
+      <trans-unit id="Kr7vumH" resname="Tuning">
+        <source>Tuning</source>
+        <target>Réglage</target>
+      </trans-unit>
+      <trans-unit id="XMMw7oO" resname="Power increase device">
+        <source>Power increase device</source>
+        <target>Dispositif d'augmentation de puissance</target>
+      </trans-unit>
+      <trans-unit id="QxBSdmN" resname="Max. speed">
+        <source>Max. speed</source>
+        <target>Max. la vitesse</target>
+      </trans-unit>
+      <trans-unit id="rVmJVno" resname="Start year of installing">
+        <source>Start year of installing</source>
+        <target>Démarrer l'année d'installation</target>
+      </trans-unit>
+      <trans-unit id="d3vpm8x" resname="Finish year of installing">
+        <source>Finish year of installing</source>
+        <target>Finir l'année d'installation</target>
+      </trans-unit>
+      <trans-unit id="wLIfsWT" resname="Tank">
+        <source>Tank</source>
+        <target>Réservoir</target>
+      </trans-unit>
+      <trans-unit id="5os2sXy" resname="Parameters">
+        <source>Parameters</source>
+        <target>Paramètres</target>
+      </trans-unit>
+      <trans-unit id="mewaOJ6" resname="Start year of production">
+        <source>Start year of production</source>
+        <target>Début de l'année de production</target>
+      </trans-unit>
+      <trans-unit id="Yt_VM_J" resname="Finish year of production">
+        <source>Finish year of production</source>
+        <target>Finir l'année de production</target>
+      </trans-unit>
+      <trans-unit id="TPVkcqo" resname="Body type">
+        <source>Body type</source>
+        <target>Type de corps</target>
+      </trans-unit>
+      <trans-unit id="rclWBaG" resname="Length">
+        <source>Length</source>
+        <target>Longueur</target>
+      </trans-unit>
+      <trans-unit id="MBmUe22" resname="Width">
+        <source>Width</source>
+        <target>Largeur</target>
+      </trans-unit>
+      <trans-unit id="5X.05hU" resname="You forgot to add cars to comparing list">
+        <source>You forgot to add cars to comparing list</source>
+        <target>Vous avez oublié d'ajouter des voitures à la liste de comparaison</target>
+      </trans-unit>
+      <trans-unit id="VG67jrm" resname="Filters">
+        <source>Filters</source>
+        <target>Filtres</target>
+      </trans-unit>
+      <trans-unit id="7r3SSnf" resname="Confirm">
+        <source>Confirm</source>
+        <target>Confirmer</target>
+      </trans-unit>
+      <trans-unit id="vSTb9IR" resname="Hi! Please confirm your email!">
+        <source>Hi! Please confirm your email!</source>
+        <target>Salut! Veuillez confirmer votre email!</target>
+      </trans-unit>
+      <trans-unit id="nZPB._o" resname="Please confirm your email address by clicking the following link">
+        <source>Please confirm your email address by clicking the following link</source>
+        <target>Veuillez confirmer votre adresse e-mail en cliquant sur le lien suivant</target>
+      </trans-unit>
+      <trans-unit id="ITaQX9q" resname="Confirm my Email">
+        <source>Confirm my Email</source>
+        <target>Confirmer mon e-mail</target>
+      </trans-unit>
+      <trans-unit id="87wG9uu" resname="This link will expire in">
+        <source>This link will expire in</source>
+        <target>Ce lien expirera dans</target>
+      </trans-unit>
+      <trans-unit id="p49E9Md" resname="Cheers">
+        <source>Cheers</source>
+        <target>À votre santé</target>
+      </trans-unit>
+      <trans-unit id="BbiNGPw" resname="Edit user">
+        <source>Edit user</source>
+        <target>Modifier l'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="x5Pg2aH" resname="Registration">
+        <source>Registration</source>
+        <target>Inscription</target>
+      </trans-unit>
+      <trans-unit id=".4ZN4fY" resname="Create new account">
+        <source>Create new account</source>
+        <target>Créer un nouveau compte</target>
+      </trans-unit>
+      <trans-unit id="RkxP.QG" resname="Edit">
+        <source>Edit</source>
+        <target>Éditer</target>
+      </trans-unit>
+      <trans-unit id="XiuOllA" resname="Sign up">
+        <source>Sign up</source>
+        <target>S'inscrire</target>
+      </trans-unit>
+      <trans-unit id="cf4xzNN" resname="Back to sign in">
+        <source>Back to sign in</source>
+        <target>Retour pour vous connecter</target>
+      </trans-unit>
+      <trans-unit id="97dn1Jb" resname="User`s settings">
+        <source>User`s settings</source>
+        <target>Paramètres de l'utilisateur</target>
+      </trans-unit>
+      <trans-unit id="700mumm" resname="Reset all settings">
+        <source>Reset all settings</source>
+        <target>Réinitialiser tous les réglages</target>
+      </trans-unit>
+      <trans-unit id="wYmEDPf" resname="Log in">
+        <source>Log in</source>
+        <target>Connexion</target>
+      </trans-unit>
+      <trans-unit id="dDUw20Q" resname="Please sign in">
+        <source>Please sign in</source>
+        <target>Please sign in</target>
+      </trans-unit>
+      <trans-unit id="8kiP1O9" resname="Email address">
+        <source>Email address</source>
+        <target>Adresse e-mail</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="_TJnqhH" resname="Remember me">
+        <source>Remember me</source>
+        <target>Souviens-toi de moi</target>
+      </trans-unit>
+      <trans-unit id="MMHY0_k" resname="Forgot password?">
+        <source>Forgot password?</source>
+        <target>Mot de passe oublié?</target>
+      </trans-unit>
+      <trans-unit id="v9QCsvb" resname="Sign in">
+        <source>Sign in</source>
+        <target>S'identifier</target>
+      </trans-unit>
+      <trans-unit id="Y4ND.sf" resname="Admin panel">
+        <source>Admin panel</source>
+        <target>Panneau d'administration</target>
+      </trans-unit>
+      <trans-unit id="gW4fv_H" resname="Fault details">
+        <source>Fault details</source>
+        <target>Détails du défaut</target>
+      </trans-unit>
+      <trans-unit id="fozSBW2" resname="Title">
+        <source>Title</source>
+        <target>Titre</target>
+      </trans-unit>
+      <trans-unit id="Um4Ah8w" resname="Description">
+        <source>Description</source>
+        <target>Description</target>
+      </trans-unit>
+      <trans-unit id="4iV04CG" resname="Fault form">
+        <source>Fault form</source>
+        <target>Formulaire de défaut</target>
+      </trans-unit>
+      <trans-unit id="n9coxmy" resname="Add">
+        <source>Add</source>
+        <target>Ajouter</target>
+      </trans-unit>
+      <trans-unit id="72wIfEM" resname="Submodels list">
+        <source>Submodels list</source>
+        <target>Liste des sous-modèles</target>
+      </trans-unit>
+      <trans-unit id="Zw2yj3a" resname="List of models">
+        <source>List of models</source>
+        <target>Liste des modèles</target>
+      </trans-unit>
+      <trans-unit id="G4_2XgO" resname="till now">
+        <source>till now</source>
+        <target>jusqu'à maintenant</target>
+      </trans-unit>
+      <trans-unit id="cKgL1U0" resname="List of engines which were installed">
+        <source>List of engines which were installed</source>
+        <target>Liste des moteurs qui ont été installés</target>
+      </trans-unit>
+      <trans-unit id="4FedyIP" resname="List of transmissions which were installed">
+        <source>List of transmissions which were installed</source>
+        <target>Liste des transmissions qui ont été installées</target>
+      </trans-unit>
+      <trans-unit id="HFCZOwC" resname="years">
+        <source>years</source>
+        <target>ans</target>
+      </trans-unit>
+      <trans-unit id="hvVuObR" resname="List of makes">
+        <source>List of makes</source>
+        <target>Liste des marques</target>
+      </trans-unit>
+      <trans-unit id="t058j7h" resname="Available makes">
+        <source>Available makes</source>
+        <target>Marques disponibles</target>
+      </trans-unit>
+      <trans-unit id="TzCG5qn" resname="SubModel details">
+        <source>SubModel details</source>
+        <target>Détails du sous-modèle</target>
+      </trans-unit>
+      <trans-unit id="35n5.5." resname="Average rating">
+        <source>Average rating</source>
+        <target>Note moyenne</target>
+      </trans-unit>
+      <trans-unit id="rn2fTMO" resname="List of cars which it was installed">
+        <source>List of cars which it was installed</source>
+        <target>Liste des voitures sur lesquelles il a été installé</target>
+      </trans-unit>
+      <trans-unit id="IF7VMPq" resname="List of parts which frequently wanted">
+        <source>List of parts which frequently wanted</source>
+        <target>Liste des pièces fréquemment demandées</target>
+      </trans-unit>
+      <trans-unit id="pfe5Qav" resname="List of faults which were detected">
+        <source>List of faults which were detected</source>
+        <target>Liste des défauts détectés</target>
+      </trans-unit>
+      <trans-unit id="IpIHrl1" resname="Details by engine">
+        <source>Details by engine</source>
+        <target>Détails par moteur</target>
+      </trans-unit>
+      <trans-unit id="zDQMS5t" resname="List of faults">
+        <source>List of faults</source>
+        <target>Liste des défauts</target>
+      </trans-unit>
+      <trans-unit id="M8k0zxb" resname="List of rims which were installed">
+        <source>List of rims which were installed</source>
+        <target>Liste des jantes qui ont été installées</target>
+      </trans-unit>
+      <trans-unit id="TQrB3fq" resname="List of rims to this model">
+        <source>List of rims to this model</source>
+        <target>Liste des jantes pour ce modèle</target>
+      </trans-unit>
+      <trans-unit id="EVLpX4c" resname="Your favourite cars list">
+        <source>Your favourite cars list</source>
+        <target>Votre liste de voitures préférées</target>
+      </trans-unit>
+      <trans-unit id="kxEpa7p" resname="You forgot to add cars to favourite list">
+        <source>You forgot to add cars to favourite list</source>
+        <target>Vous avez oublié d'ajouter des voitures à la liste des favoris</target>
+      </trans-unit>
+      <trans-unit id="xNiR6ah" resname="Add comment">
+        <source>Add comment</source>
+        <target>Ajouter un commentaire</target>
+      </trans-unit>
+      <trans-unit id="2J_PEdb" resname="Please upload a file">
+        <source>Please upload a file</source>
+        <target>Veuillez télécharger un fichier</target>
+      </trans-unit>
+      <trans-unit id="I5ykyl." resname="Fuel consumption (l/km)">
+        <source>Fuel consumption (l/km)</source>
+        <target>Consummation de carburant (l/km)</target>
+      </trans-unit>
+      <trans-unit id="mQHQFPO" resname="Power (HP)">
+        <source>Power (HP)</source>
+        <target>Puissant (HP)</target>
+      </trans-unit>
+      <trans-unit id="fRJsmjk" resname="Tuning possibility">
+        <source>Tuning possibility</source>
+        <target>Possibilité de réglage</target>
+      </trans-unit>
+      <trans-unit id="_dpacdS" resname="The password value should have at least 6 characters">
+        <source>The password value should have at least 6 characters</source>
+        <target>La valeur du mot de passe doit avoir au moins 6 caractères</target>
+      </trans-unit>
+      <trans-unit id="pc3wfbv" resname="Car">
+        <source>Car</source>
+        <target>Auto</target>
+      </trans-unit>
+      <trans-unit id="FABx.up" resname="Preferred language">
+        <source>Preferred language</source>
+        <target>Langue préférée</target>
+      </trans-unit>
+      <trans-unit id="Fe2zEyl" resname="Please enter your email">
+        <source>Please enter your email</source>
+        <target>Please enter your email</target>
+      </trans-unit>
+      <trans-unit id="RYexkhd" resname="The password value should have at least 6 characters.">
+        <source>The password value should have at least 6 characters.</source>
+        <target>La valeur du mot de passe doit comporter au moins 6 caractères.</target>
+      </trans-unit>
+      <trans-unit id="TvoVKJ_" resname="Your prefer car type">
+        <source>Your prefer car type</source>
+        <target>Votre type de voiture préféré</target>
+      </trans-unit>
+      <trans-unit id="ZTyJ04G" resname="Suitability for tuning">
+        <source>Suitability for tuning</source>
+        <target>Aptitude au réglage</target>
+      </trans-unit>
+      <trans-unit id="kZjtauo" resname="Your request has been added successfully to queue">
+        <source>Your request has been added successfully to queue</source>
+        <target>Votre demande a été ajoutée avec succès à la file d'attente</target>
+      </trans-unit>
+      <trans-unit id="hpWlheT" resname="Please Confirm your Email">
+        <source>Please Confirm your Email</source>
+        <target>Veuillez confirmer votre email</target>
+      </trans-unit>
+      <trans-unit id="B9.y9Vw" resname="Link with confirm was sent to your mail!">
+        <source>Link with confirm was sent to your mail!</source>
+        <target>Le lien avec confirmation a été envoyé à votre courrier!</target>
+      </trans-unit>
+      <trans-unit id="kQWnsB7" resname="Your email address has been verified.">
+        <source>Your email address has been verified.</source>
+        <target>Votre adresse e-mail a été vérifiée.</target>
+      </trans-unit>
+      <trans-unit id="eKfRnZM" resname="Email is not correct">
+        <source>Email is not correct</source>
+        <target>L'e-mail n'est pas correct</target>
+      </trans-unit>
+      <trans-unit id="B8KtP_D" resname="Any car was not found">
+        <source>Any car was not found</source>
+        <target>Aucune voiture n'a été trouvée</target>
+      </trans-unit>
+      <trans-unit id="s8yq8ze" resname="This method can be blank - it will be intercepted by the logout key on your firewall.">
+        <source>This method can be blank - it will be intercepted by the logout key on your firewall.</source>
+        <target>Cette méthode peut être vide - elle sera interceptée par la clé de déconnexion de votre pare-feu.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

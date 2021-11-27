@@ -8,6 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -18,7 +19,7 @@ class PreferenceController extends AbstractController
     /**
      * @Route("/user/preferences", name="userPreferences")
      */
-    public function settings(Request $request): Response
+    public function settings(Request $request, Session $session): Response
     {
         $user = $this->get('security.token_storage')
             ->getToken()->getUser();
@@ -28,6 +29,7 @@ class PreferenceController extends AbstractController
         if ($settingsForm->isSubmitted() && $settingsForm->isValid()) {
 
             $this->getDoctrine()->getManager()->flush();
+            $session->set('_locale', $user->getPreferLanguage());
             return new Response(json_encode(['status' => 'success']));
         }
         return $this->render('preference/settings.html.twig', [

@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
 {% block title %}
-    {{ 'Welcome lo YourCar'|trans }}
+    {{ 'Welcome to YourCar'|trans }}
 {% endblock %}
 {% block body %}
-    <div class=" container col-5 top d-flex flex-column">
+    <div class=" container col-4 top d-flex flex-column">
+        <a href="{{ path('search_by_form') }}" class="btn btn-success mt-4">
+            {{ 'Search car with us'|trans }}
+        </a>
         <a href="{{ path('makes_list') }}" class="btn btn-success mt-4">
             {{ 'Catalog of cars'|trans }}
         </a>

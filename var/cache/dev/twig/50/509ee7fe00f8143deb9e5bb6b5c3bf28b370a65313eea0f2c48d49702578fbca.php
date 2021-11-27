@@ -94,70 +94,82 @@ class __TwigTemplate_68c666c6db5dd9337953643e1c9f8b07ba69ce2a13c64501bee8986f3bb
             <h2>
                 <a class=\"\" href=\"";
         // line 10
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("models_list", ["make" => twig_get_attribute($this->env, $this->source, (isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 10, $this->source); })()), "id", [], "any", false, false, false, 10)]), "html", null, true);
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("makes_list");
         echo "\">
                     ";
         // line 11
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 11, $this->source); })()), "name", [], "any", false, false, false, 11), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Catalog of cars"), "html", null, true);
+        echo "
+                </a>
+                ->
+            </h2>
+            <h2>
+                <a class=\"\" href=\"";
+        // line 16
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("models_list", ["make" => twig_get_attribute($this->env, $this->source, (isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 16, $this->source); })()), "id", [], "any", false, false, false, 16)]), "html", null, true);
+        echo "\">
+                    ";
+        // line 17
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 17, $this->source); })()), "name", [], "any", false, false, false, 17), "html", null, true);
         echo "
                 </a>
                 ->
                 ";
-        // line 14
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 14, $this->source); })()), "name", [], "any", false, false, false, 14), "html", null, true);
+        // line 20
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 20, $this->source); })()), "name", [], "any", false, false, false, 20), "html", null, true);
         echo "
             </h2>
             <h2>
                 <h4 class=\"mt-5\">
                     ";
-        // line 18
+        // line 24
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("List of models"), "html", null, true);
         echo "
                 </h4>
                 ";
-        // line 20
+        // line 26
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 20, $this->source); })()), "subModels", [], "any", false, false, false, 20));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 26, $this->source); })()), "subModels", [], "any", false, false, false, 26));
         foreach ($context['_seq'] as $context["_key"] => $context["subModel"]) {
-            // line 21
+            // line 27
             echo "                    <p>
                         <a href=\"
                         ";
-            // line 23
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sub_model_details", ["make" => twig_get_attribute($this->env, $this->source,             // line 24
-(isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 24, $this->source); })()), "id", [], "any", false, false, false, 24), "model" => twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 24, $this->source); })()), "id", [], "any", false, false, false, 24), "subModel" => twig_get_attribute($this->env, $this->source, $context["subModel"], "id", [], "any", false, false, false, 24)]), "html", null, true);
+            // line 29
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("sub_model_details", ["make" => twig_get_attribute($this->env, $this->source,             // line 30
+(isset($context["make"]) || array_key_exists("make", $context) ? $context["make"] : (function () { throw new RuntimeError('Variable "make" does not exist.', 30, $this->source); })()), "id", [], "any", false, false, false, 30), "model" => twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 30, $this->source); })()), "id", [], "any", false, false, false, 30), "subModel" => twig_get_attribute($this->env, $this->source, $context["subModel"], "id", [], "any", false, false, false, 30)]), "html", null, true);
             echo "\">
-                            <img style=\"background-color: white; border-radius: 5px;\"
+                            <img class=\"img\"
                                  src=\"";
-            // line 26
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/car_details/" . twig_first($this->env, twig_get_attribute($this->env, $this->source, $context["subModel"], "images", [], "any", false, false, false, 26)))), "html", null, true);
+            // line 32
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("images/car_details/" . twig_first($this->env, twig_get_attribute($this->env, $this->source, $context["subModel"], "images", [], "any", false, false, false, 32)))), "html", null, true);
             echo "\" alt=\"\" width=\"500px\"
                                  height=\"350px\">
                             <br>
                             ";
-            // line 29
+            // line 35
             echo twig_escape_filter($this->env, $context["subModel"], "html", null, true);
             echo "
                            (";
-            // line 30
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subModel"], "yearStart", [], "any", false, false, false, 30), "html", null, true);
+            // line 36
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subModel"], "yearStart", [], "any", false, false, false, 36), "html", null, true);
             echo "
                             ";
-            // line 31
-            if (twig_get_attribute($this->env, $this->source, $context["subModel"], "yearFinish", [], "any", false, false, false, 31)) {
-                // line 32
+            // line 37
+            if (twig_get_attribute($this->env, $this->source, $context["subModel"], "yearFinish", [], "any", false, false, false, 37)) {
+                // line 38
                 echo "                                -";
-                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subModel"], "yearFinish", [], "any", false, false, false, 32), "html", null, true);
+                echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["subModel"], "yearFinish", [], "any", false, false, false, 38), "html", null, true);
                 echo " )
                             ";
             } else {
-                // line 34
+                // line 40
                 echo "                                - ";
                 echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("till now"), "html", null, true);
                 echo ")
                             ";
             }
-            // line 36
+            // line 42
             echo "                        </a>
                     </p>
                 ";
@@ -165,53 +177,33 @@ class __TwigTemplate_68c666c6db5dd9337953643e1c9f8b07ba69ce2a13c64501bee8986f3bb
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['subModel'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 45
         echo "
             </h2>
-
-
-            ";
-        // line 44
-        echo "            ";
-        // line 45
-        echo "            ";
-        // line 46
-        echo "            ";
-        // line 47
-        echo "            ";
-        // line 48
-        echo "            ";
-        // line 49
-        echo "            ";
-        // line 50
-        echo "            ";
-        // line 51
-        echo "            ";
-        // line 52
-        echo "            <h4 class=\"mt-5\">
+            <h4 class=\"mt-5\">
                 ";
-        // line 53
+        // line 48
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("List of engines which were installed"), "html", null, true);
         echo "
             </h4>
             ";
-        // line 55
+        // line 50
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 55, $this->source); })()), "engines", [], "any", false, false, false, 55));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 50, $this->source); })()), "engines", [], "any", false, false, false, 50));
         foreach ($context['_seq'] as $context["_key"] => $context["engine"]) {
-            // line 56
+            // line 51
             echo "                <div class=\"col\">
                     ";
-            // line 57
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["engine"], "capacity", [], "any", false, false, false, 57), "html", null, true);
+            // line 52
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["engine"], "capacity", [], "any", false, false, false, 52), "html", null, true);
             echo "
                     ";
-            // line 58
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["engine"], "fuel", [], "any", false, false, false, 58), "html", null, true);
+            // line 53
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["engine"], "fuel", [], "any", false, false, false, 53), "html", null, true);
             echo "
                     ";
-            // line 59
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["engine"], "abbreviation", [], "any", false, false, false, 59), "html", null, true);
+            // line 54
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["engine"], "abbreviation", [], "any", false, false, false, 54), "html", null, true);
             echo "
                 </div>
             ";
@@ -219,24 +211,24 @@ class __TwigTemplate_68c666c6db5dd9337953643e1c9f8b07ba69ce2a13c64501bee8986f3bb
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['engine'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 62
+        // line 57
         echo "            <h4 class=\"mt-5\">
                 ";
-        // line 63
+        // line 58
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("List of transmissions which were installed"), "html", null, true);
         echo "
             </h4>
             <div class=\"mb-5\">
                 ";
-        // line 66
+        // line 61
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 66, $this->source); })()), "transmissions", [], "any", false, false, false, 66));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["model"]) || array_key_exists("model", $context) ? $context["model"] : (function () { throw new RuntimeError('Variable "model" does not exist.', 61, $this->source); })()), "transmissions", [], "any", false, false, false, 61));
         foreach ($context['_seq'] as $context["_key"] => $context["transmission"]) {
-            // line 67
+            // line 62
             echo "                    <div class=\"col\">
                         ";
-            // line 68
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["transmission"], "name", [], "any", false, false, false, 68), "html", null, true);
+            // line 63
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["transmission"], "name", [], "any", false, false, false, 63), "html", null, true);
             echo "
                     </div>
                 ";
@@ -244,7 +236,7 @@ class __TwigTemplate_68c666c6db5dd9337953643e1c9f8b07ba69ce2a13c64501bee8986f3bb
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['transmission'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 71
+        // line 66
         echo "            </div>
 
         </div>
@@ -270,7 +262,7 @@ class __TwigTemplate_68c666c6db5dd9337953643e1c9f8b07ba69ce2a13c64501bee8986f3bb
 
     public function getDebugInfo()
     {
-        return array (  248 => 71,  239 => 68,  236 => 67,  232 => 66,  226 => 63,  223 => 62,  214 => 59,  210 => 58,  206 => 57,  203 => 56,  199 => 55,  194 => 53,  191 => 52,  189 => 51,  187 => 50,  185 => 49,  183 => 48,  181 => 47,  179 => 46,  177 => 45,  175 => 44,  169 => 39,  161 => 36,  155 => 34,  149 => 32,  147 => 31,  143 => 30,  139 => 29,  133 => 26,  128 => 24,  127 => 23,  123 => 21,  119 => 20,  114 => 18,  107 => 14,  101 => 11,  97 => 10,  92 => 7,  82 => 6,  69 => 3,  59 => 2,  36 => 1,);
+        return array (  240 => 66,  231 => 63,  228 => 62,  224 => 61,  218 => 58,  215 => 57,  206 => 54,  202 => 53,  198 => 52,  195 => 51,  191 => 50,  186 => 48,  181 => 45,  173 => 42,  167 => 40,  161 => 38,  159 => 37,  155 => 36,  151 => 35,  145 => 32,  140 => 30,  139 => 29,  135 => 27,  131 => 26,  126 => 24,  119 => 20,  113 => 17,  109 => 16,  101 => 11,  97 => 10,  92 => 7,  82 => 6,  69 => 3,  59 => 2,  36 => 1,);
     }
 
     public function getSourceContext()
@@ -283,6 +275,12 @@ class __TwigTemplate_68c666c6db5dd9337953643e1c9f8b07ba69ce2a13c64501bee8986f3bb
 {% block body %}
     <div class=\"container top\">
         <div class=\"col\">
+            <h2>
+                <a class=\"\" href=\"{{ path('makes_list') }}\">
+                    {{ 'Catalog of cars'|trans }}
+                </a>
+                ->
+            </h2>
             <h2>
                 <a class=\"\" href=\"{{ path('models_list', {'make': make.id}) }}\">
                     {{ make.name }}
@@ -299,7 +297,7 @@ class __TwigTemplate_68c666c6db5dd9337953643e1c9f8b07ba69ce2a13c64501bee8986f3bb
                         <a href=\"
                         {{ path('sub_model_details',
                             {'make': make.id,'model':model.id,'subModel':subModel.id }) }}\">
-                            <img style=\"background-color: white; border-radius: 5px;\"
+                            <img class=\"img\"
                                  src=\"{{ asset('images/car_details/'~ subModel.images|first) }}\" alt=\"\" width=\"500px\"
                                  height=\"350px\">
                             <br>
@@ -315,17 +313,6 @@ class __TwigTemplate_68c666c6db5dd9337953643e1c9f8b07ba69ce2a13c64501bee8986f3bb
                 {% endfor %}
 
             </h2>
-
-
-            {# {% if model.icon %} #}
-            {# <img style=\"background-color: white; border-radius: 5px;\" #}
-            {# src=\"{{ asset('images/models/'~model.icon) }}\" alt=\"\" width=\"500px\" #}
-            {# height=\"350px\"> #}
-            {# {% else %} #}
-            {# <img style=\"background-color: white; border-radius: 5px;\" #}
-            {# src=\"{{ asset('images/car_details/default.jpg') }}\" alt=\"\" width=\"500px\" #}
-            {# height=\"350px\"> #}
-            {# {% endif %} #}
             <h4 class=\"mt-5\">
                 {{ 'List of engines which were installed'|trans }}
             </h4>

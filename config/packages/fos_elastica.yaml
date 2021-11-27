@@ -11,8 +11,37 @@ fos_elastica:
                 driver: orm
                 model: App\Entity\CarDetails
             properties:
+#                country: { type: text }
+#                purpose: { type: text }
+#                size: { type: text }
                 fuelConsumption: { type: float }
-                power: ~
-                age: ~
-                tuning: ~
+                power: { type: float }
+                age: { type: integer }
+                tuning: { type: text }
+#                engineLife: { type: text }
+        model:
+            persistence:
+                listener: ~
+                provider: ~
+                finder: ~
+                driver: orm
+                model: App\Entity\Model
+            properties:
+                name: { type: text }
+                make: ~
+        cars:
+            persistence:
+                listener: ~
+                provider: ~
+                finder: ~
+                driver: orm
+                model: App\Entity\CarDetails
+            properties:
+                purpose: { type: text }
+                subModel.model.make.name: { type: text }
+                subModel.model.make.country: { type: text }
+                fuelConsumption: { type: float }
+                size: { type: text }
+                age: { type: integer }
+                engineLife: { type: text }
 

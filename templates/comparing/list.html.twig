@@ -4,67 +4,223 @@
 {% endblock %}
 
 {% block body %}
-
-    <div class="row">
-        {% set list = [] %}
-        {% for car in cars %}
-            {% set list = list|merge([car.carDetails.id]) %}
-            <div class="border m-5 col-3 " id="{{ loop.index }}">
-                <a href="{{ path('details_by_engine',
-                    {
-                        'engine': car.carDetails.engine.id,
-                        'make': car.carDetails.subModel.model.make.id,
-                        'model': car.carDetails.subModel.model.id,
-                        'subModel': car.carDetails.subModel.id
-                    }
-                ) }}" class="row">
-
-                    <img src="
-            {{ asset('images/car_details/'~ car.carDetails.subModel.images|first) }}"
-                         width="460" height="300" alt="">
-                    <h4>{{ dump(car.carDetails.id) }}
-                        {{ car.carDetails.subModel.model.make }}
-                        {{ car.carDetails.subModel.model }}
-                        ({{ car.carDetails.subModel.bodyPlatform }})
-                    </h4>
-                </a>
-                <div class="description col mt-4">
-                    <p>
-                        {{ car.carDetails.engine }}
-                        ({{ car.carDetails.power }} HP)
-                        {{ car.carDetails.age }}&nbsp;{{ 'Years'|trans }}
+    {% if cars %}
+        {{ include('comparing/filter_form.html.twig') }}
+        <div id="container">
+            <div class="row ml-5 mt-3 ">
+                <div class="mr-2" style="margin-top: 370px;" id="listParam">
+                    <h5 style="background-color: #10be7a" class="p-3">
+                        {{ 'Technical data of engine '|trans }}
+                    </h5>
+                    <p class="mt-3 border-bottom">
+                        {{ 'Engine'|trans }}
                     </p>
-                </div>
-                <div class="d-flex align-items-start flex-column bd-highlight mb-3">
-                    <a href="{{ path('comparing',{ 'id': car.carDetails.id }) }}" id="js-compare"
-                       class="text-white mb-auto p-2 bd-highlight" data-car="{{ loop.index }}" >
-                        {{ dump(loop.index) }}
-                        {% if app.user and car.carDetails.isScaledByUser(app.user) %}
-                            <i class="fas fa-balance-scale-right "></i>
-                        {% else %}
-                            <i class="fas fa-balance-scale"></i>
-                        {% endif %}
-                    </a>
+                    <p class="border-bottom">
+                        {{ 'Fuel'|trans }}
+                    </p>
+                    <p class="border-bottom">
+                        {{ 'Power'|trans }} (HP)
+                    </p>
+                    <p class="border-bottom">
+                        {{ 'Torque'|trans }} (Nm)
+                    </p>
+                    <p class="border-bottom">
+                        {{ 'Ecology standart'|trans }}
+                    </p>
+                    <p class="border-bottom">
+                        {{ 'Transmission'|trans }}
+                    </p>
+                    <p class="border-bottom">
+                        {{ 'Drive'|trans }}
+                    </p>
+                    <p class="border-bottom">
+                        {{ 'Fuel consumprion'|trans }} (l/100km)
+                    </p>
+                    <p class="border-bottom">
+                        {{ 'Fuel consumprion mixed'|trans }} (l/100km)
+                    </p>
+                    <p class="border-bottom">
+                        {{ 'Fuel consumprion extra'|trans }} (l/100km)
+                    </p>
+                    <div class="hideContent content">
+                        <p class="border-bottom">
+                            {{ 'Tuning'|trans }}
+                        </p>
+                        <p class="border-bottom">
+                            {{ 'Power increase device'|trans }}
+                        </p>
+                        <p class="border-bottom">
+                            {{ 'Max. speed'|trans }} (km/h)
+                        </p>
+                        <p class="border-bottom">
+                            {{ 'Start year of installing'|trans }}
+                        </p>
+                        <p class="border-bottom">
+                            {{ 'Finish year of installing'|trans }}
+                        </p>
 
-                    <a href="{{ path('add_favourite',{'id':car.carDetails.id }) }}"
-                       id="js-favourite" class=" like btn-link ">
+                        <p class="border-bottom">
+                            {{ 'Tank'|trans }} (l)
+                        </p>
 
-                        {% if app.user and car.carDetails.isFavouredByUser(app.user) %}
-                            <i class=" fas fa-heart"></i>
-                        {% else %}
-                            <i class="far fa-heart"></i>
-                        {% endif %}
-                    </a>
+                        <h5 class="mt-1">
+                            {{ 'Parameters'|trans }}
+                        </h5>
+                        <div>
+                            <p class="border-bottom">
+                                {{ 'Start year of production'|trans }}
+                            </p>
+                            <p class="border-bottom">
+                                {{ 'Finish year of production'|trans }}
+                            </p>
+                        </div>
+                        <p class="border-bottom">
+                            {{ 'Body type '|trans }}
+                        </p>
+                        <p class="border-bottom">
+                            {{ 'Length '|trans }}
+                        </p>
+                        <p class="border-bottom">
+                            {{ 'Width '|trans }}
+                        </p>
+                    </div>
                 </div>
+                {% set list = [] %}
+                {% for car in cars %}
+
+                    {% set list = list|merge([car.carDetails.id]) %}
+
+                    <div class="border d-flex flex-column mb-5 " style="overflow: hidden" id="{{ loop.index }}" name="{{ car.carDetails.id }}">
+                        <a style="text-decoration: none; color: #10be7a" href="{{ path('details_by_engine',
+                            {
+                                'engine': car.carDetails.engine.id,
+                                'make': car.carDetails.subModel.model.make.id,
+                                'model': car.carDetails.subModel.model.id,
+                                'subModel': car.carDetails.subModel.id
+                            }
+                        ) }}" >
+
+                            <img style=""
+                                 src="{{ asset('images/car_details/'~ car.carDetails.subModel.images|first) }}"
+                                 height="300" width="300px;" alt="" >
+                            <h5 style="height: 60px; width: 250px; " class="ml-4 mt-3 ">
+                                {{ car.carDetails.subModel.model.make }}
+                                {{ car.carDetails.subModel.model }}
+                                ({{ car.carDetails.subModel.bodyPlatform }})
+                            </h5>
+                        </a>
+                        <div class="d-flex flex-row justify-content-between ml-2 mr-3 align-items-center">
+                            <a href="{{ path('comparing',{ 'id': car.carDetails.id }) }}" id="js-compare"
+                               class="mb-auto p-2 bd-highlight" data-car="{{ loop.index }}">
+                                {% if app.user and car.carDetails.isScaledByUser(app.user) %}
+                                    <i class="fas fa-balance-scale-right h5 scale"></i>
+                                {% else %}
+                                    <i class="fas fa-balance-scale h5 scale"></i>
+                                {% endif %}
+                            </a>
+
+                            <a href="{{ path('add_favourite',{'id':car.carDetails.id }) }}"
+                               id="js-favourite" class=" like btn-link ">
+                                {% if app.user and car.carDetails.isFavouredByUser(app.user) %}
+                                    <i class=" fas fa-heart h5 heart"></i>
+                                {% else %}
+                                    <i class="far fa-heart h5 heart"></i>
+                                {% endif %}
+                            </a>
+                        </div>
+                        <div>
+                            <p class="mt-3 border-bottom ml-2">
+                                {{ car.carDetails.engine }}
+                            </p>
+                            <p class=" border-bottom ml-2">
+                                {{ car.carDetails.engine.fuel|trans }}
+                            </p>
+                            <p name="power" class=" border-bottom ml-2">
+                                {{ car.carDetails.power }}
+                            </p>
+                            <p class="border-bottom ml-2">
+                                {{ car.carDetails.torque }}
+                            </p>
+                            <p class="border-bottom ml-2">
+                                {{ car.carDetails.eco }}
+                            </p>
+                            <p class="border-bottom ml-2 ">
+                                {{ car.carDetails.transmission }}
+                            </p>
+                            <p class="border-bottom ml-2">
+                                {{ car.carDetails.drive }}
+                            </p>
+                            <p class="border-bottom ml-2" name="fuelConsumption">
+                                {{ car.carDetails.fuelConsumption }}
+
+                            </p>
+                            <p class="border-bottom ml-2">
+                                {{ car.carDetails.fuelConsumptionMixed }}
+                            </p>
+                            <p class="border-bottom ml-2">
+                                {{ car.carDetails.fuelConsumptionExtra }}
+                            </p>
+                        </div>
+
+                        <div class="hideContent content ">
+                            <p name="tuning" class="border-bottom">
+                                {{ car.carDetails.tuning }}
+                            </p>
+                            <p class="border-bottom">
+                                {{ car.carDetails.engine.powerIncrease }}
+                            </p>
+                            <p class="border-bottom">
+                                {{ car.carDetails.speed }}
+                            </p>
+                            <p class="border-bottom">
+                                {{ car.carDetails.yearStart }}
+                            </p>
+                            <p class="border-bottom">
+                                {{ car.carDetails.yearFinish }}
+                            </p>
+
+                            <p class="border-bottom">
+                                {{ car.carDetails.subModel.tank }}
+                            </p>
+
+                            <div name="age" class="mt-5">
+                                <p class="border-bottom">
+                                    {{ car.carDetails.subModel.yearStart }}
+                                </p>
+                                <p class="border-bottom">
+                                    {{ car.carDetails.subModel.yearFinish }}
+                                </p>
+                            </div>
+
+                            <p class="border-bottom">
+                                {{ car.carDetails.subModel.bodyType }}
+                            </p>
+                            <p class="border-bottom">
+                                {{ car.carDetails.subModel.length }}
+                            </p>
+                            <p class="border-bottom">
+                                {{ car.carDetails.subModel.width }}
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+                {{ app.session.set('carsList', list) }}
+
             </div>
-
-        {% endfor %}
-        {{ include('search_filter/filter_form.html.twig') }}
-    </div>
-    {{ dump(list) }}
+            <i id="more" class="fas fa-chevron-circle-down btn d-flex justify-content-center mb-5">
+            </i>
+        </div>
+    {% else %}
+        <h2 class="d-flex justify-content-center align-items-center flex-column"
+            style="height: 600px;">
+            {{ 'You forgot to add cars to comparing list'|trans }}
+        </h2>
+    {% endif %}
 
     {% block javasriptsblock %}
         {{ include('like_slider_compare.html.twig') }}
+        <script src="{{ asset('js/filter1.js') }}"></script>
+        <script src="{{ asset('js/more.js') }}"></script>
     {% endblock %}
 
 {% endblock %}
