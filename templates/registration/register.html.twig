@@ -7,31 +7,28 @@
     {% endif %}
 {% endblock %}
 {% block body %}
-    <div class="container">
-        {% set formErrors = registrationForm.vars.errors.form.getErrors(true) %}
-        {% if formErrors | length %}
-            <ul class="col-5 alert-danger mt-3">
-                {% for error in formErrors %}
-                    <li>
-                        {{ error.message|trans }}
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    </div>
     <div class="mt-5 container col-3">
-        <div class="col">
-            {% if edit is same as (true) %}
-                <h1>
-                    {{ 'Edit user'|trans }}
-                </h1>
-            {% else %}
-                <h1>
-                    {{ 'Create new account'|trans }}
-                </h1>
-            {% endif %}
-        </div>
-        <div class="">
+
+        <div class="form">
+          {% if edit is same as (true) %}
+              <h1>
+                  {{ 'Edit user'|trans }}
+              </h1>
+          {% else %}
+              <h1>
+                  {{ 'Create new account'|trans }}
+              </h1>
+          {% endif %}
+          {% set formErrors = registrationForm.vars.errors.form.getErrors(true) %}
+          {% if formErrors | length %}
+              <ul class="alert-danger mt-3 py-2">
+                  {% for error in formErrors %}
+                      <li>
+                          {{ error.message|trans }}
+
+                  {% endfor %}
+              </ul>
+          {% endif %}
             {{ form_start(registrationForm, {'attr': {'class': 'form-horizontal'}}) }}
             <br>
             <p class="font-weight-bold label-form">
@@ -96,7 +93,7 @@
                         {{ 'Back to sign in'|trans }}
                     </button>
 
-                    <button class="btn btn-success " type="submit">
+                    <button class="btn btn-success" type="submit">
                         {{ 'Sign up'|trans }}
                     </button>
                 </div>

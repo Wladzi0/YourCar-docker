@@ -17,7 +17,7 @@ $(document).ready(function () {
                     let arr = JSON.parse(response);
                     arr.forEach(el => {
                         entitySelector.append(
-                            '<a style= class="h5" href="/make/' + el['make'] + '/model/' + el['model'] + '">' + el['makeName'] + ' ' + el['modelName'] + '</a><br>');
+                            '<a class="text-white" href="/make/' + el['make'] + '/model/' + el['model'] + '">' + el['makeName'] + ' ' + el['modelName'] + '</a><br>');
                     })
                 }
             });

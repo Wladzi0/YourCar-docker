@@ -157,6 +157,14 @@ $catalogue = new MessageCatalogue('fi', array (
     'Too many failed login attempts, please try again in %minutes% minute.' => 'Liian monta epäonnistunutta kirjautumisyritystä, yritä uudelleen %minutes% minuutin kuluttua.',
     'Too many failed login attempts, please try again in %minutes% minutes.' => 'Liian monta epäonnistunutta kirjautumisyritystä, yritä uudelleen %minutes% minuutin kuluttua.',
   ),
+  'VerifyEmailBundle' => 
+  array (
+    '%count% year|%count% years' => '%count% vuoden|%count% vuoden',
+    '%count% month|%count% months' => '%count% kuukauden|%count% kuukauden',
+    '%count% day|%count% days' => '%count% päivän|%count% päivän',
+    '%count% hour|%count% hours' => '%count% tunnin|%count% tunnin',
+    '%count% minute|%count% minutes' => '%count% minuutin|%count% minuutin',
+  ),
   'messages' => 
   array (
     'vich_uploader.form_label.delete_confirm' => 'Poista?',

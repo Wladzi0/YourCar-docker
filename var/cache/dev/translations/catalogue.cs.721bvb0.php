@@ -158,6 +158,14 @@ $catalogue = new MessageCatalogue('cs', array (
     'Too many failed login attempts, please try again in %minutes% minute.' => 'Příliš mnoho neúspěšných pokusů o přihlášení, zkuste to prosím znovu za %minutes% minutu.',
     'Too many failed login attempts, please try again in %minutes% minutes.' => 'Příliš mnoho neúspěšných pokusů o přihlášení, zkuste to prosím znovu za %minutes% minut.',
   ),
+  'VerifyEmailBundle' => 
+  array (
+    '%count% year|%count% years' => '%count% rok|%count% roky|%count% let',
+    '%count% month|%count% months' => '%count% měsíc|%count% měsíce|%count% měsíců',
+    '%count% day|%count% days' => '%count% den|%count% dny|%count% dní',
+    '%count% hour|%count% hours' => '%count% hodina|%count% hodiny|%count% hodin',
+    '%count% minute|%count% minutes' => '%count% minuta|%count% minuty|%count% minut',
+  ),
   'messages' => 
   array (
     'vich_uploader.form_label.delete_confirm' => 'Smazat?',
@@ -253,6 +261,14 @@ $catalogue = new MessageCatalogue('cs', array (
     'exception.insufficient_entity_permission' => 'Nemáte dostatečná oprávnění pro přístup k této položce.',
     'autocomplete.no-results-found' => 'Nenalezeny žádné položky',
     'autocomplete.loading-more-results' => 'Načítají se další výsledky…',
+  ),
+  'ResetPasswordBundle' => 
+  array (
+    '%count% year|%count% years' => '%count% rok|%count% roky|%count% let',
+    '%count% month|%count% months' => '%count% měsíc|%count% měsíce|%count% měsíců',
+    '%count% day|%count% days' => '%count% den|%count% dny|%count% dní',
+    '%count% hour|%count% hours' => '%count% hodina|%count% hodiny|%count% hodin',
+    '%count% minute|%count% minutes' => '%count% minuta|%count% minuty|%count% minut',
   ),
   'KnpPaginatorBundle' => 
   array (

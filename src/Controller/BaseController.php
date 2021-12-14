@@ -127,7 +127,7 @@ class BaseController extends AbstractController
         $userLang = $user->getPreferLanguage();
         return new JsonResponse([
             'userLang'=>$userLang,
-            'languages' => ['en','fr', 'uk']]);
+            'languages' => ['en','fr']]);
 
     }
 

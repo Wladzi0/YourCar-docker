@@ -47,6 +47,7 @@ return [
     'comparing' => [['id'], ['_controller' => 'App\\Controller\\ScaleController::comparing'], [], [['text', '/comparing'], ['variable', '/', '[^/]++', 'id', true], ['text', '/car']], [], []],
     'search' => [[], ['_controller' => 'App\\Controller\\SearchFilterController::searchAction'], [], [['text', '/search']], [], []],
     'search_by_form' => [[], ['_controller' => 'App\\Controller\\SearchFilterController::searchByForm'], [], [['text', '/search/form']], [], []],
+    'app_searchfilter_getcountriesorbrands' => [[], ['_controller' => 'App\\Controller\\SearchFilterController::getCountriesOrBrands'], [], [['text', '/country-brands/list']], [], []],
     'app_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/login']], [], []],
     'app_logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
 ];

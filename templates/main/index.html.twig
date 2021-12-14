@@ -3,18 +3,41 @@
     {{ 'Welcome to YourCar'|trans }}
 {% endblock %}
 {% block body %}
-    <div class=" container col-4 top d-flex flex-column">
-        <a href="{{ path('search_by_form') }}" class="btn btn-success mt-4">
-            {{ 'Search car with us'|trans }}
+    <div class="container col-md-6 col-xl-4 col-9 top flex-column">
+
+      <a href="{{ path('search_by_form') }}" class="w-100 btn btn-1 mt-4 main-scale d-inline-flex p-3">
+        <h2 class="m-text text-white">{{ 'Search car with us'|trans }}</h2>
+          <i class="icon text-white display-3 fas fa-car">
+            <i class="db-icon text-secondary display-2 search-icon fas fa-search shift"></i>
+          </i>
+
+      </a>
+         <a href="{{ path('makes_list') }}" class="w-100 btn btn-2 mt-4 main-scale d-inline-flex p-3">
+            <div class=" m-text flex-column">
+            <h2 class="text-white">{{ 'Catalog of cars'|trans }}</h2>
+            <h3 class="text-white">{{models|length}}</h3>
+            </div>
+            <i class="icon text-white display-3 fas fa-book-open"></i>
         </a>
-        <a href="{{ path('makes_list') }}" class="btn btn-success mt-4">
-            {{ 'Catalog of cars'|trans }}
+       <a href="{{ path('comparing_list') }}" class="w-100 btn btn-3 mt-4 main-scale d-inline-flex p-3">
+          <div class=" m-text flex-column">
+            <h2 class="text-white"> {{ 'Comparing of cars'|trans }}</h2>
+            	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <h3 class="text-white">{{ app.user.scales|length }}</h3>
+            {% endif %}
+          </div>
+           <i class="icon text-white display-3 fas fa-balance-scale"></i>
         </a>
-        <a href="{{ path('comparing_list') }}" class="btn btn-success mt-4">
-            {{ 'Comparing of cars'|trans }}
-        </a>
-        <a href="{{ path('favourite_cars_list') }}" class="btn btn-success mt-4">
-            {{ 'Your favourite cars'|trans }}
+        <a href="{{ path('favourite_cars_list') }}" class="w-100 btn btn-4 mt-4 main-scale d-inline-flex p-3">
+          <div class="m-text flex-column">
+            <h2 class="text-white">{{ 'Your favourite cars'|trans }}</h2>
+            	{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <h3 class="text-white">{{ app.user.favourites|length }}</h3>
+            {% endif %}
+          </div>
+
+            <i class="icon text-white display-3 fas fa-heart "></i>
         </a>
     </div>
+
 {% endblock %}

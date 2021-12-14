@@ -3,12 +3,15 @@
 namespace App\Controller;
 
 use App\Entity\Make;
+use App\Repository\MakeRepository;
 use Elastica\Query;
 use FOS\ElasticaBundle\Finder\TransformedFinder;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,6 +50,96 @@ final class SearchFilterController extends AbstractController
         $this->finderCars = $finderCars;
     }
 
+
+
+
+    // /**
+    //  * @Route("/api/users", name="users", methods={"GET"})
+    //  */
+    // public function getUsers(): Response
+    // {
+    //     $users = [
+    //         [
+    //             'id' => 1,
+    //             'name' => 'Olususi Oluyemi',
+    //             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation',
+    //             'imageURL' => 'https://randomuser.me/api/portraits/women/50.jpg'
+    //         ],
+    //         [
+    //             'id' => 2,
+    //             'name' => 'Camila Terry',
+    //             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation',
+    //             'imageURL' => 'https://randomuser.me/api/portraits/men/42.jpg'
+    //         ],
+    //         [
+    //             'id' => 3,
+    //             'name' => 'Joel Williamson',
+    //             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation',
+    //             'imageURL' => 'https://randomuser.me/api/portraits/women/67.jpg'
+    //         ],
+    //         [
+    //             'id' => 4,
+    //             'name' => 'Deann Payne',
+    //             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation',
+    //             'imageURL' => 'https://randomuser.me/api/portraits/women/50.jpg'
+    //         ],
+    //         [
+    //             'id' => 5,
+    //             'name' => 'Donald Perkins',
+    //             'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation',
+    //             'imageURL' => 'https://randomuser.me/api/portraits/men/89.jpg'
+    //         ]
+    //     ];
+    //
+    //     $response = new Response();
+    //
+    //     $response->headers->set('Content-Type', 'application/json');
+    //     $response->headers->set('Access-Control-Allow-Origin', '*');
+    //
+    //     $response->setContent(json_encode($users));
+    //
+    //     return $response;
+    // }
+    // /**
+    //  * @param Request $request
+    //  * @param TransformedFinder $finderModel
+    //  * @Route("/search", name="search", methods={"GET"})
+    //  */
+    // public function searchAction(Request $request, TransformedFinder $finderModel)
+    // {
+    //
+    //     $data = $request->get("query");
+    //     // $query='bm';
+    //     $query = json_decode($request->getContent(),true);
+    //
+    //       // var_dump($query);
+    //     $carsList = [];
+    //     $searchQuery = new Query\QueryString($query . '*');
+    //     $searchQuery->setDefaultOperator('OR');
+    //     $searchQuery->setFields(['name', 'make']);
+    //     $searchQuery->setRewrite('constant_score');
+    //     $results = $finderModel->find($searchQuery);
+    //
+    //     foreach ($results as $result) {
+    //         $carsList[] = [
+    //             'make' => $result->getMake()->getId(),
+    //             'makeName' => $result->getMake()->getName(),
+    //             'model' => $result->getId(),
+    //             'modelName' => $result->getName(),
+    //
+    //
+    //         ];
+    //     }
+    //     return new JsonResponse($carsList);
+    // // $response = new Response();
+    // //
+    // //     $response->headers->set('Content-Type', 'application/json');
+    // //     $response->headers->set('Access-Control-Allow-Origin', '*');
+    // //
+    // //     $response->setContent(json_encode($carsList));
+    // //
+    // //     return $response;
+    // }
     /**
      * @param Request $request
      * @param TransformedFinder $finderModel
@@ -74,6 +167,7 @@ final class SearchFilterController extends AbstractController
         }
         return new JsonResponse($carsList);
     }
+
 
     /**
      * @Route("/search/form", name="search_by_form")
@@ -153,31 +247,18 @@ final class SearchFilterController extends AbstractController
                     $this->translator->trans('High') => 'High',
                 ]
             ])
-            ->add('exclCountry', ChoiceType::class, [
-                'label' => $this->translator->trans('Exclude country(ies)'),
-                'required'=>false,
-                'choices' => [
-                    'Germany' => 'Germany',
-                    'France' => 'France',
-                    'China' => 'China',
-                    'USA' => 'USA',
-                    'Japan' => 'Japan',
-                    'India' => 'India',
-                    'South Korea' => 'South Korea',
-                    'Spain' => 'Spain',
-                    'England' => 'England',
-                    'Italy' => 'Italy',
-                    'Sweden' => 'Sweden'
-                ],
-                'multiple' => true,
-                'expanded'=>true,
+            ->add('exclCountry', TextType::class, [
+                'label' => $this->translator->trans('Country(ies)'),
+                'required' => false,
             ])
-            ->add('exclMake',EntityType::class,[
-                'required'=>false,
-                'label' => $this->translator->trans('Exclude make(s)'),
-                'class'=>Make::class,
-                'multiple' => true,
-                'expanded'=>true,
+            ->add('exclMake', TextType::class, [
+                'required' => false,
+                // 'allow_add'=>true,
+                // 'allow_delete'=>true,
+                'label' => $this->translator->trans('Brands(s)'),
+                // 'class'=>Make::class,
+                // 'multiple' => true,
+                // 'expanded'=>true,
 
             ])
             ->add('save', SubmitType::class, [
@@ -187,31 +268,33 @@ final class SearchFilterController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $boolQuery = new Query\BoolQuery();
-            $exclCountry=$form['exclCountry']->getData();
-            $exclMake=$form['exclMake']->getData();
-            if($exclMake !=null ){
-                foreach ($exclMake as $element){
-                    $exlcField= new Query\MatchQuery();
+            $exclCountry = $form['exclCountry']->getData();
+            $exCountryList = explode(',', $exclCountry);
+
+            $exclMake = $form['exclMake']->getData();
+            // dd($exclMake);
+            if ($exclMake != null) {
+                foreach ($exclMake as $element) {
+                    $exlcField = new Query\MatchQuery();
                     $exlcField->setFieldQuery('subModel.model.make.name', $element);
                     $boolQuery->addMustNot($exlcField);
                 }
 
             }
-            if($exclCountry !=null ){
-                foreach ($exclCountry as $element){
-                    $exlcField= new Query\MatchQuery();
+            if ($exCountryList != null) {
+                foreach ($exCountryList as $element) {
+                    $exlcField = new Query\MatchQuery();
                     $exlcField->setFieldQuery('subModel.model.make.country', $element);
                     $boolQuery->addMustNot($exlcField);
                 }
 
-            }
-            else{
-            $country = $form['country']->getData();
-            if ( $country != null) {
-                $fieldQuery = new Query\MatchQuery();
-                $fieldQuery->setFieldQuery('subModel.model.make.country', $country);
-                $boolQuery->addMust($fieldQuery);
-            }
+            } else {
+                $country = $form['country']->getData();
+                if ($country != null) {
+                    $fieldQuery = new Query\MatchQuery();
+                    $fieldQuery->setFieldQuery('subModel.model.make.country', $country);
+                    $boolQuery->addMust($fieldQuery);
+                }
             }
             $purpose = $form['purpose']->getData();
             if ($purpose) {
@@ -274,5 +357,26 @@ final class SearchFilterController extends AbstractController
         ]);
     }
 
+    /**
+     * @Route("/country-brands/list")
+     */
+    public function getCountriesOrBrands(Request $request, MakeRepository $brandRepo): JsonResponse
+    {
+        $brands = $brandRepo->findAll();
+        $list = [];
+        if ($request->get('country')) {
+            foreach ($brands as $brand) {
+                if (!in_array($brand->getCountry(), $list)) {
+                    $list[] = $brand->getCountry();
+                }
+            }
+        } else {
+            foreach ($brands as $brand) {
+                $list[] = $brand->getName();
+            }
+        }
+
+        return $this->json($list);
+    }
 
 }

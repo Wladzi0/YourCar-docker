@@ -34,6 +34,7 @@ return [
         '/cars/comparing' => [[['_route' => 'comparing_list', '_controller' => 'App\\Controller\\ScaleController::list'], null, null, null, false, false, null]],
         '/search' => [[['_route' => 'search', '_controller' => 'App\\Controller\\SearchFilterController::searchAction'], null, null, null, false, false, null]],
         '/search/form' => [[['_route' => 'search_by_form', '_controller' => 'App\\Controller\\SearchFilterController::searchByForm'], null, null, null, false, false, null]],
+        '/country-brands/list' => [[['_route' => 'app_searchfilter_getcountriesorbrands', '_controller' => 'App\\Controller\\SearchFilterController::getCountriesOrBrands'], null, null, null, false, false, null]],
         '/login' => [[['_route' => 'app_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'app_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],
     ],

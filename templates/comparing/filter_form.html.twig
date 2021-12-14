@@ -1,6 +1,12 @@
+{% block javascripts %}
+<script src="{{ asset('js/hideFilterForm.js') }}"></script>
+{% endblock %}
 {% block body %}
-    <div id="filterFields" class="mt-3 position-fixed">
-        <h1>{{ 'Filters'|trans }}</h1>
+    <div style="align-items:center" id="filterFields" class="mt-3 d-flex flex-row position-fixed">
+      <i id="filter-arrow" onclick="arrowSwitchRight()" class="fas fa-chevron-right mr-3"></i>
+      <i id="filter-arrow-left" onclick="arrowSwitchLeft()" class="fas fa-chevron-left mr-3"></i>
+      <div id="filter">
+        <h1 id="filterText">{{ 'Filters'|trans }}</h1>
         {{ form_start(filterForm,
             {'attr':
                 {'class':'form-horizontal form-control p-3 ', 'id': 'filterForm'
@@ -19,5 +25,7 @@
         <p class="font-weight-bold label-form">{{ form_label(filterForm.tuning) }}</p>
         {{ form_widget(filterForm.tuning,{'attr': {'class': 'form-control mb-3'}}) }}
         {{ form_end(filterForm) }}
+
+      </div>
     </div>
 {% endblock %}

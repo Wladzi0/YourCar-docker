@@ -776,6 +776,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\LanguageRepository" class="App\Repository\LanguageRepository" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\MakeRepository" class="App\Repository\MakeRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -2189,8 +2193,10 @@
             <argument>/var/www/php/symfony/vendor/symfony/validator/Resources/translations/validators.cs.xlf</argument>
             <argument>/var/www/php/symfony/vendor/symfony/form/Resources/translations/validators.cs.xlf</argument>
             <argument>/var/www/php/symfony/vendor/symfony/security-core/Resources/translations/security.cs.xlf</argument>
+            <argument>/var/www/php/symfony/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.cs.xlf</argument>
             <argument>/var/www/php/symfony/vendor/vich/uploader-bundle/translations/messages.cs.yaml</argument>
             <argument>/var/www/php/symfony/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.cs.php</argument>
+            <argument>/var/www/php/symfony/vendor/symfonycasts/reset-password-bundle/src/Resources/translations/ResetPasswordBundle.cs.xlf</argument>
             <argument>/var/www/php/symfony/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.cs.xliff</argument>
           </argument>
           <argument key="cy" type="collection">
@@ -2261,6 +2267,7 @@
             <argument>/var/www/php/symfony/vendor/symfony/validator/Resources/translations/validators.fi.xlf</argument>
             <argument>/var/www/php/symfony/vendor/symfony/form/Resources/translations/validators.fi.xlf</argument>
             <argument>/var/www/php/symfony/vendor/symfony/security-core/Resources/translations/security.fi.xlf</argument>
+            <argument>/var/www/php/symfony/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.fi.xlf</argument>
             <argument>/var/www/php/symfony/vendor/vich/uploader-bundle/translations/messages.fi.yaml</argument>
             <argument>/var/www/php/symfony/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.fi.php</argument>
             <argument>/var/www/php/symfony/vendor/symfonycasts/reset-password-bundle/src/Resources/translations/ResetPasswordBundle.fi.xlf</argument>
@@ -2317,6 +2324,7 @@
             <argument>/var/www/php/symfony/vendor/symfony/validator/Resources/translations/validators.id.xlf</argument>
             <argument>/var/www/php/symfony/vendor/symfony/form/Resources/translations/validators.id.xlf</argument>
             <argument>/var/www/php/symfony/vendor/symfony/security-core/Resources/translations/security.id.xlf</argument>
+            <argument>/var/www/php/symfony/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.id.php</argument>
             <argument>/var/www/php/symfony/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.id.xliff</argument>
           </argument>
           <argument key="it" type="collection">
@@ -2333,12 +2341,15 @@
             <argument>/var/www/php/symfony/vendor/symfony/validator/Resources/translations/validators.ja.xlf</argument>
             <argument>/var/www/php/symfony/vendor/symfony/form/Resources/translations/validators.ja.xlf</argument>
             <argument>/var/www/php/symfony/vendor/symfony/security-core/Resources/translations/security.ja.xlf</argument>
+            <argument>/var/www/php/symfony/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle.ja.xlf</argument>
+            <argument>/var/www/php/symfony/vendor/symfonycasts/reset-password-bundle/src/Resources/translations/ResetPasswordBundle.ja.xlf</argument>
             <argument>/var/www/php/symfony/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.ja.xliff</argument>
           </argument>
           <argument key="lb" type="collection">
             <argument>/var/www/php/symfony/vendor/symfony/validator/Resources/translations/validators.lb.xlf</argument>
             <argument>/var/www/php/symfony/vendor/symfony/form/Resources/translations/validators.lb.xlf</argument>
             <argument>/var/www/php/symfony/vendor/symfony/security-core/Resources/translations/security.lb.xlf</argument>
+            <argument>/var/www/php/symfony/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.lb.php</argument>
           </argument>
           <argument key="lt" type="collection">
             <argument>/var/www/php/symfony/vendor/symfony/validator/Resources/translations/validators.lt.xlf</argument>
@@ -2370,6 +2381,7 @@
             <argument>/var/www/php/symfony/vendor/symfonycasts/verify-email-bundle/src/Resources/translations/VerifyEmailBundle+intl-icu.nl.xlf</argument>
             <argument>/var/www/php/symfony/vendor/vich/uploader-bundle/translations/messages.nl.yaml</argument>
             <argument>/var/www/php/symfony/vendor/easycorp/easyadmin-bundle/src/Resources/translations/EasyAdminBundle.nl.php</argument>
+            <argument>/var/www/php/symfony/vendor/symfonycasts/reset-password-bundle/src/Resources/translations/ResetPasswordBundle+intl-icu.nl.xlf</argument>
             <argument>/var/www/php/symfony/vendor/knplabs/knp-paginator-bundle/translations/KnpPaginatorBundle.nl.xliff</argument>
           </argument>
           <argument key="nn" type="collection">
@@ -5117,7 +5129,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory">
-      <argument type="service" id=".service_locator.lRN.0bW"/>
+      <argument type="service" id=".service_locator.agTEl58"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5382,6 +5394,9 @@
         <argument>false</argument>
       </call>
       <call method="setCheckDatabasePlatform">
+        <argument>true</argument>
+      </call>
+      <call method="setTransactional">
         <argument>true</argument>
       </call>
       <call method="setMetadataStorageConfiguration">
@@ -6188,7 +6203,7 @@
       <tag name="container.no_preload"/>
       <argument>/var/www/php/symfony/public</argument>
       <argument>dev</argument>
-      <argument>/var/www/php/symfony/var/cache</argument>
+      <argument>/var/www/php/symfony</argument>
       <call method="setName">
         <argument>server:run</argument>
       </call>
@@ -6198,7 +6213,7 @@
       <tag name="container.no_preload"/>
       <argument>/var/www/php/symfony/public</argument>
       <argument>dev</argument>
-      <argument>/var/www/php/symfony/var/cache</argument>
+      <argument>/var/www/php/symfony</argument>
       <call method="setName">
         <argument>server:start</argument>
       </call>
@@ -6206,7 +6221,7 @@
     <service id="web_server.command.server_stop" class="Symfony\Bundle\WebServerBundle\Command\ServerStopCommand">
       <tag name="console.command" command="server:stop"/>
       <tag name="container.no_preload"/>
-      <argument>/var/www/php/symfony/var/cache</argument>
+      <argument>/var/www/php/symfony</argument>
       <call method="setName">
         <argument>server:stop</argument>
       </call>
@@ -6214,7 +6229,7 @@
     <service id="web_server.command.server_status" class="Symfony\Bundle\WebServerBundle\Command\ServerStatusCommand">
       <tag name="console.command" command="server:status"/>
       <tag name="container.no_preload"/>
-      <argument>/var/www/php/symfony/var/cache</argument>
+      <argument>/var/www/php/symfony</argument>
       <call method="setName">
         <argument>server:status</argument>
       </call>
@@ -7819,6 +7834,8 @@
     <service id=".abstract.instanceof.App\Repository\FilterRepository" class="App\Repository\FilterRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ImageRepository" class="App\Repository\ImageRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ImageRepository" class="App\Repository\ImageRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\LanguageRepository" class="App\Repository\LanguageRepository" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\LanguageRepository" class="App\Repository\LanguageRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\MakeRepository" class="App\Repository\MakeRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\MakeRepository" class="App\Repository\MakeRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ModelRepository" class="App\Repository\ModelRepository" autowire="true" abstract="true"/>
@@ -8343,6 +8360,12 @@
         <argument key="clientRegistry" type="service_closure" id="knpu.oauth2.registry"/>
       </argument>
     </service>
+    <service id=".service_locator.CI4Fnd2" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="modelRepo" type="service_closure" id="App\Repository\ModelRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.bs2Eeyi" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
@@ -8432,13 +8455,19 @@
         <argument key="finderModel" type="service_closure" id="fos_elastica.finder.model"/>
       </argument>
     </service>
+    <service id=".service_locator.LqG1bx6" class="Symfony\Component\DependencyInjection\ServiceLocator">
+      <tag name="container.service_locator"/>
+      <argument type="collection">
+        <argument key="brandRepo" type="service_closure" id="App\Repository\MakeRepository"/>
+      </argument>
+    </service>
     <service id=".service_locator.UDgw6Ol" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="authenticationUtils" type="service_closure" id="security.authentication_utils"/>
       </argument>
     </service>
-    <service id=".service_locator.MVgULKH" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.d3oo.0." class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Controller\Admin\CarDetailsCrudController::autocomplete" type="service_closure" id=".service_locator.ZOQ9v2d"/>
@@ -8728,6 +8757,7 @@
         <argument key="App\Controller\MainController::detailsByEngine" type="service_closure" id=".service_locator.WQu24rL"/>
         <argument key="App\Controller\MainController::engineDetails" type="service_closure" id=".service_locator.BumXePT"/>
         <argument key="App\Controller\MainController::engineFault" type="service_closure" id=".service_locator.W6YiuSx"/>
+        <argument key="App\Controller\MainController::index" type="service_closure" id=".service_locator.CI4Fnd2"/>
         <argument key="App\Controller\MainController::makesList" type="service_closure" id=".service_locator.bs2Eeyi"/>
         <argument key="App\Controller\MainController::modelsList" type="service_closure" id=".service_locator.ra8SdsS"/>
         <argument key="App\Controller\MainController::subModelFault" type="service_closure" id=".service_locator.P2IrcZ."/>
@@ -8740,6 +8770,7 @@
         <argument key="App\Controller\ResetPasswordController::reset" type="service_closure" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\ScaleController::comparing" type="service_closure" id=".service_locator.I8253bs"/>
         <argument key="App\Controller\ScaleController::list" type="service_closure" id=".service_locator.znRR847"/>
+        <argument key="App\Controller\SearchFilterController::getCountriesOrBrands" type="service_closure" id=".service_locator.LqG1bx6"/>
         <argument key="App\Controller\SearchFilterController::searchAction" type="service_closure" id=".service_locator.qmtTLZn"/>
         <argument key="App\Controller\SecurityController::login" type="service_closure" id=".service_locator.UDgw6Ol"/>
         <argument key="App\Kernel::loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
@@ -9035,6 +9066,7 @@
         <argument key="App\Controller\MainController:detailsByEngine" type="service_closure" id=".service_locator.WQu24rL"/>
         <argument key="App\Controller\MainController:engineDetails" type="service_closure" id=".service_locator.BumXePT"/>
         <argument key="App\Controller\MainController:engineFault" type="service_closure" id=".service_locator.W6YiuSx"/>
+        <argument key="App\Controller\MainController:index" type="service_closure" id=".service_locator.CI4Fnd2"/>
         <argument key="App\Controller\MainController:makesList" type="service_closure" id=".service_locator.bs2Eeyi"/>
         <argument key="App\Controller\MainController:modelsList" type="service_closure" id=".service_locator.ra8SdsS"/>
         <argument key="App\Controller\MainController:subModelFault" type="service_closure" id=".service_locator.P2IrcZ."/>
@@ -9047,6 +9079,7 @@
         <argument key="App\Controller\ResetPasswordController:reset" type="service_closure" id=".service_locator.pwZ6MTM"/>
         <argument key="App\Controller\ScaleController:comparing" type="service_closure" id=".service_locator.I8253bs"/>
         <argument key="App\Controller\ScaleController:list" type="service_closure" id=".service_locator.znRR847"/>
+        <argument key="App\Controller\SearchFilterController:getCountriesOrBrands" type="service_closure" id=".service_locator.LqG1bx6"/>
         <argument key="App\Controller\SearchFilterController:searchAction" type="service_closure" id=".service_locator.qmtTLZn"/>
         <argument key="App\Controller\SecurityController:login" type="service_closure" id=".service_locator.UDgw6Ol"/>
         <argument key="kernel:loadRoutes" type="service_closure" id=".service_locator.KfbR3DY"/>
@@ -9346,7 +9379,7 @@
       <argument type="service" id="cache.doctrine.orm.default.result"/>
       <factory class="Doctrine\Common\Cache\Psr6\DoctrineProvider" method="wrap"/>
     </service>
-    <service id=".service_locator.lRN.0bW" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.agTEl58" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\CarDetailsRepository" type="service_closure" id="App\Repository\CarDetailsRepository"/>
@@ -9356,6 +9389,7 @@
         <argument key="App\Repository\FavouriteRepository" type="service_closure" id="App\Repository\FavouriteRepository"/>
         <argument key="App\Repository\FilterRepository" type="service_closure" id="App\Repository\FilterRepository"/>
         <argument key="App\Repository\ImageRepository" type="service_closure" id="App\Repository\ImageRepository"/>
+        <argument key="App\Repository\LanguageRepository" type="service_closure" id="App\Repository\LanguageRepository"/>
         <argument key="App\Repository\MakeRepository" type="service_closure" id="App\Repository\MakeRepository"/>
         <argument key="App\Repository\ModelRepository" type="service_closure" id="App\Repository\ModelRepository"/>
         <argument key="App\Repository\PartRepository" type="service_closure" id="App\Repository\PartRepository"/>
@@ -9881,12 +9915,12 @@
       <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
     </service>
     <service id="debug.argument_resolver.service.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver">
-      <argument type="service" id=".service_locator.MVgULKH"/>
+      <argument type="service" id=".service_locator.d3oo.0."/>
     </service>
     <service id="debug.argument_resolver.default.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\DefaultValueResolver"/>
     <service id="debug.argument_resolver.variadic.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\VariadicValueResolver"/>
     <service id="debug.argument_resolver.not_tagged_controller.inner" class="Symfony\Component\HttpKernel\Controller\ArgumentResolver\NotTaggedControllerValueResolver">
-      <argument type="service" id=".service_locator.MVgULKH"/>
+      <argument type="service" id=".service_locator.d3oo.0."/>
     </service>
     <service id=".debug.http_client.inner" class="Symfony\Contracts\HttpClient\HttpClientInterface">
       <argument type="collection"/>
@@ -10412,7 +10446,7 @@
     <service id="Symfony\WebpackEncoreBundle\Asset\EntrypointLookupInterface" alias="webpack_encore.entrypoint_lookup[_default]"/>
     <service id="container.env_var_processors_locator" alias=".service_locator.Kbr2i2X" public="true"/>
     <service id="twig.loader.filesystem" alias="twig.loader.native_filesystem"/>
-    <service id="argument_resolver.controller_locator" alias=".service_locator.MVgULKH"/>
+    <service id="argument_resolver.controller_locator" alias=".service_locator.d3oo.0."/>
     <service id="twig.loader" alias="twig.loader.native_filesystem"/>
     <service id="Psr\Log\LoggerInterface $requestLogger" alias="monolog.logger.request"/>
     <service id="Psr\Log\LoggerInterface $consoleLogger" alias="monolog.logger.console"/>

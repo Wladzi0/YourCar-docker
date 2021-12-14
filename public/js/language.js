@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    $('#language').one('focus',function () {
         let selector = document.getElementById('language');
         $.ajax({
             type: 'POST',
@@ -10,9 +9,8 @@ $(document).ready(function () {
                     selector.options[selector.options.length] = new Option(el, el);
                 });
             }
-    });
 });
-    $("#language").on('change', function () {
+    $("#language").bind('change', function () {
         let selectedLanguage = $(this).val();
         $.ajax({
             type: "POST",

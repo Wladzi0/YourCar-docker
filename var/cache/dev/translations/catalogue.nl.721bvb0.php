@@ -262,6 +262,14 @@ $catalogue = new MessageCatalogue('nl', array (
     'autocomplete.no-results-found' => 'Geen resultaten gevonden…',
     'autocomplete.loading-more-results' => 'Meer resultaten laden…',
   ),
+  'ResetPasswordBundle+intl-icu' => 
+  array (
+    '%count% year|%count% years' => '{count, plural, =0 {0 jaar} one {1 jaar} other {# jaren}}',
+    '%count% month|%count% months' => '{count, plural, =0 {0 maanden} one {1 maand} other {# maanden}}',
+    '%count% day|%count% days' => '{count, plural, =0 {0 dagen} one {1 dag} other {# dagen}}',
+    '%count% hour|%count% hours' => '{count, plural, =0 {0 uur} one {1 uur} other {# uren}}',
+    '%count% minute|%count% minutes' => '{count, plural, =0 {0 minuten} one {1 minuut} other {# minuten}}',
+  ),
   'KnpPaginatorBundle' => 
   array (
     'label_previous' => 'Vorige',

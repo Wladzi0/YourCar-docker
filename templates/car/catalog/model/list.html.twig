@@ -7,19 +7,19 @@
         <div class="container col-5 top">
             {% if models %}
                 {% for model in models %}
-                    <div class=" d-flex flex-column mb-5">
-                        <a class="link"
+                    <div class=" d-flex flex-column ">
+                        <a class="link text-decoration-none"
                            href="{{ path('model_details', {'make':make,'model': model.id}) }}">
                             <div class="image-box">
                             {% if model.icon %}
                                 <img class="img"
-                                     src="{{ asset('images/models/'~model.icon) }}" alt=""
+                                     src="{{ asset('images/models/'~model.icon) }}" alt="">
                             {% else %}
                                 <img class="img"
-                                     src="{{ asset('images/car_details/default.jpg') }}" alt=""
+                                     src="{{ asset('images/car_details/default.jpg') }}" alt="">
                             {% endif %}
                             </div>
-                            <p class="mt-2">
+                            <p class="mb-5">
                                 {{ model.name }}
                                 ({{ 'years'|trans }}:
                                 {{ model.yearStart }}

@@ -48,6 +48,7 @@
         "symfony/validator": "5.2.*",
         "symfony/web-link": "5.2.*",
         "symfony/webpack-encore-bundle": "^1.13",
+        "symfony/webpack-encore-pack": "^1.0",
         "symfony/yaml": "5.2.*",
         "symfonycasts/reset-password-bundle": "^1.8",
         "symfonycasts/verify-email-bundle": "^1.5",

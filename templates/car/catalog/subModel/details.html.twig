@@ -27,7 +27,6 @@
             </h4>
             {% for carDetails in engines %}
 
-                <div class="col">
                     <a href="{{ path('details_by_engine', {'engine': carDetails.engine.id, 'make':make.id, 'model':model.id,'subModel':subModel.id}) }}">
                         {{ carDetails.engine.capacity }}
                         {{ carDetails.engine.fuel|trans }}
@@ -36,7 +35,7 @@
                         ({{carDetails.yearStart }}-
                         {{carDetails.yearFinish }} )
                     </a>
-                </div>
+              
             {% endfor %}
 
         </div>

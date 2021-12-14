@@ -4,8 +4,20 @@
 
 return [[
 
+'_default' => 0,
 
 ], [
 
+0 => [
+    'entrypoints' => [
+        'app' => [
+            'js' => [
+                '/build/runtime.js',
+                '/build/vendors-node_modules_material-ui_icons_Search_js-node_modules_axios_index_js-node_modules_cor-5dbd1c.js',
+                '/build/app.js',
+            ],
+        ],
+    ],
+],
 
 ]];

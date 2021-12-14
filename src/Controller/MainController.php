@@ -37,11 +37,12 @@ class MainController extends AbstractController
      *
      * @Route("/", name="main")
      */
-    public function index(): Response
+    public function index(ModelRepository $modelRepo): Response
     {
         dump($this->session->get('_locale'));
+        $models = $modelRepo->findAll();
         return $this->render('main/index.html.twig', [
-
+            'models' => $models
         ]);
     }
 

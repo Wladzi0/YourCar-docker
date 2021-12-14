@@ -8,7 +8,7 @@
         <form class="form" method="post">
             <br>
             {% if error %}
-                <div class="alert-danger">
+                <div class="alert-danger p-3">
                     {{ error.messageKey|trans(error.messageData, 'security') }}
                 </div>
             {% endif %}
@@ -47,8 +47,8 @@
         <button class="btn registration btn-info" onclick="window.location.href='/register'">
             {{ 'Create new account'|trans }}
         </button>
-        <hr class="w-100  bg-info mt-4">
-        <a class="h3 d-flex justify-content-sm-center" style="text-decoration: none"
+        <hr class="bg-info mt-4 form">
+        <a class="h3 d-flex justify-content-center" style="text-decoration: none"
            href="{{ path('connect_google_start') }}">
             <i class="fab fa-google"></i>
         </a>

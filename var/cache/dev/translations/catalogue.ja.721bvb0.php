@@ -158,6 +158,22 @@ $catalogue = new MessageCatalogue('ja', array (
     'Too many failed login attempts, please try again in %minutes% minute.' => 'ログイン試行回数が多すぎます。%minutes%分後に再度お試しください。',
     'Too many failed login attempts, please try again in %minutes% minutes.' => 'ログイン試行回数が多すぎます。%minutes%分後に再度お試しください。',
   ),
+  'VerifyEmailBundle' => 
+  array (
+    '%count% year|%count% years' => '%count% 年|%count% 年',
+    '%count% month|%count% months' => '%count% 月|%count% 月',
+    '%count% day|%count% days' => '%count% 日|%count% 日',
+    '%count% hour|%count% hours' => '%count% 時間|%count% 時間',
+    '%count% minute|%count% minutes' => '%count% 分|%count% 分',
+  ),
+  'ResetPasswordBundle' => 
+  array (
+    '%count% year|%count% years' => '%count% 年|%count% 年',
+    '%count% month|%count% months' => '%count% 月|%count% 月',
+    '%count% day|%count% days' => '%count% 日|%count% 日',
+    '%count% hour|%count% hours' => '%count% 時間|%count% 時間',
+    '%count% minute|%count% minutes' => '%count% 分|%count% 分',
+  ),
   'KnpPaginatorBundle' => 
   array (
     'label_previous' => '前へ',
