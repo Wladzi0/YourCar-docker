@@ -12,14 +12,14 @@
 		{% endblock %}
 	</title>
 
-	<div class="container  mt-3">
+	<div class="container mt-3 mb-5 col-4 col-md-4 col-sm-4">
 		<h1>{{ 'Search by our form'|trans }}</h1>
 		{{ form_start(searchByForm,
             {'attr':
                 {'class':' form-control p-3'}
             }) }}
-		<div class="d-flex flex-row">
-			<div class=" w-50 p-3 ">
+
+			<div class="p-3">
 				{# <h5 style="margin-bottom: -8px; ">{{ form_label(searchByForm.transmission) }}</h5> #}
 				{# {{ form_widget(searchByForm.transmission,{'attr': {'class': 'form-control mb-3'}}) }} #}
 				<p class="font-weight-bold label-form">
@@ -50,8 +50,8 @@
                     {'attr': {'class': 'form-control mb-3 pointer'
                     }}) }}
 			</div>
-			<div class="flex-row flex">
-				<h3 class="font-weight-bold label-form mb-1">{{'Execude parametr'|trans}}</h3>
+			<div class="mr-3 ml-3">
+				<h4 class="font-weight-bold label-form mb-1">{{'Execude parametr'|trans}}</h4>
 				<div class="border rounded p-3 border-danger ">
 					<p class="font-weight-bold label-form">{{ form_label(searchByForm.exclCountry) }}</p>
 					{{ form_widget(searchByForm.exclCountry,
@@ -65,11 +65,10 @@
                             }}) }}
 				</div>
 			</div>
-			{{ form_widget(searchByForm.save,
-            {'attr':
-                {'class': 'd-flex mt-4 btn btn-success ml-3'
-                }}) }}
-		</div>
+		{{ form_widget(searchByForm.save,
+			{'attr':
+				{'class': 'd-flex mt-4 btn btn-success ml-3'
+				}}) }}
 	</div>
 	{# <input type="button" value="{{  results.length }}"> #}
 	{{ form_end(searchByForm) }}

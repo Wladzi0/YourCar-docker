@@ -7,80 +7,80 @@
     {% if cars %}
         {{ include('comparing/filter_form.html.twig') }}
         <div id="container">
-            <div class="row ml-5 mt-3 ">
-                <div class="mr-2" style="margin-top: 370px;" id="listParam">
-                    <h5 style="background-color: #10be7a" class="p-3">
+            <div class="row ml-3 mt-3 ">
+                <div class="mr-2" id="listParam">
+                    <h5 style="background-color: #10be7a;" class="p-3">
                         {{ 'Technical data of engine '|trans }}
                     </h5>
-                    <p class="mt-3 border-bottom">
+                    <p class="mt-3 border-bottom pl-2">
                         {{ 'Engine'|trans }}
                     </p>
-                    <p class="border-bottom">
+                    <p class="border-bottom pl-2">
                         {{ 'Fuel'|trans }}
                     </p>
-                    <p class="border-bottom">
+                    <p class="border-bottom pl-2">
                         {{ 'Power'|trans }} (HP)
                     </p>
-                    <p class="border-bottom">
+                    <p class="border-bottom pl-2">
                         {{ 'Torque'|trans }} (Nm)
                     </p>
-                    <p class="border-bottom">
+                    <p class="border-bottom pl-2">
                         {{ 'Ecology standart'|trans }}
                     </p>
-                    <p class="border-bottom">
+                    <p class="border-bottom pl-2">
                         {{ 'Transmission'|trans }}
                     </p>
-                    <p class="border-bottom">
+                    <p class="border-bottom pl-2">
                         {{ 'Drive'|trans }}
                     </p>
-                    <p class="border-bottom">
+                    <p class="border-bottom pl-2">
                         {{ 'Fuel consumprion'|trans }} (l/100km)
                     </p>
-                    <p class="border-bottom">
+                    <p class="border-bottom pl-2">
                         {{ 'Fuel consumprion mixed'|trans }} (l/100km)
                     </p>
-                    <p class="border-bottom">
+                    <p class="border-bottom pl-2">
                         {{ 'Fuel consumprion extra'|trans }} (l/100km)
                     </p>
                     <div class="hideContent content">
-                        <p class="border-bottom">
+                        <p class="border-bottom pl-2">
                             {{ 'Tuning'|trans }}
                         </p>
-                        <p class="border-bottom">
+                        <p class="border-bottom pl-2">
                             {{ 'Power increase device'|trans }}
                         </p>
-                        <p class="border-bottom">
+                        <p class="border-bottom pl-2">
                             {{ 'Max. speed'|trans }} (km/h)
                         </p>
-                        <p class="border-bottom">
+                        <p class="border-bottom pl-3">
                             {{ 'Start year of installing'|trans }}
                         </p>
-                        <p class="border-bottom">
+                        <p class="border-bottom pl-2">
                             {{ 'Finish year of installing'|trans }}
                         </p>
 
-                        <p class="border-bottom">
+                        <p class="border-bottom pl-2">
                             {{ 'Tank'|trans }} (l)
                         </p>
 
-                        <h5 class="mt-1">
+                        <h5 class="mt-1 px-3 bg-info">
                             {{ 'Parameters'|trans }}
                         </h5>
                         <div>
-                            <p class="border-bottom">
+                            <p class="border-bottom pl-2">
                                 {{ 'Start year of production'|trans }}
                             </p>
-                            <p class="border-bottom">
+                            <p class="border-bottom pl-2">
                                 {{ 'Finish year of production'|trans }}
                             </p>
                         </div>
-                        <p class="border-bottom">
+                        <p class="border-bottom pl-2">
                             {{ 'Body type '|trans }}
                         </p>
-                        <p class="border-bottom">
+                        <p class="border-bottom pl-2">
                             {{ 'Length '|trans }}
                         </p>
-                        <p class="border-bottom">
+                        <p class="border-bottom pl-2">
                             {{ 'Width '|trans }}
                         </p>
                     </div>
@@ -113,18 +113,18 @@
                             <a href="{{ path('comparing',{ 'id': car.carDetails.id }) }}" id="js-compare"
                                class="mb-auto p-2 bd-highlight" data-car="{{ loop.index }}">
                                 {% if app.user and car.carDetails.isScaledByUser(app.user) %}
-                                    <i class="fas fa-balance-scale-right h5 scale"></i>
+                                    <i class="fas fa-balance-scale-right h5 scale scale-color"></i>
                                 {% else %}
-                                    <i class="fas fa-balance-scale h5 scale"></i>
+                                    <i class="fas fa-balance-scale h5 scale scale-color"></i>
                                 {% endif %}
                             </a>
 
                             <a href="{{ path('add_favourite',{'id':car.carDetails.id }) }}"
                                id="js-favourite" class=" like btn-link ">
                                 {% if app.user and car.carDetails.isFavouredByUser(app.user) %}
-                                    <i class=" fas fa-heart h5 heart"></i>
+                                    <i class=" fas fa-heart h5 heart heart-color"></i>
                                 {% else %}
-                                    <i class="far fa-heart h5 heart"></i>
+                                    <i class="far fa-heart h5 heart heart-color"></i>
                                 {% endif %}
                             </a>
                         </div>
@@ -162,7 +162,7 @@
                             </p>
                         </div>
 
-                        <div class="hideContent content ">
+                        <div class="hideContent content ml-2">
                             <p name="tuning" class="border-bottom">
                                 {{ car.carDetails.tuning }}
                             </p>

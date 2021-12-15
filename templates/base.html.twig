@@ -80,8 +80,8 @@
                     <i class="fa fa-user"></i>
                 {% endif %}
             </a>
-            <div id="dropdown" class="dropdown-content bg-dark ">
-                <div class="d-flex flex-column m-3 ">
+            <div id="dropdown" class="dropdown-content bg-dark" style="z-index: 1; position: relative">
+                <div class="d-flex flex-column m-3 " >
                     {% if is_granted('ROLE_ADMIN') %}
                         <a class="h6 mb-3 d-text" href="{{ path('admin') }}">
                             {{ 'Admin panel'|trans }}
