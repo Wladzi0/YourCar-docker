@@ -6,6 +6,7 @@ networks:
 services:
   nginx:
     image: nginx:stable-alpine
+    restart: always
     ports:
       - "8080:80"
     volumes:
@@ -20,11 +21,11 @@ services:
       context: .
       dockerfile: ./php/Dockerfile
     ports:
-      - "8001:81"
+      - "8001:8001"
     volumes:
       - ./app:/var/project
     networks:
-      backend:
+      - backend
 
   mysql:
     image: mysql:8.0
@@ -32,13 +33,13 @@ services:
     ports:
       - "4036:3306"
     volumes:
-      - mysql-test:/var/lib/mysql
-    restart: unless-stopped
+      - mysql-app:/var/lib/mysql
+    restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=admin
       - MYSQL_PASSWORD=admin123
     networks:
-      -backend:
+      - backend
 
   node:
     image: node:latest
@@ -46,4 +47,7 @@ services:
       - ./app:/var/project
     working_dir: /var/project
     networks:
-      -backend:
+      - backend
+
+volumes:
+  mysql-app:
