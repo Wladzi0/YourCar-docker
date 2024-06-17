@@ -15,13 +15,15 @@ services:
     depends_on:
       - php
       - mysql
+    networks:
+      - backend
 
   php:
     build:
       context: .
       dockerfile: ./php/Dockerfile
     ports:
-      - "8001:8001"
+      - "8001:81"
     volumes:
       - ./app:/var/project
     networks:

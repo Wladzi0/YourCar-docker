@@ -1,6 +1,6 @@
 FROM php:8.3-fpm
 
-WORKDIR /var/project
+WORKDIR /var/www/project
 
 RUN apt-get update \
     && apt-get install -y zlib1g-dev g++ git libicu-dev zip libzip-dev zip \
