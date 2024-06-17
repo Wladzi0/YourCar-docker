@@ -1,0 +1,21 @@
+#!/bin/bash
+# make this file executable using:
+# chmod +x ./app/pre-commit
+# run command from YourCar-docker folder
+# link this file to .git/hooks/pre-commit using:
+# ln -s -f ../../app/pre-commit .git/hooks/pre-commit
+
+# Run Rector
+docker-compose -f docker-compose.yml exec -T php vendor/bin/rector process
+
+# Run ECS (EasyCodingStandard)
+docker-compose -f docker-compose.yml exec -T php vendor/bin/ecs check --fix
+
+# Run PHP-CS-Fixer
+docker-compose -f docker-compose.yml exec -T php vendor/bin/twig-cs-fixer --fix
+
+# Add all modified files to the current commit
+git add .
+
+# Run phpstan analyse
+docker-compose -f docker-compose.yml exec -T php vendor/bin/phpstan -v
