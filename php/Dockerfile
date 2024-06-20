@@ -7,6 +7,7 @@ WORKDIR /var/www/project
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 # Install system dependencies
 RUN apt-get update \
     && apt-get install -y zlib1g-dev g++ git libicu-dev zip libzip-dev unzip

@@ -20,8 +20,8 @@ services:
 
   php:
     build:
-      context: .
-      dockerfile: ./php/Dockerfile
+      context: ./php/
+      dockerfile: Dockerfile
     ports:
       - "8001:81"
     volumes:
@@ -31,15 +31,15 @@ services:
 
   mysql:
     image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     ports:
       - "4036:3306"
     volumes:
-      - mysql-app:/var/lib/mysql
+      - yourcar-mysql:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf  # Mount custom configuration
     restart: always
     environment:
+      - MYSQL_DATABASE=yourcar
       - MYSQL_ROOT_PASSWORD=admin
-      - MYSQL_PASSWORD=admin123
     networks:
       - backend
 
@@ -52,4 +52,4 @@ services:
       - backend
 
 volumes:
-  mysql-app:
+  yourcar-mysql:
