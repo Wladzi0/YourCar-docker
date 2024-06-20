@@ -15,7 +15,7 @@ docker compose -f compose.yml exec -T php vendor/bin/ecs check --fix
 docker compose -f compose.yml exec -T php vendor/bin/twig-cs-fixer --fix
 
 # Add all modified files to the current commit
-git add .
+#git add .
 
 # Run phpstan analyse
 docker compose -f compose.yml exec -T php vendor/bin/phpstan -v

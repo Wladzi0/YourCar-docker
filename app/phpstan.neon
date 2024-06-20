@@ -1,5 +1,38 @@
 parameters:
-	level: 6
-	paths:
-		- src
-		- tests
+    level: 7
+    paths:
+        - src
+        - tests
+
+    reportUnmatchedIgnoredErrors: true
+    inferPrivatePropertyTypeFromConstructor: true
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false
+    checkMissingCallableSignature: true
+    treatPhpDocTypesAsCertain: false
+
+    shipmonkRules:
+        forbidMatchDefaultArmForEnums:
+            enabled: false
+        enforceListReturn:
+            enabled: false
+        enforceReadonlyPublicProperty:
+            enabled: false
+        forbidCast:
+            enabled: false
+        enforceEnumMatch:
+            enabled: false
+        forbidNullInBinaryOperations:
+            enabled: false
+        allowComparingOnlyComparableTypes:
+            enabled: false
+
+
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+    - vendor/spaze/phpstan-disallowed-calls/disallowed-dangerous-calls.neon
+    - vendor/spaze/phpstan-disallowed-calls/disallowed-execution-calls.neon
+    - vendor/spaze/phpstan-disallowed-calls/disallowed-insecure-calls.neon
+    - vendor/symplify/phpstan-rules/config/code-complexity-rules.neon
+    - vendor/symplify/phpstan-rules/config/naming-rules.neon
+    - vendor/symplify/phpstan-rules/config/regex-rules.neon
