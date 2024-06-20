@@ -37,6 +37,8 @@ return static function (RectorConfig $rectorConfig): void {
         PHPUnitSetList::PHPUNIT_CODE_QUALITY,
         SymfonySetList::SYMFONY_64,
         SymfonySetList::ANNOTATIONS_TO_ATTRIBUTES,
+        SetList::INSTANCEOF,
+        SetList::STRICT_BOOLEANS,
         DoctrineSetList::DOCTRINE_CODE_QUALITY,
         DoctrineSetList::DOCTRINE_DBAL_211,
         DoctrineSetList::DOCTRINE_DBAL_30,
