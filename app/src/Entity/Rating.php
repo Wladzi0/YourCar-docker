@@ -19,7 +19,7 @@ class Rating
     #[ORM\JoinColumn]
     private User $user;
 
-    #[ORM\Column()]
+    #[ORM\Column]
     private int $rating;
 
     #[ORM\ManyToOne(targetEntity: CarDetails::class, inversedBy: 'ratings', cascade: ['persist'])]

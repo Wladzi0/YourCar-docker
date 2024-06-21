@@ -6,6 +6,10 @@ use App\Entity\Favourite;
 use App\Entity\Rating;
 use App\Entity\Scale;
 use App\Entity\User;
+use App\Enum\CarSizeEnum;
+use App\Enum\DrivingPurposeEnum;
+use App\Enum\EngineLifeEnum;
+use App\Enum\TuningEnum;
 use App\Repository\Car\CarDetailsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -60,11 +64,11 @@ class CarDetails
     #[ORM\OneToMany(targetEntity: Rating::class, mappedBy: 'carDetails', cascade: ['persist', 'remove'])]
     private Collection $ratings;
 
-    #[ORM\Column(length: 20, nullable: true)]
-    private ?string $tuning = null;
+    #[ORM\Column(nullable: true, enumType: TuningEnum::class)]
+    private ?TuningEnum $tuning = null;
 
-    #[ORM\Column(length: 20)]
-    private ?string $engineLife = null;
+    #[ORM\Column(enumType: EngineLifeEnum::class)]
+    private ?EngineLifeEnum $engineLife = null;
 
     public function __construct(
         #[ORM\Column]
@@ -80,10 +84,10 @@ class CarDetails
         #[ORM\ManyToOne(targetEntity: Transmission::class, inversedBy: 'car_details')]
         #[ORM\JoinColumn]
         private Transmission $transmission,
-        #[ORM\Column(length: 100)]
-        private string $purpose,
-        #[ORM\Column(length: 20)]
-        private string $size,
+        #[ORM\Column(enumType: DrivingPurposeEnum::class)]
+        private DrivingPurposeEnum $purpose,
+        #[ORM\Column(enumType: CarSizeEnum::class)]
+        private CarSizeEnum $size,
     ) {
         $this->favourites = new ArrayCollection();
         $this->scales = new ArrayCollection();
@@ -263,12 +267,12 @@ class CarDetails
         return $this->ratings;
     }
 
-    public function getTuning(): ?string
+    public function getTuning(): ?TuningEnum
     {
         return $this->tuning;
     }
 
-    public function setTuning(?string $tuning): void
+    public function setTuning(?TuningEnum $tuning): void
     {
         $this->tuning = $tuning;
     }
@@ -281,32 +285,32 @@ class CarDetails
         return (int) $age - $this->getYearStart();
     }
 
-    public function getPurpose(): string
+    public function getPurpose(): DrivingPurposeEnum
     {
         return $this->purpose;
     }
 
-    public function setPurpose(string $purpose): void
+    public function setPurpose(DrivingPurposeEnum $purpose): void
     {
         $this->purpose = $purpose;
     }
 
-    public function getSize(): string
+    public function getSize(): CarSizeEnum
     {
         return $this->size;
     }
 
-    public function setSize(string $size): void
+    public function setSize(CarSizeEnum $size): void
     {
         $this->size = $size;
     }
 
-    public function getEngineLife(): ?string
+    public function getEngineLife(): ?EngineLifeEnum
     {
         return $this->engineLife;
     }
 
-    public function setEngineLife(string $engineLife): void
+    public function setEngineLife(?EngineLifeEnum $engineLife): void
     {
         $this->engineLife = $engineLife;
     }

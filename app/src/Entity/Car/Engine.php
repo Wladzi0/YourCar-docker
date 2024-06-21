@@ -7,6 +7,7 @@ use App\Entity\Fault;
 use App\Entity\Image;
 use App\Entity\Part;
 use App\Entity\Rating;
+use App\Enum\EngineLifeEnum;
 use App\Repository\Car\EngineRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -75,8 +76,8 @@ class Engine implements \Stringable
     #[ORM\OneToMany(targetEntity: Part::class, mappedBy: 'engine')]
     private Collection $parts;
 
-    #[ORM\Column(length: 20)]
-    private ?string $life = null;
+    #[ORM\Column(enumType: EngineLifeEnum::class)]
+    private ?EngineLifeEnum $life = null;
 
     public function __construct(
         #[ORM\Column(length: 8)]
@@ -220,12 +221,12 @@ class Engine implements \Stringable
         return $this->parts;
     }
 
-    public function getLife(): ?string
+    public function getLife(): ?EngineLifeEnum
     {
         return $this->life;
     }
 
-    public function setLife(string $life): void
+    public function setLife(?EngineLifeEnum $life): void
     {
         $this->life = $life;
     }

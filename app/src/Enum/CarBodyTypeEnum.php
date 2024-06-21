@@ -2,7 +2,7 @@
 
 namespace App\Enum;
 
-enum CarTypeEnum: string
+enum CarBodyTypeEnum: string
 {
     case Hatchback = 'Hatchback';
 

@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\DTO\UserSettingDTO;
-use App\Enum\CarTypeEnum;
+use App\Enum\CarBodyTypeEnum;
 use App\Enum\DetailedFuelConsumptionEnum;
 use App\Enum\TuningEnum;
 use Symfony\Component\Form\AbstractType;
@@ -24,7 +24,7 @@ class UserSettingType extends AbstractType
                 'required' => false,
             ])
             ->add('carType', EnumType::class, [
-                'class' => CarTypeEnum::class,
+                'class' => CarBodyTypeEnum::class,
                 'label' => 'form.prefer-car-type',
                 'required' => false,
                 'placeholder' => 'form.select',

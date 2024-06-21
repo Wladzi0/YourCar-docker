@@ -5,6 +5,7 @@ namespace App\Entity\Car;
 use App\Entity\Fault;
 use App\Entity\Image;
 use App\Entity\Part;
+use App\Enum\CarBodyTypeEnum;
 use App\Repository\Car\SubModelRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -25,8 +26,8 @@ class SubModel implements \Stringable
     #[ORM\JoinColumn]
     private Model $model;
 
-    #[ORM\Column(length: 255)]
-    private ?string $bodyType = null;
+    #[ORM\Column(enumType: CarBodyTypeEnum::class)]
+    private CarBodyTypeEnum $bodyType;
 
     /**
      * @var Collection<int, Image>
@@ -120,12 +121,12 @@ class SubModel implements \Stringable
         $this->model = $model;
     }
 
-    public function getBodyType(): ?string
+    public function getBodyType(): CarBodyTypeEnum
     {
         return $this->bodyType;
     }
 
-    public function setBodyType(string $bodyType): void
+    public function setBodyType(CarBodyTypeEnum $bodyType): void
     {
         $this->bodyType = $bodyType;
     }

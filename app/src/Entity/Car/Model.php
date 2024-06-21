@@ -2,6 +2,7 @@
 
 namespace App\Entity\Car;
 
+use App\Enum\CarBodyTypeEnum;
 use App\Repository\Car\ModelRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -35,8 +36,8 @@ class Model
     #[ORM\ManyToMany(targetEntity: Transmission::class, mappedBy: 'models', cascade: ['persist', 'remove'])]
     private Collection $transmissions;
 
-    #[ORM\Column(nullable: true)]
-    private ?string $bodyType = null;
+    #[ORM\Column(enumType: CarBodyTypeEnum::class)]
+    private CarBodyTypeEnum $bodyType;
 
     /**
      * @var Collection<int, SubModel>
@@ -123,12 +124,12 @@ class Model
         return $this->transmissions;
     }
 
-    public function getBodyType(): ?string
+    public function getBodyType(): CarBodyTypeEnum
     {
         return $this->bodyType;
     }
 
-    public function setBodyType(?string $bodyType): void
+    public function setBodyType(CarBodyTypeEnum $bodyType): void
     {
         $this->bodyType = $bodyType;
     }
