@@ -26,3 +26,6 @@ RUN pecl install apcu \
 # Copy Symfony CLI
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
     && mv /root/.symfony5/bin/symfony /usr/local/bin/symfony
+
+# Install composer dependencies
+RUN composer install --prefer-dist --no-interaction --no-progress
