@@ -42,7 +42,7 @@ class User implements UserInterface, \Stringable
     #[ORM\Column(length: 255)]
     private string $lastName;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $preferLanguage = null;
 
     #[ORM\Column]
@@ -217,9 +217,10 @@ class User implements UserInterface, \Stringable
         return $this->preferLanguage;
     }
 
-    public function setPreferLanguage(string $preferLanguage): void
+    public function setPreferLanguage(?string $preferLanguage): void
     {
-        $this->preferLanguage = $preferLanguage;
+
+        $this->preferLanguage = $preferLanguage ?? 'en';
     }
 
     public function isVerified(): bool

@@ -10,8 +10,9 @@ use Symfony\Component\Security\Http\SecurityEvents;
 
 class PreferredLanguageEventSubscriber implements EventSubscriberInterface
 {
-    public function __construct(private readonly RequestStack $requestStack)
-    {
+    public function __construct(
+        private readonly RequestStack $requestStack
+    ) {
     }
 
     public function onInteractiveLogin(InteractiveLoginEvent $loginEvent): void
@@ -22,7 +23,7 @@ class PreferredLanguageEventSubscriber implements EventSubscriberInterface
             // Assuming UserInterface or extended interface has getPreferredLanguage method
             $language = $user->getPreferLanguage();
 
-            if ($language) {
+            if ($language !== null && $language !== '' && $language !== '0') {
                 $this->requestStack->getSession()->set('_locale', $language);
             }
         }
@@ -32,8 +33,8 @@ class PreferredLanguageEventSubscriber implements EventSubscriberInterface
     {
         return [
             SecurityEvents::INTERACTIVE_LOGIN => [
-                ['onInteractiveLogin', 15]
-            ]
+                ['onInteractiveLogin', 15],
+            ],
         ];
     }
 }
