@@ -8,6 +8,7 @@ use Rector\Doctrine\Set\DoctrineSetList;
 use Rector\PHPUnit\Set\PHPUnitSetList;
 use Rector\Set\ValueObject\LevelSetList;
 use Rector\Set\ValueObject\SetList;
+use Rector\Symfony\Set\SensiolabsSetList;
 use Rector\Symfony\Set\SymfonySetList;
 
 return static function (RectorConfig $rectorConfig): void {
@@ -46,5 +47,6 @@ return static function (RectorConfig $rectorConfig): void {
         DoctrineSetList::DOCTRINE_ORM_213,
         DoctrineSetList::DOCTRINE_ORM_214,
         DoctrineSetList::ANNOTATIONS_TO_ATTRIBUTES,
+        SensiolabsSetList::ANNOTATIONS_TO_ATTRIBUTES,
     ]);
 };
