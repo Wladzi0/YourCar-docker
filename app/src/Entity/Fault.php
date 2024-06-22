@@ -17,9 +17,6 @@ class Fault
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private string $name;
-
     /**
      * @var Collection<int, Engine>
      */
@@ -32,18 +29,11 @@ class Fault
     #[ORM\ManyToMany(targetEntity: SubModel::class, inversedBy: 'faults')]
     private Collection $subModel;
 
-    #[ORM\Column(length: 9000)]
-    private string $description;
-
     /**
      * @var Collection<int, Image>
      */
     #[ORM\OneToMany(targetEntity: Image::class, mappedBy: 'fault', cascade: ['persist'], orphanRemoval: true)]
     private Collection $images;
-
-    #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'faults')]
-    #[ORM\JoinColumn]
-    private User $user;
 
     /**F
      * @var Collection<int, Comment>
@@ -57,8 +47,15 @@ class Fault
     #[ORM\Column]
     private bool $published = false;
 
-    public function __construct()
-    {
+    public function __construct(
+        #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'faults')]
+        #[ORM\JoinColumn]
+        private User $user,
+        #[ORM\Column(length: 300)]
+        private string $name,
+        #[ORM\Column(length: 10000)]
+        private string $description,
+    ) {
         $this->engine = new ArrayCollection();
         $this->images = new ArrayCollection();
         $this->subModel = new ArrayCollection();
@@ -120,7 +117,7 @@ class Fault
         return $this->comments;
     }
 
-    public function getPublished(): bool
+    public function isPublished(): bool
     {
         return $this->published;
     }

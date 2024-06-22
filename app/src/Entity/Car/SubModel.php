@@ -211,4 +211,9 @@ class SubModel implements \Stringable
     {
         return $this->parts;
     }
+
+    public function getPublishedFaults(): Collection
+    {
+        return $this->faults->filter(fn (Fault $fault): bool => $fault->isPublished());
+    }
 }

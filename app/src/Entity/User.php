@@ -42,9 +42,6 @@ class User implements UserInterface, \Stringable
     #[ORM\Column(length: 255)]
     private string $lastName;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $preferLanguage = null;
-
     #[ORM\Column]
     private bool $isVerified = false;
 
@@ -79,17 +76,11 @@ class User implements UserInterface, \Stringable
     #[ORM\OneToMany(targetEntity: Rating::class, mappedBy: 'user')]
     private Collection $ratings;
 
-    #[ORM\Column(length: 30, nullable: true)]
-    private ?string $carType = null;
-
-    #[ORM\Column(length: 30, nullable: true)]
-    private ?string $tuning = null;
-
-    #[ORM\Column(length: 20, nullable: true)]
-    private ?string $fuelConsumption = null;
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $googleId = null;
+
+    #[ORM\OneToOne(targetEntity: Preference::class, mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Preference $preference = null;
 
     public function __construct()
     {
@@ -103,7 +94,7 @@ class User implements UserInterface, \Stringable
 
     public function __toString(): string
     {
-        return sprintf('%s %s (#%d)', $this->firstName, $this->lastName, $this->id);
+        return sprintf('%s %s', $this->firstName, $this->lastName);
     }
 
     public function getId(): ?int
@@ -212,17 +203,6 @@ class User implements UserInterface, \Stringable
         $this->lastName = $lastName;
     }
 
-    public function getPreferLanguage(): ?string
-    {
-        return $this->preferLanguage;
-    }
-
-    public function setPreferLanguage(?string $preferLanguage): void
-    {
-
-        $this->preferLanguage = $preferLanguage ?? 'en';
-    }
-
     public function isVerified(): bool
     {
         return $this->isVerified;
@@ -258,36 +238,6 @@ class User implements UserInterface, \Stringable
         return $this->ratings;
     }
 
-    public function getCarType(): ?string
-    {
-        return $this->carType;
-    }
-
-    public function setCarType(?string $carType): void
-    {
-        $this->carType = $carType;
-    }
-
-    public function getTuning(): ?string
-    {
-        return $this->tuning;
-    }
-
-    public function setTuning(?string $tuning): void
-    {
-        $this->tuning = $tuning;
-    }
-
-    public function getFuelConsumption(): ?string
-    {
-        return $this->fuelConsumption;
-    }
-
-    public function setFuelConsumption(?string $fuelConsumption): void
-    {
-        $this->fuelConsumption = $fuelConsumption;
-    }
-
     public function getGoogleId(): ?string
     {
         return $this->googleId;
@@ -301,5 +251,15 @@ class User implements UserInterface, \Stringable
     public function getUserIdentifier(): string
     {
        return $this->firstName;
+    }
+
+    public function getPreference(): ?Preference
+    {
+        return $this->preference;
+    }
+
+    public function setPreference(?Preference $preference): void
+    {
+        $this->preference = $preference;
     }
 }

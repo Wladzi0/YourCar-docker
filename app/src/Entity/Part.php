@@ -13,7 +13,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  * @Vich\Uploadable
  */
 #[ORM\Entity(repositoryClass: PartRepository::class)]
-class Part
+class Part implements \Stringable
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -39,6 +39,11 @@ class Part
      * @Vich\UploadableField(mapping="parts", fileNameProperty="imageName")
      */
     private File $image;
+
+    public function __toString(): string
+    {
+        return sprintf('%s %s', $this->name, $this->catalogNumber);
+    }
 
     public function getId(): ?int
     {

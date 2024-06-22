@@ -103,7 +103,7 @@ class Engine implements \Stringable
 
     public function __toString(): string
     {
-        return sprintf('%s %s', $this->capacity, $this->abbreviation);
+        return sprintf('%s %s (%s)', $this->abbreviation, $this->capacity, $this->fuel);
     }
 
     public function getId(): ?int
@@ -229,5 +229,10 @@ class Engine implements \Stringable
     public function setLife(?EngineLifeEnum $life): void
     {
         $this->life = $life;
+    }
+
+    public function getPublishedFaults(): Collection
+    {
+        return $this->faults->filter(fn (Fault $fault): bool => $fault->isPublished());
     }
 }

@@ -237,24 +237,12 @@ class CarDetails
 
     public function isFavouredByUser(User $user): bool
     {
-        foreach ($this->favourites as $favourite) {
-            if ($favourite->getUser() == $user) {
-                return true;
-            }
-        }
-
-        return false;
+        return $this->favourites->exists(fn ($key, $favourite): bool => $favourite->getUser() === $user);
     }
 
     public function isScaledByUser(User $user): bool
     {
-        foreach ($this->scales as $scale) {
-            if ($scale->getUser() == $user) {
-                return true;
-            }
-        }
-
-        return false;
+        return $this->scales->exists(fn ($key, $favourite): bool => $favourite->getUser() === $user);
     }
 
     public function getScales(): Collection
