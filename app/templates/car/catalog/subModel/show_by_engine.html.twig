@@ -1,0 +1,189 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.submodel.details-by-engine'|trans }}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class=" container top">
+        <div class="col">
+            {{- include('car/catalog/make/_partial/_list_back_link.html.twig') -}}
+            {{- include('car/catalog/model/_partial/_list_back_link.html.twig') -}}
+            {{- include('car/catalog/model/_partial/_model_back_link.html.twig') -}}
+            -> ({{- subModel.bodyPlatform -}})
+            <div class="slider-inner">
+                {% for image in subModel.images %}
+                    {# @var image App\Entity\Image #}
+                    <img src="{{ asset('images/car_details/' ~ image.image) }}" alt="">
+                {% endfor %}
+            </div>
+
+            {% if app.user %}
+                <div class="row justify-content-between mb-3 ml-5 mt-3 w-50">
+                    <a href="{{ path('comparing', {id: sub_model.details.id}) }}" id="js-compare"
+                       class="text-white mb-auto p-2 bd-highlight">
+                        {% set scaled = app.user and sub_model.details.isScaledByUser(app.user.id) %}
+                        <i class="fas fa-balance-scale{% if scaled %}-right{% endif %} scale"></i>
+                    </a>
+
+                    <a href="{{ path('yourcar_favourite_switch', {id: sub_model.details.id}) }}"
+                       id="js-favourite" class="like btn-link">
+                        {% set favourited = app.user and sub_model.details.isFavouredByUser(app.user.id) %}
+                        <i class="{% if favourited %}fas{% else %}far{% endif %} fa-heart heart"></i>
+                    </a>
+                </div>
+            {% else %}
+                <a href="{{ path('app_login') }}">
+                    {{- 'warning.login.favourite-or-compare'|trans -}}
+                </a>
+            {% endif %}
+
+            <div class="rating" data-object="{{- sub_model.details.id }}">
+                <span class="mr-2">{{- 'rating.average'|trans }}:</span>
+                {% for i in 1..5 %}
+                    <i class="pointer {% if i <= average_rating %}fas{% else %}far{% endif %} fa-star"
+                       data-value="{{- i -}}"></i>
+                {% endfor %}
+
+                <span id="count" class="ml-2">({{- rating_count -}})</span>
+
+                {% if rated_by_user %}
+                    <span class="far fa-check-circle text-success"></span>
+                {% endif %}
+            </div>
+
+            <h4 class="mt-5">{{ 'title.frequently-requested-parts'|trans }}</h4>
+            {% for part in parts %}
+                {# @var image App\Entity\Part #}
+                <div class="row border-bottom">
+                    <p>
+                        <img id="js-part"
+                             src="{{ asset('images/parts/' ~ make.icon) }}" alt="" width="210px" height="190px">
+                        <a href="https://google.com/search?q={{- part -}}"
+                           target="_blank" rel="noopener noreferrer">
+                            {{- part -}}
+                        </a>
+                    </p>
+                </div>
+            {% endfor %}
+            <div class="col">
+                <h4 class="mt-5">{{ 'title.engine.technical-data'|trans }}</h4>
+                <p>
+                    <a class="font-weight-bold" href="{{ path('yourcar_engine_show', {id: engine.id}) }}">
+                        {{ 'car.details.engine'|trans }}: {{ engine }}
+                        (<i class="fas fa-exclamation-triangle"></i>
+                        {{ engine.faults|length }})
+                    </a>
+                </p>
+                <p>
+                    {{ 'car.details.fuel'|trans }}: {{ sub_model.details.engine.fuel }}
+                </p>
+                <p>
+                    {{ 'car.details.power'|trans }}: {{ sub_model.details.power }} (HP)
+                </p>
+                <p>
+                    {{ 'car.details.torque'|trans }}: {{ sub_model.details.torque }} (Nm)
+                </p>
+                <p>
+                    {{ 'car.details.Power increase device'|trans }}: {{ sub_model.details.engine.powerIncrease }}
+                </p>
+                <p>
+                    {{ 'car.details.max-speed'|trans }}: {{ sub_model.details.speed }} (km/h)
+                </p>
+                <p>
+                    {{ 'car.details.year-start'|trans }}: {{ sub_model.details.yearStart }}
+                </p>
+                <p>
+                    {{ 'car.details.year-installing-finish'|trans }}: {{ sub_model.details.yearFinish }}
+                </p>
+                <p>
+                    {{ 'car.details.eco'|trans }}: {{ sub_model.details.eco }}
+                </p>
+                <p>
+                    {{ 'car.details.transmission'|trans }}: {{ sub_model.details.transmission }}
+                </p>
+                <p>
+                    {{ 'car.details.drive'|trans }}: {{ sub_model.details.drive }}
+                </p>
+                <p>
+                    {{ 'car.details.tank'|trans }}: {{ sub_model.details.subModel.tank }} (l)
+                </p>
+                <p>
+                    {{ 'car.details.fuel-consumption'|trans }}: {{ sub_model.details.fuelConsumption }}
+                    (l/100km)
+                </p>
+                <p>
+                    {{ 'car.details.fuel-consumprion-mixed'|trans }}: {{ sub_model.details.fuelConsumptionMixed }}
+                    (l/100km)
+                </p>
+                <p>
+                    {{ 'fuel-consumprion-extra'|trans }}: {{ sub_model.details.fuelConsumptionExtra }}
+                    (l/100km)
+                </p>
+            </div>
+            <div class="col">
+                <h4 class="mt-5">
+                    {{ 'title.car.details.parameters'|trans }}
+                </h4>
+                <p>
+                    {{ 'car.details.production.yearStart'|trans }}: {{ subModel.yearStart }}
+                </p>
+                <p>
+                    {{ 'car.details.production.yearFinish'|trans }}: {{ subModel.yearFinish }}
+                </p>
+                <p>
+                    {{ 'car.details.body-type'|trans }}: {{ subModel.bodyType }}
+                </p>
+                <p>
+                    {{ 'car.details.length'|trans }}: {{ subModel.length }}
+                </p>
+                <p>
+                    {{ 'car.details.width'|trans }}: {{ subModel.width }}
+                </p>
+            </div>
+
+            <h4 class="mt-5">
+                {{ 'title.transmission.installed-list'|trans }}
+            </h4>
+            <h4 class="mt-5">
+                {{- 'title.fault.list'|trans }} ({{- subModel.publishedFaults|length -}})
+                {% for fault in subModel.faults %}
+                    {# @var image App\Entity\Fault #}
+                    {% if fault.published == '1' %}
+                        <div class="col">
+                            <a href="{{ path('yourcar_engine_fault_show',
+                                {make: make.name, model: model.id, subModel: subModel.id, fault: fault.id}) }}">
+                                {{- fault.name -}}
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+
+                <a id="btnAdd" href="{{ path('yourcar_fault_engine_add', {subModel: subModel.id}) }}">
+                    <i class="fas fa-plus-circle"></i>
+                </a>
+            </h4>
+
+            <h4 class="mt-5">
+                {{- 'title.rim.installed-list'|trans }} ({{- subModel.rims|length -}})
+            </h4>
+            <div>
+                {% for rim in subModel.rims %}
+                    {# @var image App\Entity\Car\Rim #}
+                    <div class="col">
+                        {{ rim }}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% block javasriptsblock %}
+        <script src="{{ asset('js/rating.js') }}"></script>
+        <script src="{{ asset('js/clickButton.js') }}"></script>
+        {{ include('like_slider_compare.html.twig') }}
+    {% endblock %}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title.model.list'|trans }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="container col-5 top">
+            {% for model in models %}
+                {# @var make App\Entity\Car\Model #}
+                <div class=" d-flex flex-column">
+                    <a class="link text-decoration-none"
+                       href="{{ path('yourcar_make_model_show', {make: make.name, model: model.id}) }}">
+                        <div class="image-box">
+                            <img class="img"
+                                 src="{{ asset('images/models/' ~ model.icon) }}" alt="">
+                        </div>
+                        <p class="mb-5">
+                            {{- model.name -}}
+                            ({{- 'manufacture.years'|trans -}}:
+                            {{- model.yearStart -}}
+                            {% if model.yearFinish %}
+                                - {{- model.yearFinish -}})
+                            {% else %}
+                                - {{- 'production.till-now'|trans -}})
+                            {% endif %}
+                        </p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

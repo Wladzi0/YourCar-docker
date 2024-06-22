@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{- 'title.model.details'|trans -}}{% endblock %}
+
+{% block body %}
+    <div class="container top">
+        <div class="col ml-3">
+            {{- include('car/catalog/make/_partial/_list_back_link.html.twig') -}}
+            {{- include('car/catalog/model/_partial/_list_back_link.html.twig') -}}
+            <h2>
+                <h4 class="mt-5">{{- 'title.submodel.list'|trans -}}</h4>
+                {% for sub_model in model.subModels %}
+                    {# @var make App\Entity\Car\SubModel #}
+                    <p>
+                        <a href="{{ path('yourcar_make_model_submodel_show', {make: make.name, model: model.id, subModel: sub_model.id}) }}">
+                            <div class="image-box">
+                                <img class="img"
+                                     src="{{ asset('images/car_details/' ~ sub_model.images|first) }}" alt=""
+                                     width="500px"
+                                     height="350px">
+                            </div>
+                            {{ sub_model }}
+                            ({{- sub_model.yearStart }}
+                            {% if sub_model.yearFinish %}
+                                -{{ sub_model.yearFinish -}})
+                            {% else %}
+                                - {{ 'production.till-now'|trans -}})
+                            {% endif %}
+                        </a>
+                    </p>
+                    <br>
+                {% endfor %}
+            </h2>
+
+            <h4 class="mt-5">{{- 'title.model.engine.installed-list'|trans -}}</h4>
+            {% for engine in model.engines %}
+                {# @var make App\Entity\Car\Engine #}
+                <div class="col">{{- engine -}}</div>
+            {% endfor %}
+
+            <h4 class="mt-5 mr-5">{{- 'title.model.transmission.installed-list'|trans -}}</h4>
+            <div class="mb-5">
+                {% for transmission in model.transmissions %}
+                    {# @var make App\Entity\Car\Transmission #}
+                    <div class="col">{{- transmission.name -}}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

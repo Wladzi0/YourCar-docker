@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{- 'title.fault.details'|trans -}}{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/slick.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class=" border container top pt-4 pl-4">
+        <div class="col">
+            {% if fault.subModel %}
+                {{- include('car/catalog/model/_partial/_model_back_link.html.twig') -}}
+            {% endif %}
+            <h3>{{- 'fault.title'|trans -}} {{ fault.name }}</h3>
+            <div class="slider-inner">
+                {% for image in fault.images %}
+                    {# @var image App\Entity\Image #}
+                    <img src="{{ asset('images/car_details/' ~ image.image) }}" alt="">
+                {% endfor %}
+            </div>
+            <h3 class="mt-3">{{- 'fault.description'|trans -}}</h3>
+            <p class="mb-5">{{ fault.description }}</p>
+            <div class="comments mt-5">
+                <h3 id="commentsCount">{{- 'fault.comments' }} ({{ fault.comments|length }})</h3>
+
+                {{ include('comment/form.html.twig') }}
+
+                <div class="comment pt-5 mb-5" id="commentFields">
+                    {% for comment in fault.comments|reverse %}
+                        {# @var image App\Entity\Comment #}
+                        <p>
+                            <b>{{- comment.user -}}</b>
+                            <small class="text-secondary ml-4">
+                                {{ comment.createdAt|datetime }}
+                            </small>
+                            <br>
+                            {{- comment.content -}}
+                        </p>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    {% block javasriptsblock %}
+        <script src="{{ asset('js/comment.js') }}"></script>
+        {{ include('like_slider_comsrc/symfony/templates/car/catalog/fault/details.html.twig:68pare.html.twig') }}
+    {% endblock %}
+{% endblock %}

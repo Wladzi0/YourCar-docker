@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{- 'title.submodel.details'|trans -}}{% endblock %}
+
+{% block body %}
+    <div class="  container top">
+        <div class="col">
+            <h2>
+                {{- include('car/catalog/make/_partial/_list_back_link.html.twig') -}}
+                {{- include('car/catalog/model/_partial/_list_back_link.html.twig') -}}
+                ->({{- subModel.bodyPlatform -}})
+            </h2>
+            <h4 class="mt-5">
+                {{- 'title.model.engine.installed-list'|trans -}}
+            </h4>
+            {% for carDetails in engines %}
+                {# @var carDetails App\Entity\Car\CarDetails #}
+                    <a href="{{ path('yourcar_make_model_submodel_engine_show', {engine: carDetails.engine.id, make: make.name, model: model.id, subModel: subModel.id}) }}">
+                        {{- carDetails.engine }}
+                        ({{- carDetails.yearStart }} - {{ carDetails.yearStart -}})
+                    </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
