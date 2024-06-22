@@ -2,18 +2,19 @@
 
 namespace App\Entity;
 
+use App\Repository\PreferenceRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: PreferenceRepository::class)]
 class Preference
 {
     #[ORM\Id]
-    #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\OneToOne(targetEntity: User::class, inversedBy: 'preference', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private User $user;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $preferLanguage = null;
+    private ?string $language = null;
 
     #[ORM\Column(length: 30, nullable: true)]
     private ?string $carType = null;
@@ -23,10 +24,6 @@ class Preference
 
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $fuelConsumption = null;
-
-    #[ORM\OneToOne(targetEntity: User::class, inversedBy: 'preference', cascade: ['persist', 'remove'])]
-    #[ORM\JoinColumn(nullable: false)]
-    private User $user;
 
     public function getUser(): User
     {
@@ -38,15 +35,15 @@ class Preference
         $this->user = $user;
     }
 
-    public function getPreferLanguage(): ?string
+    public function getLanguage(): ?string
     {
-        return $this->preferLanguage;
+        return $this->language;
     }
 
-    public function setPreferLanguage(?string $preferLanguage): void
+    public function setLanguage(?string $language): void
     {
 
-        $this->preferLanguage = $preferLanguage ?? 'en';
+        $this->language = $language ?? 'en';
     }
 
     public function getCarType(): ?string

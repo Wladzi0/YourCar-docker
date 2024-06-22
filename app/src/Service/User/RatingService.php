@@ -8,8 +8,7 @@ use App\Entity\Rating;
 
 class RatingService
 {
-
-    public function getEngineRating(Engine $engine):  RatingDTO
+    public function getEngineRating(Engine $engine): RatingDTO
     {
         $dto = new RatingDTO(count($engine->getRatings()));
         if (count($engine->getRatings()) > 0) {
