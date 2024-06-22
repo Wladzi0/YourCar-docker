@@ -9,6 +9,7 @@ use App\Entity\Car\SubModel;
 use App\Entity\Fault;
 use App\Entity\User;
 use App\Repository\Car\MakeRepository;
+use App\Service\User\RatingService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -19,6 +20,7 @@ class MakeController extends AbstractController
 {
     public function __construct(
         private readonly MakeRepository $makeRepository,
+        private readonly RatingService $ratingService,
     ) {
     }
 
@@ -60,17 +62,11 @@ class MakeController extends AbstractController
     #[Route(path: '/{make}/model/{model}/submodel/{subModel}/engine/{engine}/details', name: 'yourcar_make_model_submodel_engine_show')]
     public function showByEngine(SubModel $subModel, Engine $engine): Response
     {
-        if (count($engine->getRatings()) > 0) {
-            $sum = array_reduce($engine->getRatings()->toArray(), static fn ($carry, $rating): float|int|array => $carry + $rating->getRating(), 0);
-
-            $averageRating = $sum / count($engine->getRatings());
-        } else {
-            $averageRating = 0;
-        }
+        $dto = $this->ratingService->getEngineRating($engine);
 
         return $this->render('car/catalog/subModel/show_by_engine.html.twig', [
-            'average_rating' => $averageRating,
-            'rating_count' => count($engine->getRatings()),
+            'average_rating' => $dto->averageRating,
+            'rating_count' => $dto->ratingCount,
             'rated_by_user' => $this->getUser() instanceof UserInterface ? $engine->getRatings()->exists(fn ($key, $rating): bool => $rating->getUser() === $this->getUser()) : 0,
             'sub_model' => $subModel,
             'engine' => $engine,
@@ -80,7 +76,7 @@ class MakeController extends AbstractController
     #[Route(path: '/{make}/model/{model}/submodel/{subModel}/fault/{fault}', name: 'yourcar_make_submodel_fault_show')]
     public function faultShow(Fault $fault): Response
     {
-        return $this->render('car/catalog/subModel/fault.show.html.twig', [
+        return $this->render('car/catalog/fault/show.html.twig', [
             'fault' => $fault,
         ]);
     }
