@@ -8,6 +8,7 @@ use App\Form\UserSettingType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Routing\Attribute\Route;
@@ -26,7 +27,7 @@ class PreferenceController extends AbstractController
     }
 
     #[Route(path: '/', name: 'yourcar_preferences_change')]
-    public function change(Request $request, Session $session): Response
+    public function change(Request $request): Response
     {
         $dto = new UserSettingDTO($this->getUser());
         $settingsForm = $this->createForm(UserSettingType::class, $dto);
@@ -39,12 +40,13 @@ class PreferenceController extends AbstractController
             $preference = $this->getUser()->getPreference();
 
             if ($preference) {
-                $session->set('_locale', $preference->getLanguage());
+                $request->getSession()->set('_locale', $preference->getLanguage());
             }
 
-            return new Response(json_encode([
-                'status' => 'success',
-            ], JSON_THROW_ON_ERROR));
+            return $this->json(
+                [
+                'code' =>  Response::HTTP_ACCEPTED,
+                'message' => 'preferences updated',);
         }
 
         return $this->render('preference/settings.html.twig', [
@@ -53,7 +55,7 @@ class PreferenceController extends AbstractController
     }
 
     #[Route(path: '/reset', name: 'yourcar_preferences_reset')]
-    public function delete(): Response
+    public function reset(): Response
     {
         $preference = $this->getUser()->getPreference();
 
